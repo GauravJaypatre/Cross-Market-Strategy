@@ -58,7 +58,7 @@
       "data_end": "2025-12-30",
       "provenance": {
         "vendor": "local_csv",
-        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\TECDAX.csv",
+        "source_identifier": "data/TECDAX.csv",
         "sha256": "01352f126222e51cbe64d8e2d4427ecc4f647c4921c5f4da82bc8d50e16c98f0",
         "retrieval_timestamp_utc": "2026-09-10T14:35:36.592844+00:00",
         "row_count": 3796,
@@ -154,7 +154,7 @@
       "data_end": "2025-12-30",
       "provenance": {
         "vendor": "local_csv",
-        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\TECDAX.csv",
+        "source_identifier": "data/TECDAX.csv",
         "sha256": "01352f126222e51cbe64d8e2d4427ecc4f647c4921c5f4da82bc8d50e16c98f0",
         "retrieval_timestamp_utc": "2026-09-10T14:35:36.592844+00:00",
         "row_count": 3796,

@@ -5,7 +5,9 @@ df_curr = pd.read_csv('results/full_battery/robustness_summary.csv')
 curr_map = {(r['strategy'], r['country'], r['index']): r for _, r in df_curr.iterrows() if r['country'] in ['Japan', 'Germany']}
 
 old_rows = {}
-with open(r'C:\Users\HP\.gemini\antigravity-ide\brain\af6e970c-ca21-48cf-866b-2a4208643c95\.system_generated\logs\transcript_full.jsonl', 'r', encoding='utf-8') as f:
+transcript_path = Path("logs/transcript_full.jsonl")
+if transcript_path.exists():
+    with open(transcript_path, 'r', encoding='utf-8') as f:
     for line in f:
         if 'robustness_summary.csv' in line:
             data = json.loads(line)

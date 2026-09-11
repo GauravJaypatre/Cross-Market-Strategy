@@ -62,7 +62,7 @@
       "data_end": "2025-12-30",
       "provenance": {
         "vendor": "local_csv",
-        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\GDAXI.csv",
+        "source_identifier": "data/GDAXI.csv",
         "sha256": "9729f4ad3f0bb1003b2751a626ce884b23996d8572be255b03e73467d310cd8a",
         "retrieval_timestamp_utc": "2026-09-10T14:35:36.566023+00:00",
         "row_count": 3803,
@@ -158,7 +158,7 @@
       "data_end": "2025-12-30",
       "provenance": {
         "vendor": "local_csv",
-        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\GDAXI.csv",
+        "source_identifier": "data/GDAXI.csv",
         "sha256": "9729f4ad3f0bb1003b2751a626ce884b23996d8572be255b03e73467d310cd8a",
         "retrieval_timestamp_utc": "2026-09-10T14:35:36.566023+00:00",
         "row_count": 3803,

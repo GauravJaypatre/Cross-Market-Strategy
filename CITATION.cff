@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, datasets, or empirical findings in your research, please cite it as below."
+title: "Cross-Market Strategy Battery: Statutory Friction & Robustness Framework"
+authors:
+  - family-names: "Jaypatre"
+    given-names: "Gaurav"
+date-released: 2026-09-11
+url: "https://github.com/GauravJaypatre/Cross-Market-Strategy"
+repository-code: "https://github.com/GauravJaypatre/Cross-Market-Strategy"
+license: "MIT"
+keywords:
+  - "quantitative-finance"
+  - "algorithmic-trading"
+  - "backtesting"
+  - "market-efficiency"
+  - "statutory-friction"
+  - "capital-gains-tax"
+  - "brokerage-fees"
+  - "statistical-robustness"
+abstract: "An empirical evaluation framework testing canonical algorithmic trading strategies across a global 15-country, 25-index universe (2011–2025) with point-in-time statutory friction modeling and trade-frequency robustness guards."

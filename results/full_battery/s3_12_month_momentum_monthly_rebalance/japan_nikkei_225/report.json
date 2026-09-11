@@ -56,7 +56,7 @@
       "data_end": "2025-12-30",
       "provenance": {
         "vendor": "local_csv",
-        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\N225.csv",
+        "source_identifier": "data/N225.csv",
         "sha256": "31c8677d263af3649779cdc47f1bbf1c246ca313c478d9ad3fea7c1ef409bea7",
         "retrieval_timestamp_utc": "2026-09-10T14:35:36.605678+00:00",
         "row_count": 3670,
@@ -152,7 +152,7 @@
       "data_end": "2025-12-30",
       "provenance": {
         "vendor": "local_csv",
-        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\N225.csv",
+        "source_identifier": "data/N225.csv",
         "sha256": "31c8677d263af3649779cdc47f1bbf1c246ca313c478d9ad3fea7c1ef409bea7",
         "retrieval_timestamp_utc": "2026-09-10T14:35:36.605678+00:00",
         "row_count": 3670,

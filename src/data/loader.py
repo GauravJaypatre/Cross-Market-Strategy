@@ -183,9 +183,13 @@ def load_index_data(
                 df = df.loc[start_date:end_date]
 
                 if not df.empty:
+                    try:
+                        rel_source = p.relative_to(Path.cwd()).as_posix()
+                    except Exception:
+                        rel_source = f"data/{p.name}"
                     provenance = DataProvenance(
                         vendor="local_csv",
-                        source_identifier=str(p.resolve()),
+                        source_identifier=rel_source,
                         sha256=_compute_sha256(p),
                         retrieval_timestamp_utc=retrieval_time,
                         row_count=len(df),

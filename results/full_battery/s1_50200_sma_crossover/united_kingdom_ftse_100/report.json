@@ -65,7 +65,7 @@
       "data_end": "2025-12-30",
       "provenance": {
         "vendor": "local_csv",
-        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\FTSE.csv",
+        "source_identifier": "data/FTSE.csv",
         "sha256": "7c70e6cca3174bdd5fe79b696afe8de499adfd576e21964436fcff9e8941d8c2",
         "retrieval_timestamp_utc": "2026-09-10T13:38:52.037654+00:00",
         "row_count": 3785,
@@ -161,7 +161,7 @@
       "data_end": "2025-12-30",
       "provenance": {
         "vendor": "local_csv",
-        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\FTSE.csv",
+        "source_identifier": "data/FTSE.csv",
         "sha256": "7c70e6cca3174bdd5fe79b696afe8de499adfd576e21964436fcff9e8941d8c2",
         "retrieval_timestamp_utc": "2026-09-10T13:38:52.037654+00:00",
         "row_count": 3785,
