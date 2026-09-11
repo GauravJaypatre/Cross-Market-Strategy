@@ -1,0 +1,31 @@
+strategy,track,best_by_cagr_index,cagr,best_by_calmar_index,calmar
+50/200 SMA Crossover,Gross,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+50/200 SMA Crossover,Net-Tax,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+50/200 SMA Crossover,Net-Discount,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+50/200 SMA Crossover,Net-Full-Service,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+50/200 SMA Crossover,Buy-and-Hold,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+14-Day RSI Oscillator,Gross,United Kingdom - FTSE 100,0.086519,United States - S&P 500,0.27445
+14-Day RSI Oscillator,Net-Tax,United Kingdom - FTSE 100,0.084278,United Kingdom - FTSE 100,0.249945
+14-Day RSI Oscillator,Net-Discount,United States - S&P 500,0.060578,Germany - TecDAX,0.187879
+14-Day RSI Oscillator,Net-Full-Service,Germany - TecDAX,0.0577,Germany - TecDAX,0.183251
+14-Day RSI Oscillator,Buy-and-Hold,United States - Nasdaq Composite,0.144335,United States - Nasdaq Composite,0.396568
+12-Month Momentum (Monthly Rebalance),Gross,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+12-Month Momentum (Monthly Rebalance),Net-Tax,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+12-Month Momentum (Monthly Rebalance),Net-Discount,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+12-Month Momentum (Monthly Rebalance),Net-Full-Service,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+12-Month Momentum (Monthly Rebalance),Buy-and-Hold,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+Seasonal Halloween Rule (Nov-Apr),Gross,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+Seasonal Halloween Rule (Nov-Apr),Net-Tax,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+Seasonal Halloween Rule (Nov-Apr),Net-Discount,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+Seasonal Halloween Rule (Nov-Apr),Net-Full-Service,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+Seasonal Halloween Rule (Nov-Apr),Buy-and-Hold,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+Bollinger Bands Breakout,Gross,China - Shenzhen Component,0.067812,China - Shenzhen Component,0.324465
+Bollinger Bands Breakout,Net-Tax,China - Shenzhen Component,0.067812,China - Shenzhen Component,0.324465
+Bollinger Bands Breakout,Net-Discount,China - Shenzhen Component,0.062391,China - Shenzhen Component,0.262102
+Bollinger Bands Breakout,Net-Full-Service,China - Shenzhen Component,0.061697,China - Shenzhen Component,0.257859
+Bollinger Bands Breakout,Buy-and-Hold,United States - Nasdaq Composite,0.144335,United States - Nasdaq Composite,0.396568
+52-Week High Drawdown Dip Buyer,Gross,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+52-Week High Drawdown Dip Buyer,Net-Tax,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+52-Week High Drawdown Dip Buyer,Net-Discount,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+52-Week High Drawdown Dip Buyer,Net-Full-Service,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A
+52-Week High Drawdown Dip Buyer,Buy-and-Hold,N/A (0 pairs qualify n>=10),N/A,N/A (0 pairs qualify n>=10),N/A

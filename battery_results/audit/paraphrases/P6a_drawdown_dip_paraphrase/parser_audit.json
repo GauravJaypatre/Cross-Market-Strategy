@@ -1,0 +1,35 @@
+{
+  "parser_backend_used": "rule_based",
+  "model_name": null,
+  "temperature": null,
+  "strategy_text": "Purchase the index whenever the closing price trades at least 10% below its 52-week peak. Sell the position once the price rallies back to within 2% of that 52-week peak. Cash equity only, no shorting, no leverage.",
+  "prompt": "RULE_BASED_EXTRACTOR: Drawdown Dip Buyer (dip=0.1, rec=0.02)",
+  "raw_response": "{\n  \"name\": \"52-Week High Drawdown Dip Buyer\",\n  \"description\": \"Buy when price is >= 10% below 52-week high, sell when recovered to within 2%.\",\n  \"indicators\": [\n    {\n      \"name\": \"RollingMax\",\n      \"params\": {\n        \"period\": 252,\n        \"dip_pct\": 0.1,\n        \"recovery_pct\": 0.02\n      }\n    }\n  ],\n  \"parameters\": {\n    \"period\": 252,\n    \"dip_pct\": 0.1,\n    \"recovery_pct\": 0.02\n  },\n  \"entry_condition\": \"close <= RollingMax_252 * 0.90\",\n  \"exit_condition\": \"close >= RollingMax_252 * 0.98\",\n  \"position_size\": \"full capital, long/flat only\",\n  \"no_leverage\": true,\n  \"no_shorting\": true,\n  \"generated_code\": \"import pandas as pd\\nimport numpy as np\\n\\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\\n    \\\"\\\"\\\"\\n    Drawdown-Triggered Dip Buying Strategy.\\n    Buy when price falls >= 10% below trailing 252-day high.\\n    Sell when price recovers to within 2% of that same 252-day high.\\n    \\\"\\\"\\\"\\n    if len(df) == 0:\\n        return pd.Series(dtype=int)\\n\\n    rolling_high = df['close'].rolling(window=252, min_periods=252).max()\\n    buy_threshold = rolling_high * (1.0 - 0.1)\\n    exit_threshold = rolling_high * (1.0 - 0.02)\\n\\n    signal = pd.Series(0, index=df.index, dtype=int)\\n    is_long = False\\n\\n    for i in range(1, len(df)):\\n        c = df['close'].iloc[i]\\n        b_lvl = buy_threshold.iloc[i]\\n        e_lvl = exit_threshold.iloc[i]\\n\\n        if pd.isna(b_lvl) or pd.isna(e_lvl):\\n            continue\\n\\n        if not is_long and c <= b_lvl:\\n            is_long = True\\n        elif is_long and c >= e_lvl:\\n            is_long = False\\n\\n        if is_long:\\n            signal.iloc[i] = 1\\n\\n    return signal\\n\"\n}",
+  "parsed_rule": {
+    "name": "52-Week High Drawdown Dip Buyer",
+    "description": "Buy when price is >= 10% below 52-week high, sell when recovered to within 2%.",
+    "indicators": [
+      {
+        "name": "RollingMax",
+        "params": {
+          "period": 252,
+          "dip_pct": 0.1,
+          "recovery_pct": 0.02
+        }
+      }
+    ],
+    "parameters": {
+      "period": 252,
+      "dip_pct": 0.1,
+      "recovery_pct": 0.02
+    },
+    "entry_condition": "close <= RollingMax_252 * 0.90",
+    "exit_condition": "close >= RollingMax_252 * 0.98",
+    "position_size": "full capital, long/flat only",
+    "no_leverage": true,
+    "no_shorting": true,
+    "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Drawdown-Triggered Dip Buying Strategy.\n    Buy when price falls >= 10% below trailing 252-day high.\n    Sell when price recovers to within 2% of that same 252-day high.\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    rolling_high = df['close'].rolling(window=252, min_periods=252).max()\n    buy_threshold = rolling_high * (1.0 - 0.1)\n    exit_threshold = rolling_high * (1.0 - 0.02)\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    is_long = False\n\n    for i in range(1, len(df)):\n        c = df['close'].iloc[i]\n        b_lvl = buy_threshold.iloc[i]\n        e_lvl = exit_threshold.iloc[i]\n\n        if pd.isna(b_lvl) or pd.isna(e_lvl):\n            continue\n\n        if not is_long and c <= b_lvl:\n            is_long = True\n        elif is_long and c >= e_lvl:\n            is_long = False\n\n        if is_long:\n            signal.iloc[i] = 1\n\n    return signal\n"
+  },
+  "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Drawdown-Triggered Dip Buying Strategy.\n    Buy when price falls >= 10% below trailing 252-day high.\n    Sell when price recovers to within 2% of that same 252-day high.\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    rolling_high = df['close'].rolling(window=252, min_periods=252).max()\n    buy_threshold = rolling_high * (1.0 - 0.1)\n    exit_threshold = rolling_high * (1.0 - 0.02)\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    is_long = False\n\n    for i in range(1, len(df)):\n        c = df['close'].iloc[i]\n        b_lvl = buy_threshold.iloc[i]\n        e_lvl = exit_threshold.iloc[i]\n\n        if pd.isna(b_lvl) or pd.isna(e_lvl):\n            continue\n\n        if not is_long and c <= b_lvl:\n            is_long = True\n        elif is_long and c >= e_lvl:\n            is_long = False\n\n        if is_long:\n            signal.iloc[i] = 1\n\n    return signal\n",
+  "timestamp_utc": "2026-09-05T09:40:29.512150+00:00"
+}

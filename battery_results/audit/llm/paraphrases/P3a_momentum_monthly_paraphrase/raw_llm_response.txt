@@ -1,0 +1,23 @@
+{
+  "name": "12-Month Momentum (Monthly Rebalance)",
+  "description": "On the first trading day of each month, evaluate the 1-year (12-month) trailing price return. If the return is greater than zero, allocate 100% to the index for that month; otherwise hold 100% cash. No borrowed funds, no shorting.",
+  "indicators": [
+    {
+      "name": "ROC",
+      "params": {
+        "period": 252,
+        "rebalance_freq": "monthly"
+      }
+    }
+  ],
+  "parameters": {
+    "period": 252,
+    "rebalance_freq": "monthly"
+  },
+  "entry_condition": "12-month trailing return > 0, evaluated on a monthly rebalance schedule",
+  "exit_condition": "12-month trailing return <= 0",
+  "position_size": "full capital, long/flat only, monthly rebalance frequency",
+  "no_leverage": true,
+  "no_shorting": true,
+  "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Absolute Momentum with monthly rebalancing.\n    Lookback: 252 trading days (12 months).\n    Evaluated at the start of each month: if trailing return > 0, hold 100% equity; else cash.\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    trailing_ret = df['close'].pct_change(periods=252)\n    signal = pd.Series(0, index=df.index, dtype=int)\n    current_pos = 0\n\n    months = pd.Series(df.index.month, index=df.index)\n    is_month_start = months != months.shift(1)\n\n    for i in range(len(df)):\n        if is_month_start.iloc[i]:\n            val = trailing_ret.iloc[i]\n            if not pd.isna(val):\n                current_pos = 1 if val > 0 else 0\n        signal.iloc[i] = current_pos\n\n    return signal\n"
+}

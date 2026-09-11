@@ -1,0 +1,1 @@
+RULE_BASED_EXTRACTOR: Bollinger Bands Breakout (20, 2.0)

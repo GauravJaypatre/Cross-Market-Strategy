@@ -1,0 +1,241 @@
+{
+  "metadata": {
+    "random_seed": 42,
+    "dataset_status": "Reference / Preliminary Baseline (Curated from statutory authorities e.g. IRS, HMRC, Indian Finance Acts; tagged as primary_statutory_single_source until user-supplied cross-verified datasets are provided).",
+    "sample_size_caution": "Sample Size & Statistical Precision Notice (Low-n, Directional Only): Strategy trade counts range from 7 to 13 trades across the 2011\u20132025 period. Because n < 30, individual index CAGR estimates carry wide 95% bootstrap confidence intervals and must be interpreted as directional rather than definitive alpha.",
+    "parser_audit": {
+      "parser_backend_used": "rule_based",
+      "model_name": null,
+      "temperature": null,
+      "strategy_text": "At the start of each month, check the index's total return over the trailing 12 months. If it's positive, hold the index for the next month. If it's negative, stay in cash. No leverage, no shorting.",
+      "prompt": "RULE_BASED_EXTRACTOR: Absolute Momentum (12m trailing return, monthly rebalance)",
+      "raw_response": "{\n  \"name\": \"12-Month Momentum (Monthly Rebalance)\",\n  \"description\": \"Evaluate 12-month trailing return on monthly rebalance: hold if positive, cash if negative.\",\n  \"indicators\": [\n    {\n      \"name\": \"ROC\",\n      \"params\": {\n        \"period\": 252,\n        \"rebalance_freq\": \"monthly\"\n      }\n    }\n  ],\n  \"parameters\": {\n    \"period\": 252,\n    \"rebalance_freq\": \"monthly\"\n  },\n  \"entry_condition\": \"12-month trailing return > 0, evaluated on a monthly rebalance schedule\",\n  \"exit_condition\": \"12-month trailing return <= 0\",\n  \"position_size\": \"full capital, long/flat only, monthly rebalance frequency\",\n  \"no_leverage\": true,\n  \"no_shorting\": true,\n  \"generated_code\": \"import pandas as pd\\nimport numpy as np\\n\\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\\n    \\\"\\\"\\\"\\n    Absolute Momentum with monthly rebalancing.\\n    Lookback: 252 trading days (12 months).\\n    Evaluated at the start of each month: if trailing return > 0, hold 100% equity; else cash.\\n    \\\"\\\"\\\"\\n    if len(df) == 0:\\n        return pd.Series(dtype=int)\\n\\n    trailing_ret = df['close'].pct_change(periods=252)\\n    signal = pd.Series(0, index=df.index, dtype=int)\\n    current_pos = 0\\n\\n    months = pd.Series(df.index.month, index=df.index)\\n    is_month_start = months != months.shift(1)\\n\\n    for i in range(len(df)):\\n        if is_month_start.iloc[i]:\\n            val = trailing_ret.iloc[i]\\n            if not pd.isna(val):\\n                current_pos = 1 if val > 0 else 0\\n        signal.iloc[i] = current_pos\\n\\n    return signal\\n\"\n}",
+      "parsed_rule": {
+        "name": "12-Month Momentum (Monthly Rebalance)",
+        "description": "Evaluate 12-month trailing return on monthly rebalance: hold if positive, cash if negative.",
+        "indicators": [
+          {
+            "name": "ROC",
+            "params": {
+              "period": 252,
+              "rebalance_freq": "monthly"
+            }
+          }
+        ],
+        "parameters": {
+          "period": 252,
+          "rebalance_freq": "monthly"
+        },
+        "entry_condition": "12-month trailing return > 0, evaluated on a monthly rebalance schedule",
+        "exit_condition": "12-month trailing return <= 0",
+        "position_size": "full capital, long/flat only, monthly rebalance frequency",
+        "no_leverage": true,
+        "no_shorting": true,
+        "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Absolute Momentum with monthly rebalancing.\n    Lookback: 252 trading days (12 months).\n    Evaluated at the start of each month: if trailing return > 0, hold 100% equity; else cash.\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    trailing_ret = df['close'].pct_change(periods=252)\n    signal = pd.Series(0, index=df.index, dtype=int)\n    current_pos = 0\n\n    months = pd.Series(df.index.month, index=df.index)\n    is_month_start = months != months.shift(1)\n\n    for i in range(len(df)):\n        if is_month_start.iloc[i]:\n            val = trailing_ret.iloc[i]\n            if not pd.isna(val):\n                current_pos = 1 if val > 0 else 0\n        signal.iloc[i] = current_pos\n\n    return signal\n"
+      },
+      "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Absolute Momentum with monthly rebalancing.\n    Lookback: 252 trading days (12 months).\n    Evaluated at the start of each month: if trailing return > 0, hold 100% equity; else cash.\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    trailing_ret = df['close'].pct_change(periods=252)\n    signal = pd.Series(0, index=df.index, dtype=int)\n    current_pos = 0\n\n    months = pd.Series(df.index.month, index=df.index)\n    is_month_start = months != months.shift(1)\n\n    for i in range(len(df)):\n        if is_month_start.iloc[i]:\n            val = trailing_ret.iloc[i]\n            if not pd.isna(val):\n                current_pos = 1 if val > 0 else 0\n        signal.iloc[i] = current_pos\n\n    return signal\n",
+      "timestamp_utc": "2026-09-10T14:35:36.624299+00:00"
+    },
+    "methodology_disclosures": {
+      "sharpe_annualization": "Sharpe ratios are calculated from daily returns using an annualization factor of sqrt(252) (252 trading days/year) and an annualized risk-free rate of 0.0%. This stated simplification avoids confounding 15 divergent sovereign yield curves over the 2011\u20132025 period. Cross-market risk-adjusted capital efficiency should also be evaluated via the Calmar ratio and net excess CAGR over Buy & Hold.",
+      "currency_terms": "Rankings are computed within each currency's own terms (no FX adjustment); cross-country comparison does not account for exchange-rate fluctuations.",
+      "robustness_sequence_vs_estimation": "The Monte Carlo trade-shuffle (1,000 permutations) randomizes trade execution order to isolate sequence risk and path-dependent drawdown (P95), whereas the bootstrap confidence interval resamples trade returns with replacement to quantify parameter estimation uncertainty on annualized CAGR given small sample size (n < 30)."
+    },
+    "total_indices_evaluated": 1,
+    "qualified_count": 1,
+    "excluded_count": 0
+  },
+  "primary_ranking_cagr": [
+    {
+      "rank": 1,
+      "country": "Germany",
+      "index_name": "DAX 40",
+      "data_source_id": "^GDAXI",
+      "currency": "EUR",
+      "data_start": "2011-01-03",
+      "data_end": "2025-12-30",
+      "provenance": {
+        "vendor": "local_csv",
+        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\GDAXI.csv",
+        "sha256": "9729f4ad3f0bb1003b2751a626ce884b23996d8572be255b03e73467d310cd8a",
+        "retrieval_timestamp_utc": "2026-09-10T14:35:36.566023+00:00",
+        "row_count": 3803,
+        "data_start": "2011-01-03",
+        "data_end": "2025-12-30"
+      },
+      "gross_metrics": {
+        "cagr": 0.0334,
+        "max_drawdown": -0.5042,
+        "sharpe_ratio": 0.297,
+        "calmar_ratio": 0.0663,
+        "total_trades": 11,
+        "win_rate": 0.4545,
+        "total_return": 0.6374,
+        "annualized_volatility": 0.1463,
+        "insufficient_sample": false
+      },
+      "net_tax_metrics": {
+        "cagr": 0.0198,
+        "max_drawdown": -0.5716,
+        "sharpe_ratio": 0.2023,
+        "calmar_ratio": 0.0347,
+        "total_trades": 11,
+        "win_rate": 0.4545,
+        "total_return": 0.3418,
+        "annualized_volatility": 0.161,
+        "insufficient_sample": false
+      },
+      "net_discount_metrics": {
+        "cagr": 0.0198,
+        "max_drawdown": -0.5719,
+        "sharpe_ratio": 0.202,
+        "calmar_ratio": 0.0346,
+        "total_trades": 11,
+        "win_rate": 0.4545,
+        "total_return": 0.3411,
+        "annualized_volatility": 0.1611,
+        "insufficient_sample": false
+      },
+      "net_full_service_metrics": {
+        "cagr": 0.0191,
+        "max_drawdown": -0.5757,
+        "sharpe_ratio": 0.198,
+        "calmar_ratio": 0.0332,
+        "total_trades": 11,
+        "win_rate": 0.4545,
+        "total_return": 0.3286,
+        "annualized_volatility": 0.1621,
+        "insufficient_sample": false
+      },
+      "benchmark_discount_metrics": {
+        "cagr": 0.0723,
+        "max_drawdown": -0.3878,
+        "sharpe_ratio": 0.4472,
+        "calmar_ratio": 0.1863,
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "total_return": 1.8455,
+        "annualized_volatility": 0.2003,
+        "insufficient_sample": true
+      },
+      "excess_cagr_vs_benchmark": -0.0525,
+      "alpha_vs_benchmark_cagr": -0.0525,
+      "robustness": {
+        "is_trade_count": 5,
+        "is_cagr": 0.028,
+        "is_max_drawdown": -0.336,
+        "is_sharpe": 0.2654,
+        "is_insufficient_sample": false,
+        "oos_trade_count": 6,
+        "oos_cagr": 0.0105,
+        "oos_max_drawdown": -0.4232,
+        "oos_sharpe": 0.1487,
+        "oos_insufficient_sample": false,
+        "degradation_ratio": 0.3737,
+        "delta_cagr_pp": -0.0176,
+        "mc_p95_max_drawdown": -0.3296,
+        "cagr_ci_lower": -0.0392,
+        "cagr_ci_upper": 0.1319,
+        "is_directional_only": true
+      },
+      "exclusion_reason": null
+    }
+  ],
+  "secondary_ranking_calmar": [
+    {
+      "rank": 1,
+      "country": "Germany",
+      "index_name": "DAX 40",
+      "data_source_id": "^GDAXI",
+      "currency": "EUR",
+      "data_start": "2011-01-03",
+      "data_end": "2025-12-30",
+      "provenance": {
+        "vendor": "local_csv",
+        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\GDAXI.csv",
+        "sha256": "9729f4ad3f0bb1003b2751a626ce884b23996d8572be255b03e73467d310cd8a",
+        "retrieval_timestamp_utc": "2026-09-10T14:35:36.566023+00:00",
+        "row_count": 3803,
+        "data_start": "2011-01-03",
+        "data_end": "2025-12-30"
+      },
+      "gross_metrics": {
+        "cagr": 0.0334,
+        "max_drawdown": -0.5042,
+        "sharpe_ratio": 0.297,
+        "calmar_ratio": 0.0663,
+        "total_trades": 11,
+        "win_rate": 0.4545,
+        "total_return": 0.6374,
+        "annualized_volatility": 0.1463,
+        "insufficient_sample": false
+      },
+      "net_tax_metrics": {
+        "cagr": 0.0198,
+        "max_drawdown": -0.5716,
+        "sharpe_ratio": 0.2023,
+        "calmar_ratio": 0.0347,
+        "total_trades": 11,
+        "win_rate": 0.4545,
+        "total_return": 0.3418,
+        "annualized_volatility": 0.161,
+        "insufficient_sample": false
+      },
+      "net_discount_metrics": {
+        "cagr": 0.0198,
+        "max_drawdown": -0.5719,
+        "sharpe_ratio": 0.202,
+        "calmar_ratio": 0.0346,
+        "total_trades": 11,
+        "win_rate": 0.4545,
+        "total_return": 0.3411,
+        "annualized_volatility": 0.1611,
+        "insufficient_sample": false
+      },
+      "net_full_service_metrics": {
+        "cagr": 0.0191,
+        "max_drawdown": -0.5757,
+        "sharpe_ratio": 0.198,
+        "calmar_ratio": 0.0332,
+        "total_trades": 11,
+        "win_rate": 0.4545,
+        "total_return": 0.3286,
+        "annualized_volatility": 0.1621,
+        "insufficient_sample": false
+      },
+      "benchmark_discount_metrics": {
+        "cagr": 0.0723,
+        "max_drawdown": -0.3878,
+        "sharpe_ratio": 0.4472,
+        "calmar_ratio": 0.1863,
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "total_return": 1.8455,
+        "annualized_volatility": 0.2003,
+        "insufficient_sample": true
+      },
+      "excess_cagr_vs_benchmark": -0.0525,
+      "alpha_vs_benchmark_cagr": -0.0525,
+      "robustness": {
+        "is_trade_count": 5,
+        "is_cagr": 0.028,
+        "is_max_drawdown": -0.336,
+        "is_sharpe": 0.2654,
+        "is_insufficient_sample": false,
+        "oos_trade_count": 6,
+        "oos_cagr": 0.0105,
+        "oos_max_drawdown": -0.4232,
+        "oos_sharpe": 0.1487,
+        "oos_insufficient_sample": false,
+        "degradation_ratio": 0.3737,
+        "delta_cagr_pp": -0.0176,
+        "mc_p95_max_drawdown": -0.3296,
+        "cagr_ci_lower": -0.0392,
+        "cagr_ci_upper": 0.1319,
+        "is_directional_only": true
+      },
+      "exclusion_reason": null
+    }
+  ],
+  "appendix_excluded": []
+}

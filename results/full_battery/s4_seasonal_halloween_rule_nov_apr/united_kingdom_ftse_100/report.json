@@ -1,0 +1,233 @@
+{
+  "metadata": {
+    "random_seed": 42,
+    "dataset_status": "Reference / Preliminary Baseline (Curated from statutory authorities e.g. IRS, HMRC, Indian Finance Acts; tagged as primary_statutory_single_source until user-supplied cross-verified datasets are provided).",
+    "sample_size_caution": "Sample Size & Statistical Precision Notice (Low-n, Directional Only): Strategy trade counts range from 7 to 13 trades across the 2011\u20132025 period. Because n < 30, individual index CAGR estimates carry wide 95% bootstrap confidence intervals and must be interpreted as directional rather than definitive alpha.",
+    "parser_audit": {
+      "parser_backend_used": "rule_based",
+      "model_name": null,
+      "temperature": null,
+      "strategy_text": "Buy the index on November 1st each year and sell on April 30th the following year. Stay in cash the rest of the time. No leverage, no shorting.",
+      "prompt": "RULE_BASED_EXTRACTOR: Calendar Effect (Nov 1 - Apr 30)",
+      "raw_response": "{\n  \"name\": \"Seasonal Halloween Rule (Nov-Apr)\",\n  \"description\": \"Long from November 1st through April 30th; cash remainder of the year.\",\n  \"indicators\": [],\n  \"parameters\": {\n    \"entry_date\": \"Nov 1\",\n    \"exit_date\": \"Apr 30\"\n  },\n  \"entry_condition\": \"calendar date == Nov 1 (annual)\",\n  \"exit_condition\": \"calendar date == Apr 30 (following year)\",\n  \"position_size\": \"full capital during the Nov\\u2013Apr window, cash otherwise\",\n  \"no_leverage\": true,\n  \"no_shorting\": true,\n  \"generated_code\": \"import pandas as pd\\nimport numpy as np\\n\\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\\n    \\\"\\\"\\\"\\n    Seasonal Calendar Effect Strategy (Nov 1 to Apr 30 long, cash otherwise).\\n    \\\"\\\"\\\"\\n    if len(df) == 0:\\n        return pd.Series(dtype=int)\\n\\n    signal = pd.Series(0, index=df.index, dtype=int)\\n    months = pd.Series(df.index.month, index=df.index)\\n    # Holding window: November (11) through April (4)\\n    holding_mask = months.isin([11, 12, 1, 2, 3, 4])\\n    signal[holding_mask] = 1\\n    return signal\\n\"\n}",
+      "parsed_rule": {
+        "name": "Seasonal Halloween Rule (Nov-Apr)",
+        "description": "Long from November 1st through April 30th; cash remainder of the year.",
+        "indicators": [],
+        "parameters": {
+          "entry_date": "Nov 1",
+          "exit_date": "Apr 30"
+        },
+        "entry_condition": "calendar date == Nov 1 (annual)",
+        "exit_condition": "calendar date == Apr 30 (following year)",
+        "position_size": "full capital during the Nov\u2013Apr window, cash otherwise",
+        "no_leverage": true,
+        "no_shorting": true,
+        "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Seasonal Calendar Effect Strategy (Nov 1 to Apr 30 long, cash otherwise).\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    months = pd.Series(df.index.month, index=df.index)\n    # Holding window: November (11) through April (4)\n    holding_mask = months.isin([11, 12, 1, 2, 3, 4])\n    signal[holding_mask] = 1\n    return signal\n"
+      },
+      "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Seasonal Calendar Effect Strategy (Nov 1 to Apr 30 long, cash otherwise).\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    months = pd.Series(df.index.month, index=df.index)\n    # Holding window: November (11) through April (4)\n    holding_mask = months.isin([11, 12, 1, 2, 3, 4])\n    signal[holding_mask] = 1\n    return signal\n",
+      "timestamp_utc": "2026-09-10T13:39:00.677690+00:00"
+    },
+    "methodology_disclosures": {
+      "sharpe_annualization": "Sharpe ratios are calculated from daily returns using an annualization factor of sqrt(252) (252 trading days/year) and an annualized risk-free rate of 0.0%. This stated simplification avoids confounding 15 divergent sovereign yield curves over the 2011\u20132025 period. Cross-market risk-adjusted capital efficiency should also be evaluated via the Calmar ratio and net excess CAGR over Buy & Hold.",
+      "currency_terms": "Rankings are computed within each currency's own terms (no FX adjustment); cross-country comparison does not account for exchange-rate fluctuations.",
+      "robustness_sequence_vs_estimation": "The Monte Carlo trade-shuffle (1,000 permutations) randomizes trade execution order to isolate sequence risk and path-dependent drawdown (P95), whereas the bootstrap confidence interval resamples trade returns with replacement to quantify parameter estimation uncertainty on annualized CAGR given small sample size (n < 30)."
+    },
+    "total_indices_evaluated": 1,
+    "qualified_count": 1,
+    "excluded_count": 0
+  },
+  "primary_ranking_cagr": [
+    {
+      "rank": 1,
+      "country": "United Kingdom",
+      "index_name": "FTSE 100",
+      "data_source_id": "^FTSE",
+      "currency": "GBP",
+      "data_start": "2011-01-04",
+      "data_end": "2025-12-30",
+      "provenance": {
+        "vendor": "local_csv",
+        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\FTSE.csv",
+        "sha256": "7c70e6cca3174bdd5fe79b696afe8de499adfd576e21964436fcff9e8941d8c2",
+        "retrieval_timestamp_utc": "2026-09-10T13:38:52.037654+00:00",
+        "row_count": 3785,
+        "data_start": "2011-01-04",
+        "data_end": "2025-12-30"
+      },
+      "gross_metrics": {
+        "cagr": 0.0385,
+        "max_drawdown": -0.3493,
+        "sharpe_ratio": 0.3923,
+        "calmar_ratio": 0.1103,
+        "total_trades": 16,
+        "win_rate": 0.875,
+        "total_return": 0.7623,
+        "annualized_volatility": 0.1124,
+        "insufficient_sample": false
+      },
+      "net_tax_metrics": {
+        "cagr": 0.0368,
+        "max_drawdown": -0.3494,
+        "sharpe_ratio": 0.3762,
+        "calmar_ratio": 0.1053,
+        "total_trades": 16,
+        "win_rate": 0.875,
+        "total_return": 0.7191,
+        "annualized_volatility": 0.113,
+        "insufficient_sample": false
+      },
+      "net_discount_metrics": {
+        "cagr": 0.0277,
+        "max_drawdown": -0.3802,
+        "sharpe_ratio": 0.2829,
+        "calmar_ratio": 0.0728,
+        "total_trades": 16,
+        "win_rate": 0.875,
+        "total_return": 0.5052,
+        "annualized_volatility": 0.1233,
+        "insufficient_sample": false
+      },
+      "net_full_service_metrics": {
+        "cagr": 0.0166,
+        "max_drawdown": -0.4228,
+        "sharpe_ratio": 0.1884,
+        "calmar_ratio": 0.0392,
+        "total_trades": 16,
+        "win_rate": 0.875,
+        "total_return": 0.2791,
+        "annualized_volatility": 0.138,
+        "insufficient_sample": false
+      },
+      "benchmark_discount_metrics": {
+        "cagr": 0.0271,
+        "max_drawdown": -0.3675,
+        "sharpe_ratio": 0.2495,
+        "calmar_ratio": 0.0737,
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "total_return": 0.4929,
+        "annualized_volatility": 0.1559,
+        "insufficient_sample": true
+      },
+      "excess_cagr_vs_benchmark": 0.0006,
+      "alpha_vs_benchmark_cagr": 0.0006,
+      "robustness": {
+        "is_trade_count": 9,
+        "is_cagr": 0.018,
+        "is_max_drawdown": -0.1603,
+        "is_sharpe": 0.2275,
+        "is_insufficient_sample": false,
+        "oos_trade_count": 7,
+        "oos_cagr": 0.0386,
+        "oos_max_drawdown": -0.3802,
+        "oos_sharpe": 0.3343,
+        "oos_insufficient_sample": false,
+        "degradation_ratio": 2.142,
+        "delta_cagr_pp": 0.0206,
+        "mc_p95_max_drawdown": -0.2327,
+        "cagr_ci_lower": -0.0132,
+        "cagr_ci_upper": 0.082,
+        "is_directional_only": true
+      },
+      "exclusion_reason": null
+    }
+  ],
+  "secondary_ranking_calmar": [
+    {
+      "rank": 1,
+      "country": "United Kingdom",
+      "index_name": "FTSE 100",
+      "data_source_id": "^FTSE",
+      "currency": "GBP",
+      "data_start": "2011-01-04",
+      "data_end": "2025-12-30",
+      "provenance": {
+        "vendor": "local_csv",
+        "source_identifier": "C:\\Users\\HP\\OneDrive\\\u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a\\Cross Market Strategy\\data\\FTSE.csv",
+        "sha256": "7c70e6cca3174bdd5fe79b696afe8de499adfd576e21964436fcff9e8941d8c2",
+        "retrieval_timestamp_utc": "2026-09-10T13:38:52.037654+00:00",
+        "row_count": 3785,
+        "data_start": "2011-01-04",
+        "data_end": "2025-12-30"
+      },
+      "gross_metrics": {
+        "cagr": 0.0385,
+        "max_drawdown": -0.3493,
+        "sharpe_ratio": 0.3923,
+        "calmar_ratio": 0.1103,
+        "total_trades": 16,
+        "win_rate": 0.875,
+        "total_return": 0.7623,
+        "annualized_volatility": 0.1124,
+        "insufficient_sample": false
+      },
+      "net_tax_metrics": {
+        "cagr": 0.0368,
+        "max_drawdown": -0.3494,
+        "sharpe_ratio": 0.3762,
+        "calmar_ratio": 0.1053,
+        "total_trades": 16,
+        "win_rate": 0.875,
+        "total_return": 0.7191,
+        "annualized_volatility": 0.113,
+        "insufficient_sample": false
+      },
+      "net_discount_metrics": {
+        "cagr": 0.0277,
+        "max_drawdown": -0.3802,
+        "sharpe_ratio": 0.2829,
+        "calmar_ratio": 0.0728,
+        "total_trades": 16,
+        "win_rate": 0.875,
+        "total_return": 0.5052,
+        "annualized_volatility": 0.1233,
+        "insufficient_sample": false
+      },
+      "net_full_service_metrics": {
+        "cagr": 0.0166,
+        "max_drawdown": -0.4228,
+        "sharpe_ratio": 0.1884,
+        "calmar_ratio": 0.0392,
+        "total_trades": 16,
+        "win_rate": 0.875,
+        "total_return": 0.2791,
+        "annualized_volatility": 0.138,
+        "insufficient_sample": false
+      },
+      "benchmark_discount_metrics": {
+        "cagr": 0.0271,
+        "max_drawdown": -0.3675,
+        "sharpe_ratio": 0.2495,
+        "calmar_ratio": 0.0737,
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "total_return": 0.4929,
+        "annualized_volatility": 0.1559,
+        "insufficient_sample": true
+      },
+      "excess_cagr_vs_benchmark": 0.0006,
+      "alpha_vs_benchmark_cagr": 0.0006,
+      "robustness": {
+        "is_trade_count": 9,
+        "is_cagr": 0.018,
+        "is_max_drawdown": -0.1603,
+        "is_sharpe": 0.2275,
+        "is_insufficient_sample": false,
+        "oos_trade_count": 7,
+        "oos_cagr": 0.0386,
+        "oos_max_drawdown": -0.3802,
+        "oos_sharpe": 0.3343,
+        "oos_insufficient_sample": false,
+        "degradation_ratio": 2.142,
+        "delta_cagr_pp": 0.0206,
+        "mc_p95_max_drawdown": -0.2327,
+        "cagr_ci_lower": -0.0132,
+        "cagr_ci_upper": 0.082,
+        "is_directional_only": true
+      },
+      "exclusion_reason": null
+    }
+  ],
+  "appendix_excluded": []
+}

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cross-Market Backtesting & Friction Report</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-heading: #f0f6fc;
+    --accent: #58a6ff;
+    --success: #3fb950;
+    --warning: #d29922;
+    --danger: #f85149;
+    --purple: #bc8cff;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 24px;
+  }
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  h1, h2, h3 {
+    color: var(--text-heading);
+    font-weight: 600;
+  }
+  .header-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 8px;
+  }
+  .badge-llm {
+    background: rgba(88, 166, 255, 0.15);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+  }
+  .badge-rule {
+    background: rgba(188, 140, 255, 0.15);
+    color: var(--purple);
+    border: 1px solid var(--purple);
+  }
+  .badge-pass {
+    background: rgba(63, 185, 80, 0.15);
+    color: var(--success);
+  }
+  .badge-warn {
+    background: rgba(210, 153, 34, 0.15);
+    color: var(--warning);
+  }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .kpi-card {
+    background: #0e141b;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+  }
+  .kpi-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #8b949e;
+  }
+  .kpi-val {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-top: 4px;
+  }
+  .callout {
+    background: #1c2128;
+    border-left: 4px solid var(--accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+  }
+  th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    background: #21262d;
+    color: var(--text-heading);
+    font-weight: 600;
+  }
+  tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .highlight {
+    color: var(--success);
+    font-weight: 700;
+  }
+  .section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header-card">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h1>Cross-Market Strategy Backtest & Real-World Friction Report</h1>
+      <div>
+        <span class="badge" style="background: rgba(88, 166, 255, 0.15); color: var(--accent); border: 1px solid var(--border);">Seed: 42</span>
+        <span class="badge badge-rule">Method: Deterministic Rule-Based Parser</span>
+      </div>
+    </div>
+    <p style="font-size:1.1rem; color:#8b949e;">Strategy: <em>"Buy the index when the 14-day RSI drops below 30, and sell when the RSI rises back above 70. Hold the full position size, no shorting, no leverage."</em></p>
+    
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-title">Universe Size</div>
+        <div class="kpi-val">1 Indices</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Qualified for Headline</div>
+        <div class="kpi-val">1 Indices</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Excluded (Late / Low Sample)</div>
+        <div class="kpi-val">0 Indices</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Top Net-Discount Fit</div>
+        <div class="kpi-val highlight">United Kingdom (-0.63%)</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Methodology Disclosures:</strong><br>
+      • <strong>Sharpe Annualization & Risk-Free Rate:</strong> Sharpe ratios are calculated from daily returns using an annualization factor of sqrt(252) (252 trading days/year) and an annualized risk-free rate of 0.0%. This stated simplification avoids confounding 15 divergent sovereign yield curves over the 2011–2025 period. Cross-market risk-adjusted capital efficiency should also be evaluated via the Calmar ratio and net excess CAGR over Buy & Hold.<br>
+      • <strong>Robustness Methodology (Sequence Risk vs Estimation Uncertainty):</strong> The Monte Carlo trade-shuffle (1,000 permutations) randomizes trade execution order to isolate sequence risk and path-dependent drawdown (P95), whereas the bootstrap confidence interval resamples trade returns with replacement to quantify parameter estimation uncertainty on annualized CAGR given small sample size (n < 30).<br>
+      • <strong>Currency Terms:</strong> Rankings are computed within each currency's own terms (no FX adjustment); cross-country comparison does not account for exchange-rate fluctuations.<br>
+      • <strong>Dataset Status:</strong> Reference / Preliminary Baseline (Curated from statutory authorities e.g. IRS, HMRC, Indian Finance Acts; tagged as primary_statutory_single_source until user-supplied cross-verified datasets are provided).
+    </div>
+    <div class="callout" style="border-left-color: var(--warning);">
+      <strong>Low-Sample Precision Notice:</strong> Sample Size & Statistical Precision Notice (Low-n, Directional Only): Strategy trade counts range from 7 to 13 trades across the 2011–2025 period. Because n < 30, individual index CAGR estimates carry wide 95% bootstrap confidence intervals and must be interpreted as directional rather than definitive alpha.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Primary Ranking: Net-of-Tax-and-Discount-Brokerage CAGR</h2>
+    <p>Sorted by Net Discount CAGR. Shows gross and net friction tracks side by side with the Buy & Hold benchmark.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Country</th>
+          <th>Index</th>
+          <th>Ccy</th>
+          <th class="num">Gross CAGR</th>
+          <th class="num">Net-Tax CAGR</th>
+          <th class="num">Net-Disc CAGR</th>
+          <th class="num">95% Bootstrap CI</th>
+          <th class="num">Net-FS CAGR</th>
+          <th class="num">B&H Net-Disc</th>
+          <th class="num">Excess CAGR vs B&H</th>
+          <th class="num">Max DD</th>
+          <th class="num">Calmar</th>
+          <th class="num">Sharpe</th>
+          <th class="num">Trades</th>
+          <th>Start Date</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td><strong>#1</strong></td>
+          <td>United Kingdom</td>
+          <td>FTSE 250</td>
+          <td><code>GBP</code></td>
+          <td class="num">2.75%</td>
+          <td class="num">2.67%</td>
+          <td class="num highlight">-0.63%</td>
+          <td class="num">[-2.7%, 7.7%]</td>
+          <td class="num">-7.68%</td>
+          <td class="num">3.60%</td>
+          <td class="num">-4.24%</td>
+          <td class="num">-53.33%</td>
+          <td class="num">-0.01</td>
+          <td class="num">0.05</td>
+          <td class="num">44</td>
+          <td>2011-01-04</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>2. Secondary Ranking: Calmar Ratio (Risk-Adjusted Efficiency)</h2>
+    <p>Re-sorted strictly by Calmar Ratio (CAGR / |Max Drawdown|) on the Net-Discount track.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Calmar Rank</th>
+          <th>Country</th>
+          <th>Index</th>
+          <th class="num">Calmar Ratio</th>
+          <th class="num">Net-Disc CAGR</th>
+          <th class="num">Max Drawdown</th>
+          <th class="num">Sharpe Ratio</th>
+          <th class="num">Total Trades</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td><strong>#1</strong></td>
+          <td>United Kingdom</td>
+          <td>FTSE 250</td>
+          <td class="num highlight">-0.01</td>
+          <td class="num">-0.63%</td>
+          <td class="num">-53.33%</td>
+          <td class="num">0.05</td>
+          <td class="num">44</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>3. Robustness & Skeptical Validation Suite</h2>
+    <p>In-Sample (2011–2018) vs Out-of-Sample (2019–2025) split and 1,000 Monte Carlo trade reshuffles.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Index</th>
+          <th class="num">IS CAGR (2011-18)</th>
+          <th class="num">OOS CAGR (2019-25)</th>
+          <th class="num">Degradation (OOS/IS)</th>
+          <th class="num">IS Trades</th>
+          <th class="num">OOS Trades</th>
+          <th>IS Guard</th>
+          <th>OOS Guard</th>
+          <th class="num">MC Worst DD (P95)</th>
+          <th class="num">95% Bootstrap CI</th>
+          <th>Precision Flag</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>United Kingdom</td>
+          <td>FTSE 250</td>
+          <td class="num">-0.20%</td>
+          <td class="num">-1.21%</td>
+          <td class="num">6.04x</td>
+          <td class="num">22</td>
+          <td class="num">22</td>
+          <td><span class="badge badge-pass">PASS</span></td>
+          <td><span class="badge badge-pass">PASS</span></td>
+          <td class="num">-35.98%</td>
+          <td class="num">[-2.7%, 7.7%]</td>
+          <td><span class="badge badge-pass">Robust (n&gt;=30)</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Appendix: Excluded Indices & Data Coverage</h2>
+    <p>Excluded from headline rankings due to late data start (&gt; 2011-01-01) or sample size &lt; 5 trades.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Index</th>
+          <th>Coverage Start</th>
+          <th class="num">Total Trades</th>
+          <th>Reason for Exclusion</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr><td colspan='5'><em>No indices excluded. All meet criteria.</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Data Provenance & Cryptographic Audit</h2>
+    <p>Cryptographic checksums and vendor tracking for all evaluated data feeds.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Index</th>
+          <th>Ticker / ID</th>
+          <th>Vendor</th>
+          <th>Source Path / Ticker</th>
+          <th>SHA256 (Local)</th>
+          <th class="num">Rows</th>
+          <th>Date Window</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>United Kingdom</td>
+          <td>FTSE 250</td>
+          <td><code>^FTMC</code></td>
+          <td><span class="badge badge-pass">yfinance</span></td>
+          <td><code>^FTMC</code></td>
+          <td><code>N/A (API)</code></td>
+          <td class="num">3786</td>
+          <td>2011-01-04 to 2025-12-30</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

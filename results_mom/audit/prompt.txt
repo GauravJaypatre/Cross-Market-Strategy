@@ -1,0 +1,1 @@
+RULE_BASED_EXTRACTOR: Absolute Momentum (12m trailing return, monthly rebalance)

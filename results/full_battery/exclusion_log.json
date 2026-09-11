@@ -1,0 +1,9 @@
+{
+  "summary_line": "150 of 150 pairs qualified, 0 excluded (late start: 0, insufficient trades: 0).",
+  "total_pairs": 150,
+  "qualified_count": 150,
+  "excluded_count": 0,
+  "late_start_count": 0,
+  "insufficient_trades_count": 0,
+  "excluded_pairs": []
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Bollinger Bands Breakout",
+  "description": "Enter a long trade when the daily bar settles past the upper volatility envelope calculated as a 20-day simple moving average plus two sample standard deviations. Exit as soon as the price falls beneath that same 20-day simple moving average. No margin or shorting.",
+  "indicators": [
+    {
+      "name": "BollingerBands",
+      "params": {
+        "period": 20,
+        "std_dev": 2.0
+      }
+    },
+    {
+      "name": "SMA",
+      "params": {
+        "period": 20
+      }
+    }
+  ],
+  "parameters": {
+    "period": 20,
+    "std_dev": 2.0
+  },
+  "entry_condition": "close > upper_band",
+  "exit_condition": "close < SMA_20",
+  "position_size": "full capital, long/flat only",
+  "no_leverage": true,
+  "no_shorting": true,
+  "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Volatility Breakout Strategy (Bollinger Bands).\n    Buy when close > upper band (period=20, std=2.0).\n    Sell when close < 20-day midline SMA.\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    sma = df['close'].rolling(window=20, min_periods=20).mean()\n    std = df['close'].rolling(window=20, min_periods=20).std()\n    upper_band = sma + (2.0 * std)\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    is_long = False\n\n    for i in range(1, len(df)):\n        c = df['close'].iloc[i]\n        ub = upper_band.iloc[i]\n        mid = sma.iloc[i]\n\n        if pd.isna(ub) or pd.isna(mid):\n            continue\n\n        if not is_long and c > ub:\n            is_long = True\n        elif is_long and c < mid:\n            is_long = False\n\n        if is_long:\n            signal.iloc[i] = 1\n\n    return signal\n"
+}

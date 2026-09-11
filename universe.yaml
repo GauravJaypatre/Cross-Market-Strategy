@@ -1,0 +1,135 @@
+# Fixed Universe Configuration
+# Top 15 Economies (IMF World Economic Outlook, October 2024 Database)
+# Up to 3 liquid indices per country, with sanctioned Russia (#9) substituted by next-ranked Indonesia (#16).
+# Read dynamically from this file — never hardcoded in logic.
+
+indices:
+  # 1. United States (USD) - IMF Rank 1
+  - country: "United States"
+    index_name: "S&P 500"
+    data_source_id: "^GSPC"
+    currency: "USD"
+  - country: "United States"
+    index_name: "Nasdaq Composite"
+    data_source_id: "^IXIC"
+    currency: "USD"
+  - country: "United States"
+    index_name: "Dow Jones Industrial Average"
+    data_source_id: "^DJI"
+    currency: "USD"
+
+  # 2. China (CNY) - IMF Rank 2 (Mainland A-Share Instruments Only)
+  - country: "China"
+    index_name: "Shanghai Composite"
+    data_source_id: "000001.SS"
+    currency: "CNY"
+  - country: "China"
+    index_name: "Shenzhen Component"
+    data_source_id: "399001.SZ"
+    currency: "CNY"
+
+  # 3. Germany (EUR) - IMF Rank 3
+  - country: "Germany"
+    index_name: "DAX 40"
+    data_source_id: "^GDAXI"
+    currency: "EUR"
+  - country: "Germany"
+    index_name: "MDAX"
+    data_source_id: "^MDAXI"
+    currency: "EUR"
+  - country: "Germany"
+    index_name: "TecDAX"
+    data_source_id: "^TECDAX"
+    currency: "EUR"
+
+  # 4. Japan (JPY) - IMF Rank 4
+  - country: "Japan"
+    index_name: "Nikkei 225"
+    data_source_id: "^N225"
+    currency: "JPY"
+
+  # 5. India (INR) - IMF Rank 5
+  - country: "India"
+    index_name: "Nifty 50"
+    data_source_id: "^NSEI"
+    currency: "INR"
+  - country: "India"
+    index_name: "BSE Sensex"
+    data_source_id: "^BSESN"
+    currency: "INR"
+  - country: "India"
+    index_name: "Nifty Bank"
+    data_source_id: "^NSEBANK"
+    currency: "INR"
+
+  # 6. United Kingdom (GBP) - IMF Rank 6
+  - country: "United Kingdom"
+    index_name: "FTSE 100"
+    data_source_id: "^FTSE"
+    currency: "GBP"
+  - country: "United Kingdom"
+    index_name: "FTSE 250"
+    data_source_id: "^FTMC"
+    currency: "GBP"
+
+  # 7. France (EUR) - IMF Rank 7
+  - country: "France"
+    index_name: "CAC 40"
+    data_source_id: "^FCHI"
+    currency: "EUR"
+
+  # 8. Italy (EUR) - IMF Rank 8
+  - country: "Italy"
+    index_name: "FTSE MIB"
+    data_source_id: "FTSEMIB.MI"
+    currency: "EUR"
+
+  # 9. Indonesia (IDR) - IMF Rank 16 (Official substitute for sanctioned Russia #9)
+  - country: "Indonesia"
+    index_name: "Jakarta Composite Index"
+    data_source_id: "^JKSE"
+    currency: "IDR"
+
+  # 10. Canada (CAD) - IMF Rank 10
+  - country: "Canada"
+    index_name: "S&P/TSX Composite"
+    data_source_id: "^GSPTSE"
+    currency: "CAD"
+
+  # 11. Brazil (BRL) - IMF Rank 11
+  - country: "Brazil"
+    index_name: "Ibovespa"
+    data_source_id: "^BVSP"
+    currency: "BRL"
+
+  # 12. South Korea (KRW) - IMF Rank 12
+  - country: "South Korea"
+    index_name: "KOSPI"
+    data_source_id: "^KS11"
+    currency: "KRW"
+  - country: "South Korea"
+    index_name: "KOSDAQ"
+    data_source_id: "^KQ11"
+    currency: "KRW"
+
+  # 13. Australia (AUD) - IMF Rank 13
+  - country: "Australia"
+    index_name: "ASX 200"
+    data_source_id: "^AXJO"
+    currency: "AUD"
+  - country: "Australia"
+    index_name: "All Ordinaries"
+    data_source_id: "^AORD"
+    currency: "AUD"
+
+  # 14. Mexico (MXN) - IMF Rank 14
+  - country: "Mexico"
+    index_name: "IPC Mexico"
+    data_source_id: "^MXX"
+    currency: "MXN"
+
+  # 15. Spain (EUR) - IMF Rank 15
+  - country: "Spain"
+    index_name: "IBEX 35"
+    data_source_id: "^IBEX"
+    currency: "EUR"

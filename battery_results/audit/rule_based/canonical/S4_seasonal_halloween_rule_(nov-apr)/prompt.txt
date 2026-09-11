@@ -1,0 +1,1 @@
+RULE_BASED_EXTRACTOR: Calendar Effect (Nov 1 - Apr 30)

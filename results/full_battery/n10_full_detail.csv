@@ -1,0 +1,251 @@
+strategy,country,index,track,CAGR,MaxDD,Calmar,Sharpe,n_trades,bootstrap_ci_low,bootstrap_ci_high
+14-Day RSI Oscillator,United States,S&P 500,Gross,0.079144,-0.288374,0.27445,0.627321,38,0.037311,0.116224
+14-Day RSI Oscillator,United States,S&P 500,Net-Tax,0.060774,-0.352336,0.172489,0.441324,38,0.017969,0.086957
+14-Day RSI Oscillator,United States,S&P 500,Net-Discount,0.060578,-0.353266,0.17148,0.439468,38,0.01952,0.087085
+14-Day RSI Oscillator,United States,S&P 500,Net-Full-Service,0.054909,-0.376453,0.14586,0.391813,38,0.009113,0.075998
+14-Day RSI Oscillator,United States,S&P 500,Buy-and-Hold,0.109658,-0.339263,0.323223,0.681481,1,0.109658,0.109658
+14-Day RSI Oscillator,United States,Nasdaq Composite,Gross,0.068147,-0.251108,0.271385,0.501143,36,0.026135,0.108834
+14-Day RSI Oscillator,United States,Nasdaq Composite,Net-Tax,0.049378,-0.31251,0.158005,0.350112,36,0.010558,0.07942
+14-Day RSI Oscillator,United States,Nasdaq Composite,Net-Discount,0.049179,-0.313378,0.156934,0.348691,36,0.006869,0.076306
+14-Day RSI Oscillator,United States,Nasdaq Composite,Net-Full-Service,0.042896,-0.341565,0.125585,0.308594,36,0.00149,0.070734
+14-Day RSI Oscillator,United States,Nasdaq Composite,Buy-and-Hold,0.144335,-0.363959,0.396568,0.752144,1,0.144335,0.144335
+14-Day RSI Oscillator,United States,Dow Jones Industrial Average,Gross,0.067058,-0.316202,0.212074,0.558506,42,0.028587,0.099384
+14-Day RSI Oscillator,United States,Dow Jones Industrial Average,Net-Tax,0.051419,-0.368778,0.13943,0.40521,42,0.017307,0.075171
+14-Day RSI Oscillator,United States,Dow Jones Industrial Average,Net-Discount,0.051208,-0.370142,0.138348,0.403132,42,0.014041,0.073096
+14-Day RSI Oscillator,United States,Dow Jones Industrial Average,Net-Full-Service,0.044022,-0.408196,0.107845,0.342445,42,0.006495,0.065774
+14-Day RSI Oscillator,United States,Dow Jones Industrial Average,Buy-and-Hold,0.090645,-0.370878,0.244406,0.599296,1,0.090645,0.090645
+14-Day RSI Oscillator,China,Shanghai Composite,Gross,0.010913,-0.387113,0.02819,0.150973,45,-0.045143,0.062432
+14-Day RSI Oscillator,China,Shanghai Composite,Net-Tax,0.010913,-0.387113,0.02819,0.150973,45,-0.046692,0.059558
+14-Day RSI Oscillator,China,Shanghai Composite,Net-Discount,0.004997,-0.416037,0.012011,0.108925,45,-0.048544,0.055115
+14-Day RSI Oscillator,China,Shanghai Composite,Net-Full-Service,0.004352,-0.417239,0.010431,0.104456,45,-0.049851,0.055112
+14-Day RSI Oscillator,China,Shanghai Composite,Buy-and-Hold,0.022187,-0.523355,0.042394,0.214718,1,0.022187,0.022187
+14-Day RSI Oscillator,China,Shenzhen Component,Gross,-0.013678,-0.488924,-0.027975,-5.9e-05,40,-0.084478,0.053531
+14-Day RSI Oscillator,China,Shenzhen Component,Net-Tax,-0.013678,-0.488924,-0.027975,-5.9e-05,40,-0.08804,0.051659
+14-Day RSI Oscillator,China,Shenzhen Component,Net-Discount,-0.020564,-0.512688,-0.040109,-0.032086,40,-0.090484,0.045433
+14-Day RSI Oscillator,China,Shenzhen Component,Net-Full-Service,-0.021244,-0.513644,-0.04136,-0.035607,40,-0.089827,0.043766
+14-Day RSI Oscillator,China,Shenzhen Component,Buy-and-Hold,0.004478,-0.60881,0.007355,0.142408,1,0.004478,0.004478
+14-Day RSI Oscillator,Germany,DAX 40,Gross,0.052342,-0.344252,0.152045,0.434669,41,-0.002374,0.103914
+14-Day RSI Oscillator,Germany,DAX 40,Net-Tax,0.036206,-0.398823,0.090782,0.302229,41,-0.020393,0.077838
+14-Day RSI Oscillator,Germany,DAX 40,Net-Discount,0.036089,-0.399588,0.090316,0.301276,41,-0.017523,0.073458
+14-Day RSI Oscillator,Germany,DAX 40,Net-Full-Service,0.034187,-0.40824,0.083741,0.287279,41,-0.021392,0.073157
+14-Day RSI Oscillator,Germany,DAX 40,Buy-and-Hold,0.072255,-0.387805,0.186318,0.447245,1,0.072255,0.072255
+14-Day RSI Oscillator,Germany,MDAX,Gross,0.060641,-0.389654,0.155628,0.498646,44,0.003707,0.117726
+14-Day RSI Oscillator,Germany,MDAX,Net-Tax,0.037814,-0.477952,0.079117,0.305337,44,-0.022613,0.082391
+14-Day RSI Oscillator,Germany,MDAX,Net-Discount,0.03769,-0.478611,0.078748,0.304409,44,-0.01847,0.082423
+14-Day RSI Oscillator,Germany,MDAX,Net-Full-Service,0.035692,-0.485921,0.073452,0.290692,44,-0.018011,0.078078
+14-Day RSI Oscillator,Germany,MDAX,Buy-and-Hold,0.062381,-0.399299,0.156225,0.409792,1,0.062381,0.062381
+14-Day RSI Oscillator,Germany,TecDAX,Gross,0.07763,-0.314205,0.247068,0.612503,39,0.016072,0.133118
+14-Day RSI Oscillator,Germany,TecDAX,Net-Tax,0.059109,-0.314205,0.188123,0.435146,39,-0.00407,0.096483
+14-Day RSI Oscillator,Germany,TecDAX,Net-Discount,0.059036,-0.314223,0.187879,0.434432,39,0.00088,0.093108
+14-Day RSI Oscillator,Germany,TecDAX,Net-Full-Service,0.0577,-0.31487,0.183251,0.423341,39,-0.005518,0.094938
+14-Day RSI Oscillator,Germany,TecDAX,Buy-and-Hold,0.084311,-0.346007,0.243668,0.497103,1,0.084311,0.084311
+14-Day RSI Oscillator,Japan,Nikkei 225,Gross,0.056887,-0.310103,0.183446,0.445186,38,0.013077,0.100503
+14-Day RSI Oscillator,Japan,Nikkei 225,Net-Tax,0.044426,-0.378261,0.117449,0.345004,38,-0.00053,0.081142
+14-Day RSI Oscillator,Japan,Nikkei 225,Net-Discount,0.041768,-0.402467,0.103781,0.324844,38,-0.004654,0.077393
+14-Day RSI Oscillator,Japan,Nikkei 225,Net-Full-Service,0.0,-1.0,0.0,0.0,38,-0.104354,-0.031504
+14-Day RSI Oscillator,Japan,Nikkei 225,Buy-and-Hold,0.098063,-0.318137,0.308241,0.553056,1,0.098063,0.098063
+14-Day RSI Oscillator,India,Nifty 50,Gross,0.028001,-0.379155,0.07385,0.29198,37,-0.018606,0.067813
+14-Day RSI Oscillator,India,Nifty 50,Net-Tax,0.022845,-0.416482,0.054851,0.242407,37,-0.023016,0.058173
+14-Day RSI Oscillator,India,Nifty 50,Net-Discount,0.016873,-0.450915,0.037419,0.193861,37,-0.030991,0.051665
+14-Day RSI Oscillator,India,Nifty 50,Net-Full-Service,-0.007912,-0.586949,-0.01348,0.041491,37,-0.046539,0.032699
+14-Day RSI Oscillator,India,Nifty 50,Buy-and-Hold,0.096294,-0.384636,0.250352,0.652216,1,0.096294,0.096294
+14-Day RSI Oscillator,India,BSE Sensex,Gross,0.040062,-0.374939,0.106848,0.388612,36,-0.00487,0.080552
+14-Day RSI Oscillator,India,BSE Sensex,Net-Tax,0.036081,-0.399961,0.090211,0.343672,36,-0.013387,0.07253
+14-Day RSI Oscillator,India,BSE Sensex,Net-Discount,0.031005,-0.421053,0.073637,0.297673,36,-0.012902,0.068353
+14-Day RSI Oscillator,India,BSE Sensex,Net-Full-Service,0.01047,-0.534389,0.019592,0.148513,36,-0.033536,0.049164
+14-Day RSI Oscillator,India,BSE Sensex,Buy-and-Hold,0.094757,-0.380932,0.248751,0.643743,1,0.094757,0.094757
+14-Day RSI Oscillator,India,Nifty Bank,Gross,0.01743,-0.462811,0.037661,0.190214,41,-0.043308,0.071987
+14-Day RSI Oscillator,India,Nifty Bank,Net-Tax,0.01295,-0.493477,0.026242,0.163803,41,-0.050667,0.065916
+14-Day RSI Oscillator,India,Nifty Bank,Net-Discount,0.006569,-0.519687,0.012641,0.130796,41,-0.054903,0.057717
+14-Day RSI Oscillator,India,Nifty Bank,Net-Full-Service,-0.019027,-0.657197,-0.028952,0.042843,41,-0.078799,0.03754
+14-Day RSI Oscillator,India,Nifty Bank,Buy-and-Hold,0.10794,-0.478773,0.225452,0.572157,1,0.10794,0.10794
+14-Day RSI Oscillator,United Kingdom,FTSE 100,Gross,0.086519,-0.337187,0.256592,0.740083,51,0.047551,0.122459
+14-Day RSI Oscillator,United Kingdom,FTSE 100,Net-Tax,0.084278,-0.337187,0.249945,0.721088,51,0.046888,0.11754
+14-Day RSI Oscillator,United Kingdom,FTSE 100,Net-Discount,0.057923,-0.440636,0.131453,0.433007,51,0.007983,0.082869
+14-Day RSI Oscillator,United Kingdom,FTSE 100,Net-Full-Service,0.013389,-0.686329,0.019508,0.184434,51,-0.024684,0.041855
+14-Day RSI Oscillator,United Kingdom,FTSE 100,Buy-and-Hold,0.027097,-0.367451,0.073744,0.249547,1,0.027097,0.027097
+14-Day RSI Oscillator,United Kingdom,FTSE 250,Gross,0.027472,-0.393814,0.069759,0.280731,44,-0.026953,0.077663
+14-Day RSI Oscillator,United Kingdom,FTSE 250,Net-Tax,0.026668,-0.393814,0.067717,0.274187,44,-0.036706,0.076902
+14-Day RSI Oscillator,United Kingdom,FTSE 250,Net-Discount,-0.006344,-0.533299,-0.011897,0.045037,44,-0.05098,0.042723
+14-Day RSI Oscillator,United Kingdom,FTSE 250,Net-Full-Service,-0.076846,-0.867604,-0.088572,-0.057158,44,-0.087595,0.009855
+14-Day RSI Oscillator,United Kingdom,FTSE 250,Buy-and-Hold,0.036043,-0.420804,0.085652,0.298942,1,0.036043,0.036043
+14-Day RSI Oscillator,France,CAC 40,Gross,0.048622,-0.339466,0.143232,0.4018,42,-0.010758,0.109807
+14-Day RSI Oscillator,France,CAC 40,Net-Tax,0.018923,-0.458798,0.041245,0.193081,42,-0.037676,0.059839
+14-Day RSI Oscillator,France,CAC 40,Net-Discount,7.3e-05,-0.523128,0.000139,0.110249,42,-0.052744,0.046136
+14-Day RSI Oscillator,France,CAC 40,Net-Full-Service,-0.062889,-0.799991,-0.078612,0.030816,42,-0.075376,0.017597
+14-Day RSI Oscillator,France,CAC 40,Buy-and-Hold,0.038251,-0.385589,0.099202,0.287655,1,0.038251,0.038251
+14-Day RSI Oscillator,Italy,FTSE MIB,Gross,0.07412,-0.375046,0.197629,0.486103,47,-0.012846,0.158185
+14-Day RSI Oscillator,Italy,FTSE MIB,Net-Tax,0.051052,-0.440687,0.115846,0.337729,47,-0.039978,0.109157
+14-Day RSI Oscillator,Italy,FTSE MIB,Net-Discount,0.046275,-0.471403,0.098165,0.313383,47,-0.035744,0.104855
+14-Day RSI Oscillator,Italy,FTSE MIB,Net-Full-Service,0.03292,-0.561541,0.058624,0.25719,47,-0.050501,0.084499
+14-Day RSI Oscillator,Italy,FTSE MIB,Buy-and-Hold,0.042996,-0.466626,0.092141,0.296917,1,0.042996,0.042996
+14-Day RSI Oscillator,Indonesia,Jakarta Composite Index,Gross,0.011,-0.376658,0.029205,0.154677,31,-0.043149,0.05418
+14-Day RSI Oscillator,Indonesia,Jakarta Composite Index,Net-Tax,0.011,-0.376658,0.029205,0.154677,31,-0.03711,0.054771
+14-Day RSI Oscillator,Indonesia,Jakarta Composite Index,Net-Discount,-0.002129,-0.459226,-0.004636,0.050341,31,-0.050186,0.04119
+14-Day RSI Oscillator,Indonesia,Jakarta Composite Index,Net-Full-Service,-0.005284,-0.479355,-0.011024,0.02845,31,-0.053258,0.039486
+14-Day RSI Oscillator,Indonesia,Jakarta Composite Index,Buy-and-Hold,0.057646,-0.412062,0.139896,0.436297,1,0.057646,0.057646
+14-Day RSI Oscillator,Canada,S&P/TSX Composite,Gross,0.040648,-0.352197,0.115413,0.402494,40,0.002879,0.077115
+14-Day RSI Oscillator,Canada,S&P/TSX Composite,Net-Tax,0.031993,-0.395071,0.08098,0.314669,40,-0.007504,0.059318
+14-Day RSI Oscillator,Canada,S&P/TSX Composite,Net-Discount,0.031822,-0.396255,0.080308,0.312984,40,-0.006514,0.060159
+14-Day RSI Oscillator,Canada,S&P/TSX Composite,Net-Full-Service,0.011959,-0.523086,0.022863,0.155263,40,-0.027725,0.039516
+14-Day RSI Oscillator,Canada,S&P/TSX Composite,Buy-and-Hold,0.052466,-0.374265,0.140183,0.422731,1,0.052466,0.052466
+14-Day RSI Oscillator,Brazil,Ibovespa,Gross,0.027875,-0.407129,0.068468,0.244247,40,-0.035258,0.090222
+14-Day RSI Oscillator,Brazil,Ibovespa,Net-Tax,0.027875,-0.407129,0.068468,0.244247,40,-0.038695,0.091807
+14-Day RSI Oscillator,Brazil,Ibovespa,Net-Discount,0.02657,-0.412503,0.064411,0.236668,40,-0.038195,0.09056
+14-Day RSI Oscillator,Brazil,Ibovespa,Net-Full-Service,0.003728,-0.508394,0.007333,0.133231,40,-0.060463,0.058341
+14-Day RSI Oscillator,Brazil,Ibovespa,Buy-and-Hold,0.051922,-0.476713,0.108916,0.337729,1,0.051922,0.051922
+14-Day RSI Oscillator,South Korea,KOSPI,Gross,0.025635,-0.300979,0.085173,0.266575,43,-0.013976,0.064209
+14-Day RSI Oscillator,South Korea,KOSPI,Net-Tax,0.025635,-0.300979,0.085173,0.266575,43,-0.011927,0.062537
+14-Day RSI Oscillator,South Korea,KOSPI,Net-Discount,0.009053,-0.364429,0.024843,0.136868,43,-0.031122,0.047813
+14-Day RSI Oscillator,South Korea,KOSPI,Net-Full-Service,-0.033266,-0.630504,-0.052761,-0.027674,43,-0.053761,0.017128
+14-Day RSI Oscillator,South Korea,KOSPI,Buy-and-Hold,0.048562,-0.44008,0.110349,0.367513,1,0.048562,0.048562
+14-Day RSI Oscillator,South Korea,KOSDAQ,Gross,0.034323,-0.427335,0.080319,0.295001,45,-0.007248,0.076439
+14-Day RSI Oscillator,South Korea,KOSDAQ,Net-Tax,0.034323,-0.427335,0.080319,0.295001,45,-0.004872,0.079619
+14-Day RSI Oscillator,South Korea,KOSDAQ,Net-Discount,0.018938,-0.498697,0.037975,0.197132,45,-0.027258,0.05945
+14-Day RSI Oscillator,South Korea,KOSDAQ,Net-Full-Service,-0.021821,-0.661557,-0.032984,0.057878,45,-0.053148,0.032523
+14-Day RSI Oscillator,South Korea,KOSDAQ,Buy-and-Hold,0.039449,-0.538887,0.073204,0.290485,1,0.039449,0.039449
+14-Day RSI Oscillator,Australia,ASX 200,Gross,0.047603,-0.323895,0.14697,0.466727,42,0.006257,0.085736
+14-Day RSI Oscillator,Australia,ASX 200,Net-Tax,0.026811,-0.401174,0.066831,0.263041,42,-0.015965,0.052391
+14-Day RSI Oscillator,Australia,ASX 200,Net-Discount,0.026484,-0.403136,0.065694,0.260198,42,-0.01411,0.052987
+14-Day RSI Oscillator,Australia,ASX 200,Net-Full-Service,0.000214,-0.511354,0.000419,0.088402,42,-0.038473,0.029738
+14-Day RSI Oscillator,Australia,ASX 200,Buy-and-Hold,0.036563,-0.365332,0.100083,0.315013,1,0.036563,0.036563
+14-Day RSI Oscillator,Australia,All Ordinaries,Gross,0.043117,-0.331939,0.129895,0.435296,42,0.00124,0.080718
+14-Day RSI Oscillator,Australia,All Ordinaries,Net-Tax,0.021592,-0.416243,0.051874,0.225785,42,-0.018982,0.051768
+14-Day RSI Oscillator,Australia,All Ordinaries,Net-Discount,0.021225,-0.418163,0.050759,0.222763,42,-0.017522,0.050443
+14-Day RSI Oscillator,Australia,All Ordinaries,Net-Full-Service,-0.007667,-0.534942,-0.014332,0.046463,42,-0.04338,0.028968
+14-Day RSI Oscillator,Australia,All Ordinaries,Buy-and-Hold,0.03732,-0.370947,0.100606,0.322703,1,0.03732,0.03732
+14-Day RSI Oscillator,Mexico,IPC Mexico,Gross,0.048909,-0.272046,0.179782,0.475931,47,0.002956,0.095394
+14-Day RSI Oscillator,Mexico,IPC Mexico,Net-Tax,0.043435,-0.287686,0.150982,0.419851,47,-0.000604,0.083479
+14-Day RSI Oscillator,Mexico,IPC Mexico,Net-Discount,0.029178,-0.366389,0.079636,0.279397,47,-0.017709,0.063934
+14-Day RSI Oscillator,Mexico,IPC Mexico,Net-Full-Service,0.011472,-0.464178,0.024715,0.152448,47,-0.037525,0.04643
+14-Day RSI Oscillator,Mexico,IPC Mexico,Buy-and-Hold,0.031736,-0.363345,0.087344,0.278882,1,0.031736,0.031736
+14-Day RSI Oscillator,Spain,IBEX 35,Gross,0.028983,-0.354318,0.0818,0.258585,42,-0.043409,0.096963
+14-Day RSI Oscillator,Spain,IBEX 35,Net-Tax,0.014418,-0.393464,0.036643,0.16913,42,-0.049393,0.064772
+14-Day RSI Oscillator,Spain,IBEX 35,Net-Discount,0.010884,-0.39447,0.027592,0.149792,42,-0.058356,0.061923
+14-Day RSI Oscillator,Spain,IBEX 35,Net-Full-Service,-0.009098,-0.570497,-0.015947,0.066893,42,-0.075604,0.040253
+14-Day RSI Oscillator,Spain,IBEX 35,Buy-and-Hold,0.03156,-0.485345,0.065027,0.252355,1,0.03156,0.03156
+Bollinger Bands Breakout,United States,S&P 500,Gross,0.009798,-0.113785,0.086107,0.199249,56,-0.01156,0.029565
+Bollinger Bands Breakout,United States,S&P 500,Net-Tax,0.001625,-0.140534,0.01156,0.057327,56,-0.015129,0.019154
+Bollinger Bands Breakout,United States,S&P 500,Net-Discount,0.00117,-0.141739,0.008253,0.04998,56,-0.01564,0.017757
+Bollinger Bands Breakout,United States,S&P 500,Net-Full-Service,-0.019683,-0.311074,-0.063276,-0.226429,56,-0.032798,-0.000585
+Bollinger Bands Breakout,United States,S&P 500,Buy-and-Hold,0.109658,-0.339263,0.323223,0.681481,1,0.109658,0.109658
+Bollinger Bands Breakout,United States,Nasdaq Composite,Gross,0.012115,-0.203499,0.059536,0.191986,63,-0.018056,0.04834
+Bollinger Bands Breakout,United States,Nasdaq Composite,Net-Tax,0.000164,-0.237843,0.000692,0.045849,63,-0.025025,0.02972
+Bollinger Bands Breakout,United States,Nasdaq Composite,Net-Discount,-0.000416,-0.243102,-0.001711,0.039558,63,-0.026015,0.027992
+Bollinger Bands Breakout,United States,Nasdaq Composite,Net-Full-Service,-0.024931,-0.392045,-0.063593,-0.168359,63,-0.045829,0.007661
+Bollinger Bands Breakout,United States,Nasdaq Composite,Buy-and-Hold,0.144335,-0.363959,0.396568,0.752144,1,0.144335,0.144335
+Bollinger Bands Breakout,United States,Dow Jones Industrial Average,Gross,0.018713,-0.136268,0.137327,0.346468,62,-0.004794,0.04186
+Bollinger Bands Breakout,United States,Dow Jones Industrial Average,Net-Tax,0.008941,-0.165639,0.05398,0.170661,62,-0.010078,0.026916
+Bollinger Bands Breakout,United States,Dow Jones Industrial Average,Net-Discount,0.008458,-0.167543,0.050484,0.162646,62,-0.010111,0.027777
+Bollinger Bands Breakout,United States,Dow Jones Industrial Average,Net-Full-Service,-0.012356,-0.245936,-0.05024,-0.115881,62,-0.028611,0.008381
+Bollinger Bands Breakout,United States,Dow Jones Industrial Average,Buy-and-Hold,0.090645,-0.370878,0.244406,0.599296,1,0.090645,0.090645
+Bollinger Bands Breakout,China,Shanghai Composite,Gross,0.044349,-0.172577,0.25698,0.495882,58,0.000318,0.097645
+Bollinger Bands Breakout,China,Shanghai Composite,Net-Tax,0.044349,-0.172577,0.25698,0.495882,58,-0.005018,0.101919
+Bollinger Bands Breakout,China,Shanghai Composite,Net-Discount,0.036734,-0.205887,0.178418,0.404808,58,-0.009724,0.088106
+Bollinger Bands Breakout,China,Shanghai Composite,Net-Full-Service,0.035636,-0.207423,0.171802,0.393714,58,-0.011353,0.088521
+Bollinger Bands Breakout,China,Shanghai Composite,Buy-and-Hold,0.022187,-0.523355,0.042394,0.214718,1,0.022187,0.022187
+Bollinger Bands Breakout,China,Shenzhen Component,Gross,0.067812,-0.208997,0.324465,0.610038,49,-0.001854,0.144231
+Bollinger Bands Breakout,China,Shenzhen Component,Net-Tax,0.067812,-0.208997,0.324465,0.610038,49,0.001927,0.15311
+Bollinger Bands Breakout,China,Shenzhen Component,Net-Discount,0.062391,-0.238041,0.262102,0.546481,49,-0.004056,0.138042
+Bollinger Bands Breakout,China,Shenzhen Component,Net-Full-Service,0.061697,-0.239267,0.257859,0.540111,49,-0.008676,0.136523
+Bollinger Bands Breakout,China,Shenzhen Component,Buy-and-Hold,0.004478,-0.60881,0.007355,0.142408,1,0.004478,0.004478
+Bollinger Bands Breakout,Germany,DAX 40,Gross,0.018005,-0.151923,0.118513,0.269273,61,-0.018843,0.060888
+Bollinger Bands Breakout,Germany,DAX 40,Net-Tax,0.004977,-0.231685,0.021482,0.100791,61,-0.02747,0.036814
+Bollinger Bands Breakout,Germany,DAX 40,Net-Discount,0.004678,-0.234138,0.01998,0.097226,61,-0.025159,0.037154
+Bollinger Bands Breakout,Germany,DAX 40,Net-Full-Service,0.000278,-0.266615,0.001044,0.046746,61,-0.03219,0.034197
+Bollinger Bands Breakout,Germany,DAX 40,Buy-and-Hold,0.072255,-0.387805,0.186318,0.447245,1,0.072255,0.072255
+Bollinger Bands Breakout,Germany,MDAX,Gross,0.028409,-0.145795,0.194853,0.408876,57,-0.008808,0.073732
+Bollinger Bands Breakout,Germany,MDAX,Net-Tax,0.01459,-0.221185,0.065961,0.209963,57,-0.016849,0.049394
+Bollinger Bands Breakout,Germany,MDAX,Net-Discount,0.014354,-0.223206,0.064306,0.206959,57,-0.01612,0.048001
+Bollinger Bands Breakout,Germany,MDAX,Net-Full-Service,0.010771,-0.246615,0.043674,0.16372,57,-0.02048,0.045048
+Bollinger Bands Breakout,Germany,MDAX,Buy-and-Hold,0.062381,-0.399299,0.156225,0.409792,1,0.062381,0.062381
+Bollinger Bands Breakout,Germany,TecDAX,Gross,0.003374,-0.211728,0.015937,0.082176,62,-0.028395,0.04301
+Bollinger Bands Breakout,Germany,TecDAX,Net-Tax,-0.010097,-0.223391,-0.045199,-0.078737,62,-0.040203,0.024134
+Bollinger Bands Breakout,Germany,TecDAX,Net-Discount,-0.010468,-0.225691,-0.046384,-0.082551,62,-0.041629,0.024402
+Bollinger Bands Breakout,Germany,TecDAX,Net-Full-Service,-0.016052,-0.250611,-0.064052,-0.139271,62,-0.043525,0.017478
+Bollinger Bands Breakout,Germany,TecDAX,Buy-and-Hold,0.084311,-0.346007,0.243668,0.497103,1,0.084311,0.084311
+Bollinger Bands Breakout,Japan,Nikkei 225,Gross,0.034412,-0.20958,0.164197,0.422316,62,-0.010502,0.078922
+Bollinger Bands Breakout,Japan,Nikkei 225,Net-Tax,0.022459,-0.236857,0.094821,0.276572,62,-0.015248,0.05889
+Bollinger Bands Breakout,Japan,Nikkei 225,Net-Discount,0.016583,-0.28197,0.058811,0.211133,62,-0.023915,0.054872
+Bollinger Bands Breakout,Japan,Nikkei 225,Net-Full-Service,0.0,-1.0,0.0,0.0,62,-0.209613,-0.148261
+Bollinger Bands Breakout,Japan,Nikkei 225,Buy-and-Hold,0.098063,-0.318137,0.308241,0.553056,1,0.098063,0.098063
+Bollinger Bands Breakout,India,Nifty 50,Gross,0.031105,-0.238153,0.13061,0.495272,55,-0.009157,0.072769
+Bollinger Bands Breakout,India,Nifty 50,Net-Tax,0.027562,-0.247641,0.111297,0.428234,55,-0.011745,0.067992
+Bollinger Bands Breakout,India,Nifty 50,Net-Discount,0.018852,-0.285656,0.065994,0.292212,55,-0.021337,0.060398
+Bollinger Bands Breakout,India,Nifty 50,Net-Full-Service,-0.022356,-0.477126,-0.046855,-0.184116,55,-0.050524,0.028813
+Bollinger Bands Breakout,India,Nifty 50,Buy-and-Hold,0.096294,-0.384636,0.250352,0.652216,1,0.096294,0.096294
+Bollinger Bands Breakout,India,BSE Sensex,Gross,0.03045,-0.279662,0.108883,0.487022,56,-0.008754,0.0765
+Bollinger Bands Breakout,India,BSE Sensex,Net-Tax,0.026917,-0.290159,0.092766,0.420643,56,-0.013392,0.069416
+Bollinger Bands Breakout,India,BSE Sensex,Net-Discount,0.017597,-0.33382,0.052713,0.276397,56,-0.019606,0.060098
+Bollinger Bands Breakout,India,BSE Sensex,Net-Full-Service,-0.028442,-0.553962,-0.051343,-0.250052,56,-0.049513,0.030618
+Bollinger Bands Breakout,India,BSE Sensex,Buy-and-Hold,0.094757,-0.380932,0.248751,0.643743,1,0.094757,0.094757
+Bollinger Bands Breakout,India,Nifty Bank,Gross,0.041258,-0.252193,0.163596,0.446328,64,-0.021219,0.126551
+Bollinger Bands Breakout,India,Nifty Bank,Net-Tax,0.033684,-0.27143,0.124099,0.351875,64,-0.032071,0.110562
+Bollinger Bands Breakout,India,Nifty Bank,Net-Discount,0.022886,-0.305397,0.074939,0.249559,64,-0.036842,0.094877
+Bollinger Bands Breakout,India,Nifty Bank,Net-Full-Service,-0.036758,-0.667702,-0.055052,-0.12502,64,-0.070272,0.061133
+Bollinger Bands Breakout,India,Nifty Bank,Buy-and-Hold,0.10794,-0.478773,0.225452,0.572157,1,0.10794,0.10794
+Bollinger Bands Breakout,United Kingdom,FTSE 100,Gross,-0.013996,-0.267802,-0.052261,-0.260483,57,-0.033991,0.006606
+Bollinger Bands Breakout,United Kingdom,FTSE 100,Net-Tax,-0.013996,-0.267802,-0.052261,-0.260483,57,-0.034764,0.007596
+Bollinger Bands Breakout,United Kingdom,FTSE 100,Net-Discount,-0.076777,-0.703855,-0.109081,-0.916397,57,-0.071566,-0.033361
+Bollinger Bands Breakout,United Kingdom,FTSE 100,Net-Full-Service,0.0,-1.0,0.0,0.0,57,-0.108829,-0.070197
+Bollinger Bands Breakout,United Kingdom,FTSE 100,Buy-and-Hold,0.027097,-0.367451,0.073744,0.249547,1,0.027097,0.027097
+Bollinger Bands Breakout,United Kingdom,FTSE 250,Gross,0.000888,-0.163605,0.005428,0.044526,65,-0.02231,0.027744
+Bollinger Bands Breakout,United Kingdom,FTSE 250,Net-Tax,0.000888,-0.163605,0.005428,0.044526,65,-0.021987,0.02624
+Bollinger Bands Breakout,United Kingdom,FTSE 250,Net-Discount,-0.078382,-0.733683,-0.106834,-0.753059,65,-0.063671,-0.018119
+Bollinger Bands Breakout,United Kingdom,FTSE 250,Net-Full-Service,0.0,-1.0,0.0,0.0,65,-0.106387,-0.062318
+Bollinger Bands Breakout,United Kingdom,FTSE 250,Buy-and-Hold,0.036043,-0.420804,0.085652,0.298942,1,0.036043,0.036043
+Bollinger Bands Breakout,France,CAC 40,Gross,0.014234,-0.132406,0.107504,0.232172,53,-0.016632,0.0494
+Bollinger Bands Breakout,France,CAC 40,Net-Tax,-0.005165,-0.186236,-0.027736,-0.020053,53,-0.030422,0.02143
+Bollinger Bands Breakout,France,CAC 40,Net-Discount,-0.028996,-0.360766,-0.080373,-0.253962,53,-0.045102,0.002516
+Bollinger Bands Breakout,France,CAC 40,Net-Full-Service,-0.152924,-0.917019,-0.166762,-0.632815,53,-0.078461,-0.03161
+Bollinger Bands Breakout,France,CAC 40,Buy-and-Hold,0.038251,-0.385589,0.099202,0.287655,1,0.038251,0.038251
+Bollinger Bands Breakout,Italy,FTSE MIB,Gross,-0.000383,-0.301409,-0.001272,0.038111,61,-0.042357,0.049342
+Bollinger Bands Breakout,Italy,FTSE MIB,Net-Tax,-0.019504,-0.326676,-0.059704,-0.158052,61,-0.051899,0.023384
+Bollinger Bands Breakout,Italy,FTSE MIB,Net-Discount,-0.029651,-0.411893,-0.071988,-0.247498,61,-0.058837,0.015716
+Bollinger Bands Breakout,Italy,FTSE MIB,Net-Full-Service,-0.064251,-0.661747,-0.097093,-0.471106,61,-0.076761,-0.009073
+Bollinger Bands Breakout,Italy,FTSE MIB,Buy-and-Hold,0.042996,-0.466626,0.092141,0.296917,1,0.042996,0.042996
+Bollinger Bands Breakout,Indonesia,Jakarta Composite Index,Gross,0.000505,-0.234163,0.002158,0.044209,68,-0.032459,0.039973
+Bollinger Bands Breakout,Indonesia,Jakarta Composite Index,Net-Tax,0.000505,-0.234163,0.002158,0.044209,68,-0.031531,0.041313
+Bollinger Bands Breakout,Indonesia,Jakarta Composite Index,Net-Discount,-0.032026,-0.465719,-0.068766,-0.301338,68,-0.0619,0.013199
+Bollinger Bands Breakout,Indonesia,Jakarta Composite Index,Net-Full-Service,-0.041522,-0.523133,-0.079371,-0.368203,68,-0.065505,0.00358
+Bollinger Bands Breakout,Indonesia,Jakarta Composite Index,Buy-and-Hold,0.057646,-0.412062,0.139896,0.436297,1,0.057646,0.057646
+Bollinger Bands Breakout,Canada,S&P/TSX Composite,Gross,0.005507,-0.124873,0.044102,0.144283,60,-0.012781,0.025916
+Bollinger Bands Breakout,Canada,S&P/TSX Composite,Net-Tax,0.000485,-0.143278,0.003385,0.033962,60,-0.016791,0.017863
+Bollinger Bands Breakout,Canada,S&P/TSX Composite,Net-Discount,9e-05,-0.145478,0.00062,0.025635,60,-0.017183,0.018761
+Bollinger Bands Breakout,Canada,S&P/TSX Composite,Net-Full-Service,-0.040086,-0.519319,-0.077189,-0.544515,60,-0.047693,-0.014322
+Bollinger Bands Breakout,Canada,S&P/TSX Composite,Buy-and-Hold,0.052466,-0.374265,0.140183,0.422731,1,0.052466,0.052466
+Bollinger Bands Breakout,Brazil,Ibovespa,Gross,0.027465,-0.33226,0.082662,0.323672,57,-0.023417,0.082843
+Bollinger Bands Breakout,Brazil,Ibovespa,Net-Tax,0.027465,-0.33226,0.082662,0.323672,57,-0.020705,0.081514
+Bollinger Bands Breakout,Brazil,Ibovespa,Net-Discount,0.025601,-0.345176,0.074167,0.302055,57,-0.024802,0.069858
+Bollinger Bands Breakout,Brazil,Ibovespa,Net-Full-Service,-0.009853,-0.508283,-0.019384,-0.006609,57,-0.059926,0.038085
+Bollinger Bands Breakout,Brazil,Ibovespa,Buy-and-Hold,0.051922,-0.476713,0.108916,0.337729,1,0.051922,0.051922
+Bollinger Bands Breakout,South Korea,KOSPI,Gross,0.043497,-0.136584,0.318463,0.642963,53,-0.001452,0.095507
+Bollinger Bands Breakout,South Korea,KOSPI,Net-Tax,0.043497,-0.136584,0.318463,0.642963,53,-0.001179,0.101887
+Bollinger Bands Breakout,South Korea,KOSPI,Net-Discount,0.030033,-0.282929,0.106152,0.39018,53,-0.02187,0.078333
+Bollinger Bands Breakout,South Korea,KOSPI,Net-Full-Service,-0.002138,-0.619061,-0.003454,0.060654,53,-0.054085,0.043481
+Bollinger Bands Breakout,South Korea,KOSPI,Buy-and-Hold,0.048562,-0.44008,0.110349,0.367513,1,0.048562,0.048562
+Bollinger Bands Breakout,South Korea,KOSDAQ,Gross,0.025108,-0.147102,0.170682,0.358693,40,-0.007327,0.063773
+Bollinger Bands Breakout,South Korea,KOSDAQ,Net-Tax,0.025108,-0.147102,0.170682,0.358693,40,-0.009228,0.065176
+Bollinger Bands Breakout,South Korea,KOSDAQ,Net-Discount,0.010616,-0.230923,0.04597,0.166094,40,-0.023298,0.04951
+Bollinger Bands Breakout,South Korea,KOSDAQ,Net-Full-Service,-0.027296,-0.470982,-0.057956,-0.183356,40,-0.050609,0.022767
+Bollinger Bands Breakout,South Korea,KOSDAQ,Buy-and-Hold,0.039449,-0.538887,0.073204,0.290485,1,0.039449,0.039449
+Bollinger Bands Breakout,Australia,ASX 200,Gross,0.001767,-0.139561,0.012664,0.059563,66,-0.020245,0.024826
+Bollinger Bands Breakout,Australia,ASX 200,Net-Tax,-0.01186,-0.234851,-0.0505,-0.161958,66,-0.02807,0.00678
+Bollinger Bands Breakout,Australia,ASX 200,Net-Discount,-0.012768,-0.240972,-0.052985,-0.174934,66,-0.028978,0.008206
+Bollinger Bands Breakout,Australia,ASX 200,Net-Full-Service,-0.074799,-0.693327,-0.107884,-0.734047,66,-0.061323,-0.025787
+Bollinger Bands Breakout,Australia,ASX 200,Buy-and-Hold,0.036563,-0.365332,0.100083,0.315013,1,0.036563,0.036563
+Bollinger Bands Breakout,Australia,All Ordinaries,Gross,0.005222,-0.135208,0.038621,0.126869,65,-0.016173,0.02635
+Bollinger Bands Breakout,Australia,All Ordinaries,Net-Tax,-0.008247,-0.227399,-0.036268,-0.11229,65,-0.024224,0.012015
+Bollinger Bands Breakout,Australia,All Ordinaries,Net-Discount,-0.009093,-0.233162,-0.038999,-0.125439,65,-0.025222,0.010891
+Bollinger Bands Breakout,Australia,All Ordinaries,Net-Full-Service,-0.068439,-0.65942,-0.103787,-0.705219,65,-0.05593,-0.022987
+Bollinger Bands Breakout,Australia,All Ordinaries,Buy-and-Hold,0.03732,-0.370947,0.100606,0.322703,1,0.03732,0.03732
+Bollinger Bands Breakout,Mexico,IPC Mexico,Gross,-0.000198,-0.185145,-0.001069,0.032365,68,-0.027831,0.029932
+Bollinger Bands Breakout,Mexico,IPC Mexico,Net-Tax,-0.004155,-0.198731,-0.020909,-0.021991,68,-0.03148,0.023374
+Bollinger Bands Breakout,Mexico,IPC Mexico,Net-Discount,-0.038721,-0.455026,-0.085097,-0.362984,68,-0.055391,7.1e-05
+Bollinger Bands Breakout,Mexico,IPC Mexico,Net-Full-Service,-0.112548,-0.833004,-0.135111,-0.59124,68,-0.080401,-0.027787
+Bollinger Bands Breakout,Mexico,IPC Mexico,Buy-and-Hold,0.031736,-0.363345,0.087344,0.278882,1,0.031736,0.031736
+Bollinger Bands Breakout,Spain,IBEX 35,Gross,-0.004556,-0.232312,-0.019611,-0.023023,61,-0.038477,0.028215
+Bollinger Bands Breakout,Spain,IBEX 35,Net-Tax,-0.015697,-0.285773,-0.054927,-0.155283,61,-0.045656,0.017415
+Bollinger Bands Breakout,Spain,IBEX 35,Net-Discount,-0.023153,-0.320996,-0.072127,-0.24095,61,-0.050323,0.008942
+Bollinger Bands Breakout,Spain,IBEX 35,Net-Full-Service,-0.069602,-0.675937,-0.102972,-0.549709,61,-0.078625,-0.018417
+Bollinger Bands Breakout,Spain,IBEX 35,Buy-and-Hold,0.03156,-0.485345,0.065027,0.252355,1,0.03156,0.03156

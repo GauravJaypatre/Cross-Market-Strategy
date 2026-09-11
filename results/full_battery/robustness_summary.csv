@@ -1,0 +1,151 @@
+strategy,country,index,track,is_cagr,oos_cagr,degradation_ratio,mc_p95_maxdd,bootstrap_ci_low,bootstrap_ci_high,n_trades_is,n_trades_oos,guard_triggered
+12-Month Momentum (Monthly Rebalance),Australia,ASX 200,Net-Discount,0.014,-0.035,-2.4963,-0.334,-0.0402,0.0419,4,6,False
+12-Month Momentum (Monthly Rebalance),Australia,All Ordinaries,Net-Discount,0.0099,-0.0132,-1.3435,-0.2693,-0.0315,0.0473,5,6,False
+12-Month Momentum (Monthly Rebalance),Brazil,Ibovespa,Net-Discount,0.0534,-0.0389,-0.7272,-0.2957,-0.0324,0.0636,6,7,False
+12-Month Momentum (Monthly Rebalance),Canada,S&P/TSX Composite,Net-Discount,0.0202,0.0151,0.7494,-0.3047,-0.0388,0.0974,3,7,False
+12-Month Momentum (Monthly Rebalance),China,Shanghai Composite,Net-Discount,0.0137,0.0275,2.0071,-0.1755,-0.0147,0.061,4,5,False
+12-Month Momentum (Monthly Rebalance),China,Shenzhen Component,Net-Discount,-0.0222,0.0805,-3.6277,-0.1715,-0.0186,0.0884,8,2,False
+12-Month Momentum (Monthly Rebalance),France,CAC 40,Net-Discount,0.0091,-0.03,-3.3011,-0.3186,-0.0466,0.0572,4,6,False
+12-Month Momentum (Monthly Rebalance),Germany,DAX 40,Net-Discount,0.028022,0.010471,0.373678,-0.32962,-0.039175,0.13194,5,6,False
+12-Month Momentum (Monthly Rebalance),Germany,MDAX,Net-Discount,0.062565,-0.042522,-0.679641,-0.383788,-0.044948,0.142281,5,8,False
+12-Month Momentum (Monthly Rebalance),Germany,TecDAX,Net-Discount,0.117013,-0.030855,-0.263691,-0.233095,-0.020098,0.189445,3,7,False
+12-Month Momentum (Monthly Rebalance),India,BSE Sensex,Net-Discount,0.0798,0.0269,0.3367,-0.2613,-0.0141,0.1311,3,6,False
+12-Month Momentum (Monthly Rebalance),India,Nifty 50,Net-Discount,0.0749,0.0054,0.0717,-0.3061,-0.0362,0.1097,4,8,False
+12-Month Momentum (Monthly Rebalance),India,Nifty Bank,Net-Discount,0.0809,-0.0046,-0.0566,-0.382,-0.0567,0.1461,4,4,False
+12-Month Momentum (Monthly Rebalance),Indonesia,Jakarta Composite Index,Net-Discount,0.0071,0.0234,3.2809,-0.156,-0.0126,0.0568,8,5,False
+12-Month Momentum (Monthly Rebalance),Italy,FTSE MIB,Net-Discount,0.0242,0.0273,1.1283,-0.2229,-0.0328,0.1218,3,3,False
+12-Month Momentum (Monthly Rebalance),Japan,Nikkei 225,Net-Discount,0.049365,0.059203,1.19929,-0.359994,-0.025041,0.172804,5,5,False
+12-Month Momentum (Monthly Rebalance),Mexico,IPC Mexico,Net-Discount,0.0142,-0.0267,-1.8811,-0.2168,-0.023,0.0315,6,9,False
+12-Month Momentum (Monthly Rebalance),South Korea,KOSDAQ,Net-Discount,-0.0118,0.0414,-3.5209,-0.2538,-0.022,0.0643,10,4,False
+12-Month Momentum (Monthly Rebalance),South Korea,KOSPI,Net-Discount,-0.0012,0.0656,-56.7317,-0.149,-0.0071,0.0846,10,6,False
+12-Month Momentum (Monthly Rebalance),Spain,IBEX 35,Net-Discount,0.0142,0.064,4.516,-0.2238,-0.0256,0.1703,5,3,False
+12-Month Momentum (Monthly Rebalance),United Kingdom,FTSE 100,Net-Discount,-0.0124,0.0116,-0.9363,-0.2625,-0.0244,0.057,7,8,False
+12-Month Momentum (Monthly Rebalance),United Kingdom,FTSE 250,Net-Discount,0.0483,-0.0205,-0.4252,-0.133,-0.008,0.074,3,7,False
+12-Month Momentum (Monthly Rebalance),United States,Dow Jones Industrial Average,Net-Discount,0.0518,0.0196,0.3785,-0.2577,-0.0209,0.1155,5,6,False
+12-Month Momentum (Monthly Rebalance),United States,Nasdaq Composite,Net-Discount,0.0753,0.0989,1.3129,-0.2117,0.0023,0.2074,4,5,False
+12-Month Momentum (Monthly Rebalance),United States,S&P 500,Net-Discount,0.0564,0.0844,1.4971,-0.1633,0.0021,0.1676,5,3,False
+14-Day RSI Oscillator,Australia,ASX 200,Net-Discount,0.0299,0.0254,0.8497,-0.2368,0.0076,0.0833,23,19,False
+14-Day RSI Oscillator,Australia,All Ordinaries,Net-Discount,0.0372,0.0058,0.1559,-0.2447,0.0009,0.0761,25,17,False
+14-Day RSI Oscillator,Brazil,Ibovespa,Net-Discount,0.0122,0.038,3.1222,-0.4261,-0.0393,0.0897,22,18,False
+14-Day RSI Oscillator,Canada,S&P/TSX Composite,Net-Discount,0.0103,0.0567,5.4829,-0.2268,0.0022,0.0739,20,20,False
+14-Day RSI Oscillator,China,Shanghai Composite,Net-Discount,-0.0392,0.0598,-1.5258,-0.4048,-0.0411,0.0584,25,20,False
+14-Day RSI Oscillator,China,Shenzhen Component,Net-Discount,-0.0472,0.0126,-0.2674,-0.5708,-0.0859,0.0514,23,17,False
+14-Day RSI Oscillator,France,CAC 40,Net-Discount,-0.0019,0.0042,-2.2197,-0.3591,-0.0104,0.1019,23,19,False
+14-Day RSI Oscillator,Germany,DAX 40,Net-Discount,0.011435,0.064698,5.657928,-0.316368,-0.003078,0.107504,21,20,False
+14-Day RSI Oscillator,Germany,MDAX,Net-Discount,0.059127,0.012902,0.218214,-0.330956,0.003821,0.114892,23,21,False
+14-Day RSI Oscillator,Germany,TecDAX,Net-Discount,0.035318,0.085816,2.429804,-0.29798,0.019796,0.136075,17,22,False
+14-Day RSI Oscillator,India,BSE Sensex,Net-Discount,0.0302,0.032,1.0605,-0.2536,-0.0074,0.0827,20,16,False
+14-Day RSI Oscillator,India,Nifty 50,Net-Discount,0.0267,0.0057,0.2146,-0.2785,-0.0158,0.0653,22,15,False
+14-Day RSI Oscillator,India,Nifty Bank,Net-Discount,0.0044,0.009,2.0332,-0.4369,-0.0529,0.0735,20,21,False
+14-Day RSI Oscillator,Indonesia,Jakarta Composite Index,Net-Discount,-0.0015,-0.0028,1.8931,-0.3514,-0.0379,0.0541,14,17,False
+14-Day RSI Oscillator,Italy,FTSE MIB,Net-Discount,0.0143,0.084,5.8537,-0.442,-0.0122,0.1529,27,20,False
+14-Day RSI Oscillator,Japan,Nikkei 225,Net-Discount,0.014632,0.077866,5.321534,-0.237923,0.007448,0.100609,20,18,False
+14-Day RSI Oscillator,Mexico,IPC Mexico,Net-Discount,-0.0199,0.0856,-4.3009,-0.2452,0.0054,0.0951,21,26,False
+14-Day RSI Oscillator,South Korea,KOSDAQ,Net-Discount,0.0316,0.0047,0.1504,-0.265,-0.0077,0.0775,22,23,False
+14-Day RSI Oscillator,South Korea,KOSPI,Net-Discount,0.0314,-0.0158,-0.5045,-0.2602,-0.0129,0.0656,26,17,False
+14-Day RSI Oscillator,Spain,IBEX 35,Net-Discount,-0.0143,0.0402,-2.8185,-0.43,-0.0467,0.0955,24,18,False
+14-Day RSI Oscillator,United Kingdom,FTSE 100,Net-Discount,0.0475,0.0699,1.4717,-0.179,0.0458,0.1204,29,22,False
+14-Day RSI Oscillator,United Kingdom,FTSE 250,Net-Discount,-0.002,-0.0121,6.0387,-0.3598,-0.0265,0.0775,22,22,False
+14-Day RSI Oscillator,United States,Dow Jones Industrial Average,Net-Discount,0.0376,0.0669,1.7793,-0.1746,0.0319,0.1,20,22,False
+14-Day RSI Oscillator,United States,Nasdaq Composite,Net-Discount,0.0465,0.0515,1.1082,-0.1887,0.0259,0.111,18,18,False
+14-Day RSI Oscillator,United States,S&P 500,Net-Discount,0.07,0.0497,0.7093,-0.1918,0.0396,0.1163,21,17,False
+50/200 SMA Crossover,Australia,ASX 200,Net-Discount,0.0153,-0.0213,-1.3958,-0.3286,-0.0485,0.0555,5,6,False
+50/200 SMA Crossover,Australia,All Ordinaries,Net-Discount,0.0177,-0.0121,-0.6851,-0.3165,-0.0443,0.0684,5,5,False
+50/200 SMA Crossover,Brazil,Ibovespa,Net-Discount,-0.0374,-0.0458,1.2228,-0.6245,-0.092,0.0315,8,6,False
+50/200 SMA Crossover,Canada,S&P/TSX Composite,Net-Discount,-0.0096,0.0299,-3.1072,-0.4506,-0.0652,0.0996,7,5,False
+50/200 SMA Crossover,China,Shanghai Composite,Net-Discount,0.0097,-0.0145,-1.4965,-0.4246,-0.0523,0.0665,5,6,False
+50/200 SMA Crossover,China,Shenzhen Component,Net-Discount,-0.0188,0.0568,-3.0239,-0.39,-0.0488,0.0933,5,6,False
+50/200 SMA Crossover,France,CAC 40,Net-Discount,-0.0038,-0.0419,10.8857,-0.4695,-0.0669,0.0637,5,6,False
+50/200 SMA Crossover,Germany,DAX 40,Net-Discount,0.047255,0.030458,0.644544,-0.30465,-0.025064,0.132337,4,4,False
+50/200 SMA Crossover,Germany,MDAX,Net-Discount,0.05673,-0.029337,-0.517138,-0.38484,-0.040972,0.126773,5,5,False
+50/200 SMA Crossover,Germany,TecDAX,Net-Discount,0.102475,0.003083,0.030082,-0.114439,0.003417,0.161415,3,5,False
+50/200 SMA Crossover,India,BSE Sensex,Net-Discount,0.0519,0.0481,0.927,-0.3694,-0.0356,0.1425,5,6,False
+50/200 SMA Crossover,India,Nifty 50,Net-Discount,0.0569,0.0388,0.6816,-0.3779,-0.0372,0.1368,5,6,False
+50/200 SMA Crossover,India,Nifty Bank,Net-Discount,0.0871,0.0289,0.332,-0.4418,-0.0482,0.1661,5,5,False
+50/200 SMA Crossover,Indonesia,Jakarta Composite Index,Net-Discount,0.0285,0.042,1.4718,-0.0453,0.0049,0.074,3,5,False
+50/200 SMA Crossover,Italy,FTSE MIB,Net-Discount,0.0042,0.0518,12.391,-0.424,-0.0543,0.1594,5,3,False
+50/200 SMA Crossover,Japan,Nikkei 225,Net-Discount,0.068017,0.048611,0.714686,-0.349601,-0.015908,0.169222,5,8,False
+50/200 SMA Crossover,Mexico,IPC Mexico,Net-Discount,-0.0283,0.006,-0.2134,-0.3996,-0.0527,0.0452,7,5,False
+50/200 SMA Crossover,South Korea,KOSDAQ,Net-Discount,0.0158,-0.0041,-0.2633,-0.4271,-0.0555,0.0901,6,7,False
+50/200 SMA Crossover,South Korea,KOSPI,Net-Discount,-0.0192,0.0504,-2.6201,-0.4762,-0.0632,0.1049,10,6,False
+50/200 SMA Crossover,Spain,IBEX 35,Net-Discount,0.0216,0.0167,0.7734,-0.4347,-0.0597,0.141,4,5,False
+50/200 SMA Crossover,United Kingdom,FTSE 100,Net-Discount,0.0015,-0.0043,-2.9405,-0.3501,-0.0438,0.0596,5,6,False
+50/200 SMA Crossover,United Kingdom,FTSE 250,Net-Discount,0.0201,-0.0329,-1.6384,-0.4252,-0.0733,0.0825,5,6,False
+50/200 SMA Crossover,United States,Dow Jones Industrial Average,Net-Discount,0.0563,0.0117,0.2074,-0.2958,-0.0242,0.1119,3,5,False
+50/200 SMA Crossover,United States,Nasdaq Composite,Net-Discount,0.0822,0.1362,1.6558,-0.1085,0.0418,0.1946,4,4,False
+50/200 SMA Crossover,United States,S&P 500,Net-Discount,0.0672,0.076,1.1309,-0.1313,0.0162,0.1411,3,4,False
+52-Week High Drawdown Dip Buyer,Australia,ASX 200,Net-Discount,0.0156,0.0658,4.223,0.0,0.0417,0.058,4,5,False
+52-Week High Drawdown Dip Buyer,Australia,All Ordinaries,Net-Discount,0.0165,0.0814,4.9408,0.0,0.0502,0.0684,4,6,False
+52-Week High Drawdown Dip Buyer,Brazil,Ibovespa,Net-Discount,0.0331,0.0878,2.6542,-0.0598,0.0352,0.0815,5,7,False
+52-Week High Drawdown Dip Buyer,Canada,S&P/TSX Composite,Net-Discount,0.0105,0.0559,5.309,0.0,0.0201,0.0543,4,3,False
+52-Week High Drawdown Dip Buyer,China,Shanghai Composite,Net-Discount,-0.0578,0.0991,-1.7148,-0.2809,-0.0481,0.0604,4,4,False
+52-Week High Drawdown Dip Buyer,China,Shenzhen Component,Net-Discount,-0.0943,0.1006,-1.0675,-0.4387,-0.0699,0.0485,3,5,False
+52-Week High Drawdown Dip Buyer,France,CAC 40,Net-Discount,0.0273,0.0894,3.2791,0.0,0.062,0.0931,6,5,False
+52-Week High Drawdown Dip Buyer,Germany,DAX 40,Net-Discount,0.001154,0.093015,80.635824,-0.030846,0.027015,0.081516,4,4,False
+52-Week High Drawdown Dip Buyer,Germany,MDAX,Net-Discount,0.046188,0.035961,0.77857,-0.163371,0.011664,0.08823,6,4,False
+52-Week High Drawdown Dip Buyer,Germany,TecDAX,Net-Discount,0.065606,0.091886,1.400577,-0.077544,0.062053,0.122499,8,8,False
+52-Week High Drawdown Dip Buyer,India,BSE Sensex,Net-Discount,0.0577,0.08,1.3861,0.0,0.0587,0.0818,6,5,False
+52-Week High Drawdown Dip Buyer,India,Nifty 50,Net-Discount,0.061,0.0804,1.3175,0.0,0.061,0.0833,6,5,False
+52-Week High Drawdown Dip Buyer,India,Nifty Bank,Net-Discount,0.091,0.0942,1.035,0.0,0.076,0.1228,7,6,False
+52-Week High Drawdown Dip Buyer,Indonesia,Jakarta Composite Index,Net-Discount,0.026,0.064,2.4617,-0.0037,0.0323,0.0571,4,5,False
+52-Week High Drawdown Dip Buyer,Italy,FTSE MIB,Net-Discount,0.019,0.0706,3.7152,-0.0564,0.0283,0.077,7,4,False
+52-Week High Drawdown Dip Buyer,Japan,Nikkei 225,Net-Discount,0.077855,0.0682,0.875994,0.0,0.064371,0.101194,8,4,False
+52-Week High Drawdown Dip Buyer,Mexico,IPC Mexico,Net-Discount,0.0285,0.0642,2.2548,-0.0125,0.0352,0.0713,6,4,False
+52-Week High Drawdown Dip Buyer,South Korea,KOSDAQ,Net-Discount,-0.001,0.0373,-37.043,-0.2078,-0.019,0.0523,5,5,False
+52-Week High Drawdown Dip Buyer,South Korea,KOSPI,Net-Discount,0.0119,0.0422,3.5386,-0.1572,-0.0066,0.0566,4,4,False
+52-Week High Drawdown Dip Buyer,Spain,IBEX 35,Net-Discount,0.0015,0.0407,26.2759,-0.2002,-0.0091,0.0634,7,4,False
+52-Week High Drawdown Dip Buyer,United Kingdom,FTSE 100,Net-Discount,0.0399,0.0426,1.0686,-0.0087,0.0329,0.061,6,3,False
+52-Week High Drawdown Dip Buyer,United Kingdom,FTSE 250,Net-Discount,0.0326,0.0229,0.7011,-0.0923,0.0097,0.053,5,3,False
+52-Week High Drawdown Dip Buyer,United States,Dow Jones Industrial Average,Net-Discount,0.0132,0.0703,5.32,0.0,0.0359,0.0617,3,4,False
+52-Week High Drawdown Dip Buyer,United States,Nasdaq Composite,Net-Discount,0.0236,0.1036,4.3925,-0.0936,0.042,0.0979,5,8,False
+52-Week High Drawdown Dip Buyer,United States,S&P 500,Net-Discount,0.0195,0.0516,2.6542,-0.0194,0.0268,0.0565,4,4,False
+Bollinger Bands Breakout,Australia,ASX 200,Net-Discount,-0.0039,-0.0228,5.8939,-0.2181,-0.0192,0.0268,28,38,False
+Bollinger Bands Breakout,Australia,All Ordinaries,Net-Discount,0.0014,-0.021,-14.6767,-0.1949,-0.016,0.0281,27,38,False
+Bollinger Bands Breakout,Brazil,Ibovespa,Net-Discount,-0.0058,0.0627,-10.7866,-0.3135,-0.0213,0.0793,31,26,False
+Bollinger Bands Breakout,Canada,S&P/TSX Composite,Net-Discount,-0.01,0.0118,-1.1744,-0.1654,-0.0125,0.0266,29,31,False
+Bollinger Bands Breakout,China,Shanghai Composite,Net-Discount,0.0411,0.0318,0.7749,-0.2112,-0.003,0.1018,30,28,False
+Bollinger Bands Breakout,China,Shenzhen Component,Net-Discount,0.0663,0.058,0.8745,-0.2548,0.0059,0.1467,23,26,False
+Bollinger Bands Breakout,France,CAC 40,Net-Discount,-0.0243,-0.0343,1.4089,-0.237,-0.0186,0.0466,26,27,False
+Bollinger Bands Breakout,Germany,DAX 40,Net-Discount,-0.006567,0.017682,-2.69257,-0.257036,-0.016228,0.060713,34,27,False
+Bollinger Bands Breakout,Germany,MDAX,Net-Discount,0.013888,0.014913,1.073792,-0.217548,-0.00965,0.072527,30,27,False
+Bollinger Bands Breakout,Germany,TecDAX,Net-Discount,-0.011675,-0.00911,0.78027,-0.312439,-0.030511,0.041367,35,27,False
+Bollinger Bands Breakout,India,BSE Sensex,Net-Discount,0.021,0.0138,0.658,-0.2382,-0.0112,0.0728,28,28,False
+Bollinger Bands Breakout,India,Nifty 50,Net-Discount,0.0168,0.0212,1.2636,-0.2223,-0.0067,0.0775,30,25,False
+Bollinger Bands Breakout,India,Nifty Bank,Net-Discount,0.0329,0.0116,0.3535,-0.3681,-0.0218,0.1212,32,32,False
+Bollinger Bands Breakout,Indonesia,Jakarta Composite Index,Net-Discount,-0.0612,0.0028,-0.0459,-0.3119,-0.0337,0.0405,40,28,False
+Bollinger Bands Breakout,Italy,FTSE MIB,Net-Discount,-0.037,-0.0212,0.5721,-0.4052,-0.044,0.0457,28,33,False
+Bollinger Bands Breakout,Japan,Nikkei 225,Net-Discount,0.003648,0.031609,8.665371,-0.233361,-0.008106,0.079271,31,31,False
+Bollinger Bands Breakout,Mexico,IPC Mexico,Net-Discount,-0.0323,-0.046,1.422,-0.2764,-0.0277,0.0288,32,36,False
+Bollinger Bands Breakout,South Korea,KOSDAQ,Net-Discount,0.0285,-0.0095,-0.3311,-0.1884,-0.008,0.0687,20,20,False
+Bollinger Bands Breakout,South Korea,KOSPI,Net-Discount,-0.021,0.0916,-4.3652,-0.1676,-0.002,0.1002,30,23,False
+Bollinger Bands Breakout,Spain,IBEX 35,Net-Discount,-0.0278,-0.0178,0.6401,-0.3511,-0.0379,0.0282,29,32,False
+Bollinger Bands Breakout,United Kingdom,FTSE 100,Net-Discount,-0.0399,-0.1173,2.9404,-0.3059,-0.0346,0.0085,24,33,False
+Bollinger Bands Breakout,United Kingdom,FTSE 250,Net-Discount,-0.0268,-0.1341,5.0099,-0.2302,-0.0214,0.0293,30,35,False
+Bollinger Bands Breakout,United States,Dow Jones Industrial Average,Net-Discount,0.0064,0.0109,1.711,-0.1314,-0.0029,0.0437,32,30,False
+Bollinger Bands Breakout,United States,Nasdaq Composite,Net-Discount,-0.0214,0.0241,-1.1269,-0.2328,-0.0183,0.0509,37,26,False
+Bollinger Bands Breakout,United States,S&P 500,Net-Discount,-0.0015,0.0042,-2.8703,-0.1474,-0.011,0.0335,28,28,False
+Seasonal Halloween Rule (Nov-Apr),Australia,ASX 200,Net-Discount,0.0338,0.0115,0.3394,-0.2291,-0.0154,0.0832,9,7,False
+Seasonal Halloween Rule (Nov-Apr),Australia,All Ordinaries,Net-Discount,0.0308,0.0113,0.3676,-0.2295,-0.0166,0.0842,9,7,False
+Seasonal Halloween Rule (Nov-Apr),Brazil,Ibovespa,Net-Discount,0.0373,0.0048,0.1293,-0.3976,-0.0448,0.0831,9,7,False
+Seasonal Halloween Rule (Nov-Apr),Canada,S&P/TSX Composite,Net-Discount,0.0157,0.057,3.6234,-0.1584,0.0028,0.0786,9,7,False
+Seasonal Halloween Rule (Nov-Apr),China,Shanghai Composite,Net-Discount,0.0421,0.03,0.7117,-0.3133,-0.0348,0.1404,9,7,False
+Seasonal Halloween Rule (Nov-Apr),China,Shenzhen Component,Net-Discount,0.0137,0.017,1.2461,-0.473,-0.065,0.1337,9,7,False
+Seasonal Halloween Rule (Nov-Apr),France,CAC 40,Net-Discount,0.0142,0.0493,3.4629,-0.3176,-0.0057,0.1284,9,7,False
+Seasonal Halloween Rule (Nov-Apr),Germany,DAX 40,Net-Discount,0.043233,0.078661,1.819482,-0.316224,0.006383,0.151154,9,7,False
+Seasonal Halloween Rule (Nov-Apr),Germany,MDAX,Net-Discount,0.057189,0.048675,0.851134,-0.296369,0.006415,0.143905,9,7,False
+Seasonal Halloween Rule (Nov-Apr),Germany,TecDAX,Net-Discount,0.074315,0.061303,0.824917,-0.29153,0.020653,0.151599,9,7,False
+Seasonal Halloween Rule (Nov-Apr),India,BSE Sensex,Net-Discount,0.0111,0.0254,2.2789,-0.3042,-0.0362,0.0736,9,7,False
+Seasonal Halloween Rule (Nov-Apr),India,Nifty 50,Net-Discount,0.0131,0.0286,2.1881,-0.3068,-0.0304,0.0788,9,7,False
+Seasonal Halloween Rule (Nov-Apr),India,Nifty Bank,Net-Discount,0.047,0.0133,0.283,-0.4263,-0.0481,0.1069,9,7,False
+Seasonal Halloween Rule (Nov-Apr),Indonesia,Jakarta Composite Index,Net-Discount,0.0693,-0.0214,-0.3084,-0.3316,-0.0331,0.0857,9,7,False
+Seasonal Halloween Rule (Nov-Apr),Italy,FTSE MIB,Net-Discount,0.0296,0.0565,1.9092,-0.4205,-0.0208,0.144,9,7,False
+Seasonal Halloween Rule (Nov-Apr),Japan,Nikkei 225,Net-Discount,0.045584,0.020861,0.457643,-0.356885,-0.024612,0.131632,9,7,False
+Seasonal Halloween Rule (Nov-Apr),Mexico,IPC Mexico,Net-Discount,-0.0058,0.0574,-9.8814,-0.2291,-0.0177,0.0863,9,7,False
+Seasonal Halloween Rule (Nov-Apr),South Korea,KOSDAQ,Net-Discount,0.0717,0.0746,1.0404,-0.1236,0.0252,0.1286,9,7,False
+Seasonal Halloween Rule (Nov-Apr),South Korea,KOSPI,Net-Discount,0.0274,0.0611,2.2257,-0.212,-0.0013,0.1009,9,7,False
+Seasonal Halloween Rule (Nov-Apr),Spain,IBEX 35,Net-Discount,-0.0115,0.0588,-5.0937,-0.5041,-0.0551,0.1213,9,7,False
+Seasonal Halloween Rule (Nov-Apr),United Kingdom,FTSE 100,Net-Discount,0.018,0.0386,2.142,-0.2327,-0.0132,0.082,9,7,False
+Seasonal Halloween Rule (Nov-Apr),United Kingdom,FTSE 250,Net-Discount,0.0432,0.0203,0.4709,-0.3037,-0.0128,0.1112,9,7,False
+Seasonal Halloween Rule (Nov-Apr),United States,Dow Jones Industrial Average,Net-Discount,0.0492,0.0311,0.6312,-0.2077,0.0044,0.1065,9,7,False
+Seasonal Halloween Rule (Nov-Apr),United States,Nasdaq Composite,Net-Discount,0.0407,0.0564,1.3849,-0.2508,0.0068,0.1206,9,7,False
+Seasonal Halloween Rule (Nov-Apr),United States,S&P 500,Net-Discount,0.044,0.0518,1.1761,-0.1756,0.016,0.1091,9,7,False

@@ -1,0 +1,32 @@
+{
+  "name": "50/200 SMA Crossover",
+  "description": "Maintain an equity position whenever the medium-term 50-bar simple trend line sits above the long-term 200-bar simple trend line, exiting when it drops underneath. Cash equity only, zero debt, zero shorting.",
+  "indicators": [
+    {
+      "name": "SMA",
+      "params": {
+        "period": 50,
+        "fast_period": 50,
+        "slow_period": 200
+      }
+    },
+    {
+      "name": "SMA",
+      "params": {
+        "period": 200,
+        "fast_period": 50,
+        "slow_period": 200
+      }
+    }
+  ],
+  "parameters": {
+    "fast_period": 50,
+    "slow_period": 200
+  },
+  "entry_condition": "SMA_50 crosses above SMA_200",
+  "exit_condition": "SMA_50 crosses below SMA_200",
+  "position_size": "full capital, long/flat only",
+  "no_leverage": true,
+  "no_shorting": true,
+  "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Long-only cash equity MA crossover strategy.\n    Fast: 50 SMA, Slow: 200 SMA.\n    Returns pd.Series with values 1 (Long) or 0 (Flat).\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    fast_ma = df['close'].rolling(window=50, min_periods=50).mean()\n    slow_ma = df['close'].rolling(window=200, min_periods=200).mean()\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    is_long = False\n\n    # State machine for long/flat positions\n    for i in range(1, len(df)):\n        f_curr = fast_ma.iloc[i]\n        s_curr = slow_ma.iloc[i]\n        f_prev = fast_ma.iloc[i-1]\n        s_prev = slow_ma.iloc[i-1]\n\n        if pd.isna(f_curr) or pd.isna(s_curr) or pd.isna(f_prev) or pd.isna(s_prev):\n            continue\n\n        # Buy condition: fast crosses above slow\n        if not is_long and (f_curr > s_curr) and (f_prev <= s_prev):\n            is_long = True\n        # Sell condition: fast crosses below slow\n        elif is_long and (f_curr < s_curr) and (f_prev >= s_prev):\n            is_long = False\n\n        if is_long:\n            signal.iloc[i] = 1\n\n    return signal\n"
+}

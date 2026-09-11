@@ -1,0 +1,1 @@
+RULE_BASED_EXTRACTOR: Drawdown Dip Buyer (dip=0.1, rec=0.02)

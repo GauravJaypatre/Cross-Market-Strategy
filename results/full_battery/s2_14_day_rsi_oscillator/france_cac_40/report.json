@@ -1,0 +1,243 @@
+{
+  "metadata": {
+    "random_seed": 42,
+    "dataset_status": "Reference / Preliminary Baseline (Curated from statutory authorities e.g. IRS, HMRC, Indian Finance Acts; tagged as primary_statutory_single_source until user-supplied cross-verified datasets are provided).",
+    "sample_size_caution": "Sample Size & Statistical Precision Notice (Low-n, Directional Only): Strategy trade counts range from 7 to 13 trades across the 2011\u20132025 period. Because n < 30, individual index CAGR estimates carry wide 95% bootstrap confidence intervals and must be interpreted as directional rather than definitive alpha.",
+    "parser_audit": {
+      "parser_backend_used": "rule_based",
+      "model_name": null,
+      "temperature": null,
+      "strategy_text": "Buy the index when the 14-day RSI drops below 30, and sell when the RSI rises back above 70. Hold the full position size, no shorting, no leverage.",
+      "prompt": "RULE_BASED_EXTRACTOR: RSI (30.0, 70.0)",
+      "raw_response": "{\n  \"name\": \"14-Day RSI Oscillator (30/70)\",\n  \"description\": \"Long when RSI(14) < 30, exit when RSI(14) > 70.\",\n  \"indicators\": [\n    {\n      \"name\": \"RSI\",\n      \"params\": {\n        \"period\": 14,\n        \"oversold\": 30.0,\n        \"overbought\": 70.0\n      }\n    }\n  ],\n  \"parameters\": {\n    \"period\": 14,\n    \"oversold\": 30.0,\n    \"overbought\": 70.0\n  },\n  \"entry_condition\": \"RSI < 30\",\n  \"exit_condition\": \"RSI > 70\",\n  \"position_size\": \"full capital, long/flat only\",\n  \"no_leverage\": true,\n  \"no_shorting\": true,\n  \"generated_code\": \"import pandas as pd\\nimport numpy as np\\n\\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\\n    \\\"\\\"\\\"\\n    RSI mean-reversion strategy. Buy when RSI < 30.0, exit when RSI > 70.0.\\n    \\\"\\\"\\\"\\n    if len(df) == 0:\\n        return pd.Series(dtype=int)\\n\\n    delta = df['close'].diff()\\n    gain = (delta.where(delta > 0, 0)).rolling(window=14, min_periods=14).mean()\\n    loss = (-delta.where(delta < 0, 0)).rolling(window=14, min_periods=14).mean()\\n    rs = gain / loss.replace(0, np.nan)\\n    rsi = 100 - (100 / (1 + rs))\\n\\n    signal = pd.Series(0, index=df.index, dtype=int)\\n    is_long = False\\n\\n    for i in range(1, len(df)):\\n        r_curr = rsi.iloc[i]\\n        if pd.isna(r_curr):\\n            continue\\n\\n        if not is_long and r_curr < 30.0:\\n            is_long = True\\n        elif is_long and r_curr > 70.0:\\n            is_long = False\\n\\n        if is_long:\\n            signal.iloc[i] = 1\\n\\n    return signal\\n\"\n}",
+      "parsed_rule": {
+        "name": "14-Day RSI Oscillator (30/70)",
+        "description": "Long when RSI(14) < 30, exit when RSI(14) > 70.",
+        "indicators": [
+          {
+            "name": "RSI",
+            "params": {
+              "period": 14,
+              "oversold": 30.0,
+              "overbought": 70.0
+            }
+          }
+        ],
+        "parameters": {
+          "period": 14,
+          "oversold": 30.0,
+          "overbought": 70.0
+        },
+        "entry_condition": "RSI < 30",
+        "exit_condition": "RSI > 70",
+        "position_size": "full capital, long/flat only",
+        "no_leverage": true,
+        "no_shorting": true,
+        "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    RSI mean-reversion strategy. Buy when RSI < 30.0, exit when RSI > 70.0.\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    delta = df['close'].diff()\n    gain = (delta.where(delta > 0, 0)).rolling(window=14, min_periods=14).mean()\n    loss = (-delta.where(delta < 0, 0)).rolling(window=14, min_periods=14).mean()\n    rs = gain / loss.replace(0, np.nan)\n    rsi = 100 - (100 / (1 + rs))\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    is_long = False\n\n    for i in range(1, len(df)):\n        r_curr = rsi.iloc[i]\n        if pd.isna(r_curr):\n            continue\n\n        if not is_long and r_curr < 30.0:\n            is_long = True\n        elif is_long and r_curr > 70.0:\n            is_long = False\n\n        if is_long:\n            signal.iloc[i] = 1\n\n    return signal\n"
+      },
+      "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    RSI mean-reversion strategy. Buy when RSI < 30.0, exit when RSI > 70.0.\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    delta = df['close'].diff()\n    gain = (delta.where(delta > 0, 0)).rolling(window=14, min_periods=14).mean()\n    loss = (-delta.where(delta < 0, 0)).rolling(window=14, min_periods=14).mean()\n    rs = gain / loss.replace(0, np.nan)\n    rsi = 100 - (100 / (1 + rs))\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    is_long = False\n\n    for i in range(1, len(df)):\n        r_curr = rsi.iloc[i]\n        if pd.isna(r_curr):\n            continue\n\n        if not is_long and r_curr < 30.0:\n            is_long = True\n        elif is_long and r_curr > 70.0:\n            is_long = False\n\n        if is_long:\n            signal.iloc[i] = 1\n\n    return signal\n",
+      "timestamp_utc": "2026-09-10T13:39:00.643508+00:00"
+    },
+    "methodology_disclosures": {
+      "sharpe_annualization": "Sharpe ratios are calculated from daily returns using an annualization factor of sqrt(252) (252 trading days/year) and an annualized risk-free rate of 0.0%. This stated simplification avoids confounding 15 divergent sovereign yield curves over the 2011\u20132025 period. Cross-market risk-adjusted capital efficiency should also be evaluated via the Calmar ratio and net excess CAGR over Buy & Hold.",
+      "currency_terms": "Rankings are computed within each currency's own terms (no FX adjustment); cross-country comparison does not account for exchange-rate fluctuations.",
+      "robustness_sequence_vs_estimation": "The Monte Carlo trade-shuffle (1,000 permutations) randomizes trade execution order to isolate sequence risk and path-dependent drawdown (P95), whereas the bootstrap confidence interval resamples trade returns with replacement to quantify parameter estimation uncertainty on annualized CAGR given small sample size (n < 30)."
+    },
+    "total_indices_evaluated": 1,
+    "qualified_count": 1,
+    "excluded_count": 0
+  },
+  "primary_ranking_cagr": [
+    {
+      "rank": 1,
+      "country": "France",
+      "index_name": "CAC 40",
+      "data_source_id": "^FCHI",
+      "currency": "EUR",
+      "data_start": "2011-01-03",
+      "data_end": "2025-12-30",
+      "provenance": {
+        "vendor": "yfinance",
+        "source_identifier": "^FCHI",
+        "sha256": null,
+        "retrieval_timestamp_utc": "2026-09-10T13:38:52.838941+00:00",
+        "row_count": 3834,
+        "data_start": "2011-01-03",
+        "data_end": "2025-12-30"
+      },
+      "gross_metrics": {
+        "cagr": 0.0486,
+        "max_drawdown": -0.3395,
+        "sharpe_ratio": 0.4018,
+        "calmar_ratio": 0.1432,
+        "total_trades": 42,
+        "win_rate": 0.7381,
+        "total_return": 1.0374,
+        "annualized_volatility": 0.1415,
+        "insufficient_sample": false
+      },
+      "net_tax_metrics": {
+        "cagr": 0.0189,
+        "max_drawdown": -0.4588,
+        "sharpe_ratio": 0.1931,
+        "calmar_ratio": 0.0412,
+        "total_trades": 42,
+        "win_rate": 0.7381,
+        "total_return": 0.3245,
+        "annualized_volatility": 0.1893,
+        "insufficient_sample": false
+      },
+      "net_discount_metrics": {
+        "cagr": 0.0001,
+        "max_drawdown": -0.5231,
+        "sharpe_ratio": 0.1102,
+        "calmar_ratio": 0.0001,
+        "total_trades": 42,
+        "win_rate": 0.7381,
+        "total_return": 0.0011,
+        "annualized_volatility": 0.2176,
+        "insufficient_sample": false
+      },
+      "net_full_service_metrics": {
+        "cagr": -0.0629,
+        "max_drawdown": -0.8,
+        "sharpe_ratio": 0.0308,
+        "calmar_ratio": -0.0786,
+        "total_trades": 42,
+        "win_rate": 0.7381,
+        "total_return": -0.6223,
+        "annualized_volatility": 0.3869,
+        "insufficient_sample": false
+      },
+      "benchmark_discount_metrics": {
+        "cagr": 0.0383,
+        "max_drawdown": -0.3856,
+        "sharpe_ratio": 0.2877,
+        "calmar_ratio": 0.0992,
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "total_return": 0.7554,
+        "annualized_volatility": 0.1959,
+        "insufficient_sample": true
+      },
+      "excess_cagr_vs_benchmark": -0.0382,
+      "alpha_vs_benchmark_cagr": -0.0382,
+      "robustness": {
+        "is_trade_count": 23,
+        "is_cagr": -0.0019,
+        "is_max_drawdown": -0.3114,
+        "is_sharpe": 0.076,
+        "is_insufficient_sample": false,
+        "oos_trade_count": 19,
+        "oos_cagr": 0.0042,
+        "oos_max_drawdown": -0.5231,
+        "oos_sharpe": 0.1473,
+        "oos_insufficient_sample": false,
+        "degradation_ratio": -2.2197,
+        "delta_cagr_pp": 0.0061,
+        "mc_p95_max_drawdown": -0.3591,
+        "cagr_ci_lower": -0.0104,
+        "cagr_ci_upper": 0.1019,
+        "is_directional_only": false
+      },
+      "exclusion_reason": null
+    }
+  ],
+  "secondary_ranking_calmar": [
+    {
+      "rank": 1,
+      "country": "France",
+      "index_name": "CAC 40",
+      "data_source_id": "^FCHI",
+      "currency": "EUR",
+      "data_start": "2011-01-03",
+      "data_end": "2025-12-30",
+      "provenance": {
+        "vendor": "yfinance",
+        "source_identifier": "^FCHI",
+        "sha256": null,
+        "retrieval_timestamp_utc": "2026-09-10T13:38:52.838941+00:00",
+        "row_count": 3834,
+        "data_start": "2011-01-03",
+        "data_end": "2025-12-30"
+      },
+      "gross_metrics": {
+        "cagr": 0.0486,
+        "max_drawdown": -0.3395,
+        "sharpe_ratio": 0.4018,
+        "calmar_ratio": 0.1432,
+        "total_trades": 42,
+        "win_rate": 0.7381,
+        "total_return": 1.0374,
+        "annualized_volatility": 0.1415,
+        "insufficient_sample": false
+      },
+      "net_tax_metrics": {
+        "cagr": 0.0189,
+        "max_drawdown": -0.4588,
+        "sharpe_ratio": 0.1931,
+        "calmar_ratio": 0.0412,
+        "total_trades": 42,
+        "win_rate": 0.7381,
+        "total_return": 0.3245,
+        "annualized_volatility": 0.1893,
+        "insufficient_sample": false
+      },
+      "net_discount_metrics": {
+        "cagr": 0.0001,
+        "max_drawdown": -0.5231,
+        "sharpe_ratio": 0.1102,
+        "calmar_ratio": 0.0001,
+        "total_trades": 42,
+        "win_rate": 0.7381,
+        "total_return": 0.0011,
+        "annualized_volatility": 0.2176,
+        "insufficient_sample": false
+      },
+      "net_full_service_metrics": {
+        "cagr": -0.0629,
+        "max_drawdown": -0.8,
+        "sharpe_ratio": 0.0308,
+        "calmar_ratio": -0.0786,
+        "total_trades": 42,
+        "win_rate": 0.7381,
+        "total_return": -0.6223,
+        "annualized_volatility": 0.3869,
+        "insufficient_sample": false
+      },
+      "benchmark_discount_metrics": {
+        "cagr": 0.0383,
+        "max_drawdown": -0.3856,
+        "sharpe_ratio": 0.2877,
+        "calmar_ratio": 0.0992,
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "total_return": 0.7554,
+        "annualized_volatility": 0.1959,
+        "insufficient_sample": true
+      },
+      "excess_cagr_vs_benchmark": -0.0382,
+      "alpha_vs_benchmark_cagr": -0.0382,
+      "robustness": {
+        "is_trade_count": 23,
+        "is_cagr": -0.0019,
+        "is_max_drawdown": -0.3114,
+        "is_sharpe": 0.076,
+        "is_insufficient_sample": false,
+        "oos_trade_count": 19,
+        "oos_cagr": 0.0042,
+        "oos_max_drawdown": -0.5231,
+        "oos_sharpe": 0.1473,
+        "oos_insufficient_sample": false,
+        "degradation_ratio": -2.2197,
+        "delta_cagr_pp": 0.0061,
+        "mc_p95_max_drawdown": -0.3591,
+        "cagr_ci_lower": -0.0104,
+        "cagr_ci_upper": 0.1019,
+        "is_directional_only": false
+      },
+      "exclusion_reason": null
+    }
+  ],
+  "appendix_excluded": []
+}

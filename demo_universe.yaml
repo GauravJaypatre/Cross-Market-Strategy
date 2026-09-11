@@ -1,0 +1,26 @@
+# Representative 5-Country Universe for Instant Local Runs
+indices:
+  - country: "United States"
+    index_name: "S&P 500"
+    data_source_id: "GSPC"
+    currency: "USD"
+
+  - country: "Germany"
+    index_name: "DAX 40"
+    data_source_id: "GDAXI"
+    currency: "EUR"
+
+  - country: "Japan"
+    index_name: "Nikkei 225"
+    data_source_id: "N225"
+    currency: "JPY"
+
+  - country: "India"
+    index_name: "Nifty 50"
+    data_source_id: "NSEI"
+    currency: "INR"
+
+  - country: "United Kingdom"
+    index_name: "FTSE 100"
+    data_source_id: "FTSE"
+    currency: "GBP"

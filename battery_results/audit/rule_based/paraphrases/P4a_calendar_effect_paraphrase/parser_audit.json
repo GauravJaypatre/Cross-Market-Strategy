@@ -1,0 +1,25 @@
+{
+  "parser_backend_used": "rule_based",
+  "model_name": null,
+  "temperature": null,
+  "strategy_text": "Implement the seasonal Halloween effect: invest fully in the index starting November 1st and liquidate to cash on April 30th every year. No leverage, long only.",
+  "prompt": "RULE_BASED_EXTRACTOR: Calendar Effect (Nov 1 - Apr 30)",
+  "raw_response": "{\n  \"name\": \"Seasonal Halloween Rule (Nov-Apr)\",\n  \"description\": \"Long from November 1st through April 30th; cash remainder of the year.\",\n  \"indicators\": [],\n  \"parameters\": {\n    \"entry_date\": \"Nov 1\",\n    \"exit_date\": \"Apr 30\"\n  },\n  \"entry_condition\": \"calendar date == Nov 1 (annual)\",\n  \"exit_condition\": \"calendar date == Apr 30 (following year)\",\n  \"position_size\": \"full capital during the Nov\\u2013Apr window, cash otherwise\",\n  \"no_leverage\": true,\n  \"no_shorting\": true,\n  \"generated_code\": \"import pandas as pd\\nimport numpy as np\\n\\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\\n    \\\"\\\"\\\"\\n    Seasonal Calendar Effect Strategy (Nov 1 to Apr 30 long, cash otherwise).\\n    \\\"\\\"\\\"\\n    if len(df) == 0:\\n        return pd.Series(dtype=int)\\n\\n    signal = pd.Series(0, index=df.index, dtype=int)\\n    months = pd.Series(df.index.month, index=df.index)\\n    # Holding window: November (11) through April (4)\\n    holding_mask = months.isin([11, 12, 1, 2, 3, 4])\\n    signal[holding_mask] = 1\\n    return signal\\n\"\n}",
+  "parsed_rule": {
+    "name": "Seasonal Halloween Rule (Nov-Apr)",
+    "description": "Long from November 1st through April 30th; cash remainder of the year.",
+    "indicators": [],
+    "parameters": {
+      "entry_date": "Nov 1",
+      "exit_date": "Apr 30"
+    },
+    "entry_condition": "calendar date == Nov 1 (annual)",
+    "exit_condition": "calendar date == Apr 30 (following year)",
+    "position_size": "full capital during the Nov\u2013Apr window, cash otherwise",
+    "no_leverage": true,
+    "no_shorting": true,
+    "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Seasonal Calendar Effect Strategy (Nov 1 to Apr 30 long, cash otherwise).\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    months = pd.Series(df.index.month, index=df.index)\n    # Holding window: November (11) through April (4)\n    holding_mask = months.isin([11, 12, 1, 2, 3, 4])\n    signal[holding_mask] = 1\n    return signal\n"
+  },
+  "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Seasonal Calendar Effect Strategy (Nov 1 to Apr 30 long, cash otherwise).\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    months = pd.Series(df.index.month, index=df.index)\n    # Holding window: November (11) through April (4)\n    holding_mask = months.isin([11, 12, 1, 2, 3, 4])\n    signal[holding_mask] = 1\n    return signal\n",
+  "timestamp_utc": "2026-09-05T09:56:30.880295+00:00"
+}

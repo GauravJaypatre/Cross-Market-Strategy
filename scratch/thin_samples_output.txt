@@ -1,0 +1,105 @@
+COUNT_OOS_THIN: 43
+1. 50/200 SMA Crossover | United States | Nasdaq Composite | n_trades_is=4 | n_trades_oos=4
+2. 50/200 SMA Crossover | United States | S&P 500 | n_trades_is=3 | n_trades_oos=4
+3. 50/200 SMA Crossover | India | Nifty Bank | n_trades_is=5 | n_trades_oos=5
+4. 50/200 SMA Crossover | Germany | TecDAX | n_trades_is=3 | n_trades_oos=5
+5. 50/200 SMA Crossover | Germany | DAX 40 | n_trades_is=4 | n_trades_oos=4
+6. 50/200 SMA Crossover | United States | Dow Jones Industrial Average | n_trades_is=3 | n_trades_oos=5
+7. 50/200 SMA Crossover | Indonesia | Jakarta Composite Index | n_trades_is=3 | n_trades_oos=5
+8. 50/200 SMA Crossover | Italy | FTSE MIB | n_trades_is=5 | n_trades_oos=3
+9. 50/200 SMA Crossover | Spain | IBEX 35 | n_trades_is=4 | n_trades_oos=5
+10. 50/200 SMA Crossover | Germany | MDAX | n_trades_is=5 | n_trades_oos=5
+11. 50/200 SMA Crossover | Canada | S&P/TSX Composite | n_trades_is=7 | n_trades_oos=5
+12. 50/200 SMA Crossover | Australia | All Ordinaries | n_trades_is=5 | n_trades_oos=5
+13. 50/200 SMA Crossover | Mexico | IPC Mexico | n_trades_is=7 | n_trades_oos=5
+14. 12-Month Momentum (Monthly Rebalance) | United States | Nasdaq Composite | n_trades_is=4 | n_trades_oos=5
+15. 12-Month Momentum (Monthly Rebalance) | United States | S&P 500 | n_trades_is=5 | n_trades_oos=3
+16. 12-Month Momentum (Monthly Rebalance) | Japan | Nikkei 225 | n_trades_is=5 | n_trades_oos=5
+17. 12-Month Momentum (Monthly Rebalance) | India | Nifty Bank | n_trades_is=4 | n_trades_oos=4
+18. 12-Month Momentum (Monthly Rebalance) | Spain | IBEX 35 | n_trades_is=5 | n_trades_oos=3
+19. 12-Month Momentum (Monthly Rebalance) | Italy | FTSE MIB | n_trades_is=3 | n_trades_oos=3
+20. 12-Month Momentum (Monthly Rebalance) | China | Shenzhen Component | n_trades_is=8 | n_trades_oos=2
+21. 12-Month Momentum (Monthly Rebalance) | China | Shanghai Composite | n_trades_is=4 | n_trades_oos=5
+22. 12-Month Momentum (Monthly Rebalance) | Indonesia | Jakarta Composite Index | n_trades_is=8 | n_trades_oos=5
+23. 12-Month Momentum (Monthly Rebalance) | South Korea | KOSDAQ | n_trades_is=10 | n_trades_oos=4
+24. 52-Week High Drawdown Dip Buyer | Japan | Nikkei 225 | n_trades_is=8 | n_trades_oos=4
+25. 52-Week High Drawdown Dip Buyer | India | Nifty 50 | n_trades_is=6 | n_trades_oos=5
+26. 52-Week High Drawdown Dip Buyer | India | BSE Sensex | n_trades_is=6 | n_trades_oos=5
+27. 52-Week High Drawdown Dip Buyer | France | CAC 40 | n_trades_is=6 | n_trades_oos=5
+28. 52-Week High Drawdown Dip Buyer | Mexico | IPC Mexico | n_trades_is=6 | n_trades_oos=4
+29. 52-Week High Drawdown Dip Buyer | Indonesia | Jakarta Composite Index | n_trades_is=4 | n_trades_oos=5
+30. 52-Week High Drawdown Dip Buyer | Germany | DAX 40 | n_trades_is=4 | n_trades_oos=4
+31. 52-Week High Drawdown Dip Buyer | Italy | FTSE MIB | n_trades_is=7 | n_trades_oos=4
+32. 52-Week High Drawdown Dip Buyer | Germany | MDAX | n_trades_is=6 | n_trades_oos=4
+33. 52-Week High Drawdown Dip Buyer | United Kingdom | FTSE 100 | n_trades_is=6 | n_trades_oos=3
+34. 52-Week High Drawdown Dip Buyer | United States | Dow Jones Industrial Average | n_trades_is=3 | n_trades_oos=4
+35. 52-Week High Drawdown Dip Buyer | Australia | ASX 200 | n_trades_is=4 | n_trades_oos=5
+36. 52-Week High Drawdown Dip Buyer | United States | S&P 500 | n_trades_is=4 | n_trades_oos=4
+37. 52-Week High Drawdown Dip Buyer | Canada | S&P/TSX Composite | n_trades_is=4 | n_trades_oos=3
+38. 52-Week High Drawdown Dip Buyer | United Kingdom | FTSE 250 | n_trades_is=5 | n_trades_oos=3
+39. 52-Week High Drawdown Dip Buyer | South Korea | KOSPI | n_trades_is=4 | n_trades_oos=4
+40. 52-Week High Drawdown Dip Buyer | Spain | IBEX 35 | n_trades_is=7 | n_trades_oos=4
+41. 52-Week High Drawdown Dip Buyer | South Korea | KOSDAQ | n_trades_is=5 | n_trades_oos=5
+42. 52-Week High Drawdown Dip Buyer | China | Shanghai Composite | n_trades_is=4 | n_trades_oos=4
+43. 52-Week High Drawdown Dip Buyer | China | Shenzhen Component | n_trades_is=3 | n_trades_oos=5
+
+COUNT_IS_THIN: 52
+1. 50/200 SMA Crossover | United States | Nasdaq Composite | n_trades_is=4 | n_trades_oos=4
+2. 50/200 SMA Crossover | United States | S&P 500 | n_trades_is=3 | n_trades_oos=4
+3. 50/200 SMA Crossover | India | Nifty Bank | n_trades_is=5 | n_trades_oos=5
+4. 50/200 SMA Crossover | Japan | Nikkei 225 | n_trades_is=5 | n_trades_oos=8
+5. 50/200 SMA Crossover | Germany | TecDAX | n_trades_is=3 | n_trades_oos=5
+6. 50/200 SMA Crossover | India | BSE Sensex | n_trades_is=5 | n_trades_oos=6
+7. 50/200 SMA Crossover | India | Nifty 50 | n_trades_is=5 | n_trades_oos=6
+8. 50/200 SMA Crossover | Germany | DAX 40 | n_trades_is=4 | n_trades_oos=4
+9. 50/200 SMA Crossover | United States | Dow Jones Industrial Average | n_trades_is=3 | n_trades_oos=5
+10. 50/200 SMA Crossover | Indonesia | Jakarta Composite Index | n_trades_is=3 | n_trades_oos=5
+11. 50/200 SMA Crossover | Italy | FTSE MIB | n_trades_is=5 | n_trades_oos=3
+12. 50/200 SMA Crossover | Spain | IBEX 35 | n_trades_is=4 | n_trades_oos=5
+13. 50/200 SMA Crossover | China | Shenzhen Component | n_trades_is=5 | n_trades_oos=6
+14. 50/200 SMA Crossover | Germany | MDAX | n_trades_is=5 | n_trades_oos=5
+15. 50/200 SMA Crossover | Australia | All Ordinaries | n_trades_is=5 | n_trades_oos=5
+16. 50/200 SMA Crossover | United Kingdom | FTSE 100 | n_trades_is=5 | n_trades_oos=6
+17. 50/200 SMA Crossover | China | Shanghai Composite | n_trades_is=5 | n_trades_oos=6
+18. 50/200 SMA Crossover | Australia | ASX 200 | n_trades_is=5 | n_trades_oos=6
+19. 50/200 SMA Crossover | United Kingdom | FTSE 250 | n_trades_is=5 | n_trades_oos=6
+20. 50/200 SMA Crossover | France | CAC 40 | n_trades_is=5 | n_trades_oos=6
+21. 12-Month Momentum (Monthly Rebalance) | United States | Nasdaq Composite | n_trades_is=4 | n_trades_oos=5
+22. 12-Month Momentum (Monthly Rebalance) | United States | S&P 500 | n_trades_is=5 | n_trades_oos=3
+23. 12-Month Momentum (Monthly Rebalance) | India | BSE Sensex | n_trades_is=3 | n_trades_oos=6
+24. 12-Month Momentum (Monthly Rebalance) | Japan | Nikkei 225 | n_trades_is=5 | n_trades_oos=5
+25. 12-Month Momentum (Monthly Rebalance) | Germany | TecDAX | n_trades_is=3 | n_trades_oos=7
+26. 12-Month Momentum (Monthly Rebalance) | India | Nifty 50 | n_trades_is=4 | n_trades_oos=8
+27. 12-Month Momentum (Monthly Rebalance) | India | Nifty Bank | n_trades_is=4 | n_trades_oos=4
+28. 12-Month Momentum (Monthly Rebalance) | Spain | IBEX 35 | n_trades_is=5 | n_trades_oos=3
+29. 12-Month Momentum (Monthly Rebalance) | United States | Dow Jones Industrial Average | n_trades_is=5 | n_trades_oos=6
+30. 12-Month Momentum (Monthly Rebalance) | Italy | FTSE MIB | n_trades_is=3 | n_trades_oos=3
+31. 12-Month Momentum (Monthly Rebalance) | China | Shanghai Composite | n_trades_is=4 | n_trades_oos=5
+32. 12-Month Momentum (Monthly Rebalance) | Germany | DAX 40 | n_trades_is=5 | n_trades_oos=6
+33. 12-Month Momentum (Monthly Rebalance) | Canada | S&P/TSX Composite | n_trades_is=3 | n_trades_oos=7
+34. 12-Month Momentum (Monthly Rebalance) | United Kingdom | FTSE 250 | n_trades_is=3 | n_trades_oos=7
+35. 12-Month Momentum (Monthly Rebalance) | Germany | MDAX | n_trades_is=5 | n_trades_oos=8
+36. 12-Month Momentum (Monthly Rebalance) | Australia | All Ordinaries | n_trades_is=5 | n_trades_oos=6
+37. 12-Month Momentum (Monthly Rebalance) | Australia | ASX 200 | n_trades_is=4 | n_trades_oos=6
+38. 12-Month Momentum (Monthly Rebalance) | France | CAC 40 | n_trades_is=4 | n_trades_oos=6
+39. 52-Week High Drawdown Dip Buyer | United States | Nasdaq Composite | n_trades_is=5 | n_trades_oos=8
+40. 52-Week High Drawdown Dip Buyer | Brazil | Ibovespa | n_trades_is=5 | n_trades_oos=7
+41. 52-Week High Drawdown Dip Buyer | Australia | All Ordinaries | n_trades_is=4 | n_trades_oos=6
+42. 52-Week High Drawdown Dip Buyer | Indonesia | Jakarta Composite Index | n_trades_is=4 | n_trades_oos=5
+43. 52-Week High Drawdown Dip Buyer | Germany | DAX 40 | n_trades_is=4 | n_trades_oos=4
+44. 52-Week High Drawdown Dip Buyer | United States | Dow Jones Industrial Average | n_trades_is=3 | n_trades_oos=4
+45. 52-Week High Drawdown Dip Buyer | Australia | ASX 200 | n_trades_is=4 | n_trades_oos=5
+46. 52-Week High Drawdown Dip Buyer | United States | S&P 500 | n_trades_is=4 | n_trades_oos=4
+47. 52-Week High Drawdown Dip Buyer | Canada | S&P/TSX Composite | n_trades_is=4 | n_trades_oos=3
+48. 52-Week High Drawdown Dip Buyer | United Kingdom | FTSE 250 | n_trades_is=5 | n_trades_oos=3
+49. 52-Week High Drawdown Dip Buyer | South Korea | KOSPI | n_trades_is=4 | n_trades_oos=4
+50. 52-Week High Drawdown Dip Buyer | South Korea | KOSDAQ | n_trades_is=5 | n_trades_oos=5
+51. 52-Week High Drawdown Dip Buyer | China | Shanghai Composite | n_trades_is=4 | n_trades_oos=4
+52. 52-Week High Drawdown Dip Buyer | China | Shenzhen Component | n_trades_is=3 | n_trades_oos=5
+
+COUNT_THIN_UNION: 66
+COUNT_LEADERBOARD_MATCHES: 4
+1. 50/200 SMA Crossover | United States - Nasdaq Composite | IS: 4, OOS: 4 (n_trades_is <= 5, n_trades_oos <= 5) | Titles won: best_by_cagr on Gross; best_by_calmar on Gross; best_by_cagr on Net-Tax; best_by_calmar on Net-Tax; best_by_cagr on Net-Discount; best_by_calmar on Net-Discount; best_by_cagr on Net-Full-Service; best_by_calmar on Net-Full-Service; best_by_cagr on Buy-and-Hold; best_by_calmar on Buy-and-Hold
+2. 12-Month Momentum (Monthly Rebalance) | United States - Nasdaq Composite | IS: 4, OOS: 5 (n_trades_is <= 5, n_trades_oos <= 5) | Titles won: best_by_cagr on Gross; best_by_calmar on Gross; best_by_cagr on Net-Tax; best_by_calmar on Net-Tax; best_by_cagr on Net-Discount; best_by_calmar on Net-Discount; best_by_cagr on Net-Full-Service; best_by_calmar on Net-Full-Service; best_by_cagr on Buy-and-Hold; best_by_calmar on Buy-and-Hold
+3. 52-Week High Drawdown Dip Buyer | Japan - Nikkei 225 | IS: 8, OOS: 4 (n_trades_oos <= 5) | Titles won: best_by_calmar on Net-Tax; best_by_calmar on Net-Discount
+4. 52-Week High Drawdown Dip Buyer | United States - Nasdaq Composite | IS: 5, OOS: 8 (n_trades_is <= 5) | Titles won: best_by_cagr on Buy-and-Hold; best_by_calmar on Buy-and-Hold

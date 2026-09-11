@@ -1,0 +1,250 @@
+{
+  "metadata": {
+    "random_seed": 42,
+    "dataset_status": "Reference / Preliminary Baseline (Curated from statutory authorities e.g. IRS, HMRC, Indian Finance Acts; tagged as primary_statutory_single_source until user-supplied cross-verified datasets are provided).",
+    "sample_size_caution": "Sample Size & Statistical Precision Notice (Low-n, Directional Only): Strategy trade counts range from 7 to 13 trades across the 2011\u20132025 period. Because n < 30, individual index CAGR estimates carry wide 95% bootstrap confidence intervals and must be interpreted as directional rather than definitive alpha.",
+    "parser_audit": {
+      "parser_backend_used": "rule_based",
+      "model_name": null,
+      "temperature": null,
+      "strategy_text": "Buy when the 50-day moving average crosses above the 200-day moving average, sell when it crosses below, using the full index value as position size, no leverage, no shorting.",
+      "prompt": "RULE_BASED_EXTRACTOR: MA Crossover (50, 200)",
+      "raw_response": "{\n  \"name\": \"50/200 SMA Crossover\",\n  \"description\": \"Long when 50-day SMA crosses above 200-day SMA, exit on cross below.\",\n  \"indicators\": [\n    {\n      \"name\": \"SMA\",\n      \"params\": {\n        \"period\": 50,\n        \"fast_period\": 50,\n        \"slow_period\": 200\n      }\n    },\n    {\n      \"name\": \"SMA\",\n      \"params\": {\n        \"period\": 200,\n        \"fast_period\": 50,\n        \"slow_period\": 200\n      }\n    }\n  ],\n  \"parameters\": {\n    \"fast_period\": 50,\n    \"slow_period\": 200\n  },\n  \"entry_condition\": \"SMA_50 crosses above SMA_200\",\n  \"exit_condition\": \"SMA_50 crosses below SMA_200\",\n  \"position_size\": \"full capital, long/flat only\",\n  \"no_leverage\": true,\n  \"no_shorting\": true,\n  \"generated_code\": \"import pandas as pd\\nimport numpy as np\\n\\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\\n    \\\"\\\"\\\"\\n    Long-only cash equity MA crossover strategy.\\n    Fast: 50 SMA, Slow: 200 SMA.\\n    Returns pd.Series with values 1 (Long) or 0 (Flat).\\n    \\\"\\\"\\\"\\n    if len(df) == 0:\\n        return pd.Series(dtype=int)\\n\\n    fast_ma = df['close'].rolling(window=50, min_periods=50).mean()\\n    slow_ma = df['close'].rolling(window=200, min_periods=200).mean()\\n\\n    signal = pd.Series(0, index=df.index, dtype=int)\\n    is_long = False\\n\\n    # State machine for long/flat positions\\n    for i in range(1, len(df)):\\n        f_curr = fast_ma.iloc[i]\\n        s_curr = slow_ma.iloc[i]\\n        f_prev = fast_ma.iloc[i-1]\\n        s_prev = slow_ma.iloc[i-1]\\n\\n        if pd.isna(f_curr) or pd.isna(s_curr) or pd.isna(f_prev) or pd.isna(s_prev):\\n            continue\\n\\n        # Buy condition: fast crosses above slow\\n        if not is_long and (f_curr > s_curr) and (f_prev <= s_prev):\\n            is_long = True\\n        # Sell condition: fast crosses below slow\\n        elif is_long and (f_curr < s_curr) and (f_prev >= s_prev):\\n            is_long = False\\n\\n        if is_long:\\n            signal.iloc[i] = 1\\n\\n    return signal\\n\"\n}",
+      "parsed_rule": {
+        "name": "50/200 SMA Crossover",
+        "description": "Long when 50-day SMA crosses above 200-day SMA, exit on cross below.",
+        "indicators": [
+          {
+            "name": "SMA",
+            "params": {
+              "period": 50,
+              "fast_period": 50,
+              "slow_period": 200
+            }
+          },
+          {
+            "name": "SMA",
+            "params": {
+              "period": 200,
+              "fast_period": 50,
+              "slow_period": 200
+            }
+          }
+        ],
+        "parameters": {
+          "fast_period": 50,
+          "slow_period": 200
+        },
+        "entry_condition": "SMA_50 crosses above SMA_200",
+        "exit_condition": "SMA_50 crosses below SMA_200",
+        "position_size": "full capital, long/flat only",
+        "no_leverage": true,
+        "no_shorting": true,
+        "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Long-only cash equity MA crossover strategy.\n    Fast: 50 SMA, Slow: 200 SMA.\n    Returns pd.Series with values 1 (Long) or 0 (Flat).\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    fast_ma = df['close'].rolling(window=50, min_periods=50).mean()\n    slow_ma = df['close'].rolling(window=200, min_periods=200).mean()\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    is_long = False\n\n    # State machine for long/flat positions\n    for i in range(1, len(df)):\n        f_curr = fast_ma.iloc[i]\n        s_curr = slow_ma.iloc[i]\n        f_prev = fast_ma.iloc[i-1]\n        s_prev = slow_ma.iloc[i-1]\n\n        if pd.isna(f_curr) or pd.isna(s_curr) or pd.isna(f_prev) or pd.isna(s_prev):\n            continue\n\n        # Buy condition: fast crosses above slow\n        if not is_long and (f_curr > s_curr) and (f_prev <= s_prev):\n            is_long = True\n        # Sell condition: fast crosses below slow\n        elif is_long and (f_curr < s_curr) and (f_prev >= s_prev):\n            is_long = False\n\n        if is_long:\n            signal.iloc[i] = 1\n\n    return signal\n"
+      },
+      "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Long-only cash equity MA crossover strategy.\n    Fast: 50 SMA, Slow: 200 SMA.\n    Returns pd.Series with values 1 (Long) or 0 (Flat).\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    fast_ma = df['close'].rolling(window=50, min_periods=50).mean()\n    slow_ma = df['close'].rolling(window=200, min_periods=200).mean()\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    is_long = False\n\n    # State machine for long/flat positions\n    for i in range(1, len(df)):\n        f_curr = fast_ma.iloc[i]\n        s_curr = slow_ma.iloc[i]\n        f_prev = fast_ma.iloc[i-1]\n        s_prev = slow_ma.iloc[i-1]\n\n        if pd.isna(f_curr) or pd.isna(s_curr) or pd.isna(f_prev) or pd.isna(s_prev):\n            continue\n\n        # Buy condition: fast crosses above slow\n        if not is_long and (f_curr > s_curr) and (f_prev <= s_prev):\n            is_long = True\n        # Sell condition: fast crosses below slow\n        elif is_long and (f_curr < s_curr) and (f_prev >= s_prev):\n            is_long = False\n\n        if is_long:\n            signal.iloc[i] = 1\n\n    return signal\n",
+      "timestamp_utc": "2026-09-10T13:39:00.626368+00:00"
+    },
+    "methodology_disclosures": {
+      "sharpe_annualization": "Sharpe ratios are calculated from daily returns using an annualization factor of sqrt(252) (252 trading days/year) and an annualized risk-free rate of 0.0%. This stated simplification avoids confounding 15 divergent sovereign yield curves over the 2011\u20132025 period. Cross-market risk-adjusted capital efficiency should also be evaluated via the Calmar ratio and net excess CAGR over Buy & Hold.",
+      "currency_terms": "Rankings are computed within each currency's own terms (no FX adjustment); cross-country comparison does not account for exchange-rate fluctuations.",
+      "robustness_sequence_vs_estimation": "The Monte Carlo trade-shuffle (1,000 permutations) randomizes trade execution order to isolate sequence risk and path-dependent drawdown (P95), whereas the bootstrap confidence interval resamples trade returns with replacement to quantify parameter estimation uncertainty on annualized CAGR given small sample size (n < 30)."
+    },
+    "total_indices_evaluated": 1,
+    "qualified_count": 1,
+    "excluded_count": 0
+  },
+  "primary_ranking_cagr": [
+    {
+      "rank": 1,
+      "country": "South Korea",
+      "index_name": "KOSDAQ",
+      "data_source_id": "^KQ11",
+      "currency": "KRW",
+      "data_start": "2011-01-03",
+      "data_end": "2025-12-30",
+      "provenance": {
+        "vendor": "yfinance",
+        "source_identifier": "^KQ11",
+        "sha256": null,
+        "retrieval_timestamp_utc": "2026-09-10T13:38:57.084293+00:00",
+        "row_count": 3684,
+        "data_start": "2011-01-03",
+        "data_end": "2025-12-30"
+      },
+      "gross_metrics": {
+        "cagr": 0.0106,
+        "max_drawdown": -0.4466,
+        "sharpe_ratio": 0.1476,
+        "calmar_ratio": 0.0238,
+        "total_trades": 13,
+        "win_rate": 0.3846,
+        "total_return": 0.1718,
+        "annualized_volatility": 0.1466,
+        "insufficient_sample": false
+      },
+      "net_tax_metrics": {
+        "cagr": 0.0106,
+        "max_drawdown": -0.4466,
+        "sharpe_ratio": 0.1476,
+        "calmar_ratio": 0.0238,
+        "total_trades": 13,
+        "win_rate": 0.3846,
+        "total_return": 0.1718,
+        "annualized_volatility": 0.1466,
+        "insufficient_sample": false
+      },
+      "net_discount_metrics": {
+        "cagr": 0.0064,
+        "max_drawdown": -0.4706,
+        "sharpe_ratio": 0.1195,
+        "calmar_ratio": 0.0136,
+        "total_trades": 13,
+        "win_rate": 0.3846,
+        "total_return": 0.1005,
+        "annualized_volatility": 0.1524,
+        "insufficient_sample": false
+      },
+      "net_full_service_metrics": {
+        "cagr": -0.0018,
+        "max_drawdown": -0.5119,
+        "sharpe_ratio": 0.0705,
+        "calmar_ratio": -0.0036,
+        "total_trades": 13,
+        "win_rate": 0.3846,
+        "total_return": -0.0274,
+        "annualized_volatility": 0.1634,
+        "insufficient_sample": false
+      },
+      "benchmark_discount_metrics": {
+        "cagr": 0.0394,
+        "max_drawdown": -0.5389,
+        "sharpe_ratio": 0.2905,
+        "calmar_ratio": 0.0732,
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "total_return": 0.786,
+        "annualized_volatility": 0.2221,
+        "insufficient_sample": true
+      },
+      "excess_cagr_vs_benchmark": -0.033,
+      "alpha_vs_benchmark_cagr": -0.033,
+      "robustness": {
+        "is_trade_count": 6,
+        "is_cagr": 0.0158,
+        "is_max_drawdown": -0.2483,
+        "is_sharpe": 0.1837,
+        "is_insufficient_sample": false,
+        "oos_trade_count": 7,
+        "oos_cagr": -0.0041,
+        "oos_max_drawdown": -0.3687,
+        "oos_sharpe": 0.0555,
+        "oos_insufficient_sample": false,
+        "degradation_ratio": -0.2633,
+        "delta_cagr_pp": -0.0199,
+        "mc_p95_max_drawdown": -0.4271,
+        "cagr_ci_lower": -0.0555,
+        "cagr_ci_upper": 0.0901,
+        "is_directional_only": true
+      },
+      "exclusion_reason": null
+    }
+  ],
+  "secondary_ranking_calmar": [
+    {
+      "rank": 1,
+      "country": "South Korea",
+      "index_name": "KOSDAQ",
+      "data_source_id": "^KQ11",
+      "currency": "KRW",
+      "data_start": "2011-01-03",
+      "data_end": "2025-12-30",
+      "provenance": {
+        "vendor": "yfinance",
+        "source_identifier": "^KQ11",
+        "sha256": null,
+        "retrieval_timestamp_utc": "2026-09-10T13:38:57.084293+00:00",
+        "row_count": 3684,
+        "data_start": "2011-01-03",
+        "data_end": "2025-12-30"
+      },
+      "gross_metrics": {
+        "cagr": 0.0106,
+        "max_drawdown": -0.4466,
+        "sharpe_ratio": 0.1476,
+        "calmar_ratio": 0.0238,
+        "total_trades": 13,
+        "win_rate": 0.3846,
+        "total_return": 0.1718,
+        "annualized_volatility": 0.1466,
+        "insufficient_sample": false
+      },
+      "net_tax_metrics": {
+        "cagr": 0.0106,
+        "max_drawdown": -0.4466,
+        "sharpe_ratio": 0.1476,
+        "calmar_ratio": 0.0238,
+        "total_trades": 13,
+        "win_rate": 0.3846,
+        "total_return": 0.1718,
+        "annualized_volatility": 0.1466,
+        "insufficient_sample": false
+      },
+      "net_discount_metrics": {
+        "cagr": 0.0064,
+        "max_drawdown": -0.4706,
+        "sharpe_ratio": 0.1195,
+        "calmar_ratio": 0.0136,
+        "total_trades": 13,
+        "win_rate": 0.3846,
+        "total_return": 0.1005,
+        "annualized_volatility": 0.1524,
+        "insufficient_sample": false
+      },
+      "net_full_service_metrics": {
+        "cagr": -0.0018,
+        "max_drawdown": -0.5119,
+        "sharpe_ratio": 0.0705,
+        "calmar_ratio": -0.0036,
+        "total_trades": 13,
+        "win_rate": 0.3846,
+        "total_return": -0.0274,
+        "annualized_volatility": 0.1634,
+        "insufficient_sample": false
+      },
+      "benchmark_discount_metrics": {
+        "cagr": 0.0394,
+        "max_drawdown": -0.5389,
+        "sharpe_ratio": 0.2905,
+        "calmar_ratio": 0.0732,
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "total_return": 0.786,
+        "annualized_volatility": 0.2221,
+        "insufficient_sample": true
+      },
+      "excess_cagr_vs_benchmark": -0.033,
+      "alpha_vs_benchmark_cagr": -0.033,
+      "robustness": {
+        "is_trade_count": 6,
+        "is_cagr": 0.0158,
+        "is_max_drawdown": -0.2483,
+        "is_sharpe": 0.1837,
+        "is_insufficient_sample": false,
+        "oos_trade_count": 7,
+        "oos_cagr": -0.0041,
+        "oos_max_drawdown": -0.3687,
+        "oos_sharpe": 0.0555,
+        "oos_insufficient_sample": false,
+        "degradation_ratio": -0.2633,
+        "delta_cagr_pp": -0.0199,
+        "mc_p95_max_drawdown": -0.4271,
+        "cagr_ci_lower": -0.0555,
+        "cagr_ci_upper": 0.0901,
+        "is_directional_only": true
+      },
+      "exclusion_reason": null
+    }
+  ],
+  "appendix_excluded": []
+}

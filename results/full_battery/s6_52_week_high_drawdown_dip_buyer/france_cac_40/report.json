@@ -1,0 +1,243 @@
+{
+  "metadata": {
+    "random_seed": 42,
+    "dataset_status": "Reference / Preliminary Baseline (Curated from statutory authorities e.g. IRS, HMRC, Indian Finance Acts; tagged as primary_statutory_single_source until user-supplied cross-verified datasets are provided).",
+    "sample_size_caution": "Sample Size & Statistical Precision Notice (Low-n, Directional Only): Strategy trade counts range from 7 to 13 trades across the 2011\u20132025 period. Because n < 30, individual index CAGR estimates carry wide 95% bootstrap confidence intervals and must be interpreted as directional rather than definitive alpha.",
+    "parser_audit": {
+      "parser_backend_used": "rule_based",
+      "model_name": null,
+      "temperature": null,
+      "strategy_text": "Buy the index whenever it falls 10% or more below its trailing 52-week high. Sell when it recovers to within 2% of that same 52-week high. No leverage, no shorting.",
+      "prompt": "RULE_BASED_EXTRACTOR: Drawdown Dip Buyer (dip=0.1, rec=0.02)",
+      "raw_response": "{\n  \"name\": \"52-Week High Drawdown Dip Buyer\",\n  \"description\": \"Buy when price is >= 10% below 52-week high, sell when recovered to within 2%.\",\n  \"indicators\": [\n    {\n      \"name\": \"RollingMax\",\n      \"params\": {\n        \"period\": 252,\n        \"dip_pct\": 0.1,\n        \"recovery_pct\": 0.02\n      }\n    }\n  ],\n  \"parameters\": {\n    \"period\": 252,\n    \"dip_pct\": 0.1,\n    \"recovery_pct\": 0.02\n  },\n  \"entry_condition\": \"close <= RollingMax_252 * 0.90\",\n  \"exit_condition\": \"close >= RollingMax_252 * 0.98\",\n  \"position_size\": \"full capital, long/flat only\",\n  \"no_leverage\": true,\n  \"no_shorting\": true,\n  \"generated_code\": \"import pandas as pd\\nimport numpy as np\\n\\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\\n    \\\"\\\"\\\"\\n    Drawdown-Triggered Dip Buying Strategy.\\n    Buy when price falls >= 10% below trailing 252-day high.\\n    Sell when price recovers to within 2% of that same 252-day high.\\n    \\\"\\\"\\\"\\n    if len(df) == 0:\\n        return pd.Series(dtype=int)\\n\\n    rolling_high = df['close'].rolling(window=252, min_periods=252).max()\\n    buy_threshold = rolling_high * (1.0 - 0.1)\\n    exit_threshold = rolling_high * (1.0 - 0.02)\\n\\n    signal = pd.Series(0, index=df.index, dtype=int)\\n    is_long = False\\n\\n    for i in range(1, len(df)):\\n        c = df['close'].iloc[i]\\n        b_lvl = buy_threshold.iloc[i]\\n        e_lvl = exit_threshold.iloc[i]\\n\\n        if pd.isna(b_lvl) or pd.isna(e_lvl):\\n            continue\\n\\n        if not is_long and c <= b_lvl:\\n            is_long = True\\n        elif is_long and c >= e_lvl:\\n            is_long = False\\n\\n        if is_long:\\n            signal.iloc[i] = 1\\n\\n    return signal\\n\"\n}",
+      "parsed_rule": {
+        "name": "52-Week High Drawdown Dip Buyer",
+        "description": "Buy when price is >= 10% below 52-week high, sell when recovered to within 2%.",
+        "indicators": [
+          {
+            "name": "RollingMax",
+            "params": {
+              "period": 252,
+              "dip_pct": 0.1,
+              "recovery_pct": 0.02
+            }
+          }
+        ],
+        "parameters": {
+          "period": 252,
+          "dip_pct": 0.1,
+          "recovery_pct": 0.02
+        },
+        "entry_condition": "close <= RollingMax_252 * 0.90",
+        "exit_condition": "close >= RollingMax_252 * 0.98",
+        "position_size": "full capital, long/flat only",
+        "no_leverage": true,
+        "no_shorting": true,
+        "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Drawdown-Triggered Dip Buying Strategy.\n    Buy when price falls >= 10% below trailing 252-day high.\n    Sell when price recovers to within 2% of that same 252-day high.\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    rolling_high = df['close'].rolling(window=252, min_periods=252).max()\n    buy_threshold = rolling_high * (1.0 - 0.1)\n    exit_threshold = rolling_high * (1.0 - 0.02)\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    is_long = False\n\n    for i in range(1, len(df)):\n        c = df['close'].iloc[i]\n        b_lvl = buy_threshold.iloc[i]\n        e_lvl = exit_threshold.iloc[i]\n\n        if pd.isna(b_lvl) or pd.isna(e_lvl):\n            continue\n\n        if not is_long and c <= b_lvl:\n            is_long = True\n        elif is_long and c >= e_lvl:\n            is_long = False\n\n        if is_long:\n            signal.iloc[i] = 1\n\n    return signal\n"
+      },
+      "generated_code": "import pandas as pd\nimport numpy as np\n\ndef generate_signals(df: pd.DataFrame) -> pd.Series:\n    \"\"\"\n    Drawdown-Triggered Dip Buying Strategy.\n    Buy when price falls >= 10% below trailing 252-day high.\n    Sell when price recovers to within 2% of that same 252-day high.\n    \"\"\"\n    if len(df) == 0:\n        return pd.Series(dtype=int)\n\n    rolling_high = df['close'].rolling(window=252, min_periods=252).max()\n    buy_threshold = rolling_high * (1.0 - 0.1)\n    exit_threshold = rolling_high * (1.0 - 0.02)\n\n    signal = pd.Series(0, index=df.index, dtype=int)\n    is_long = False\n\n    for i in range(1, len(df)):\n        c = df['close'].iloc[i]\n        b_lvl = buy_threshold.iloc[i]\n        e_lvl = exit_threshold.iloc[i]\n\n        if pd.isna(b_lvl) or pd.isna(e_lvl):\n            continue\n\n        if not is_long and c <= b_lvl:\n            is_long = True\n        elif is_long and c >= e_lvl:\n            is_long = False\n\n        if is_long:\n            signal.iloc[i] = 1\n\n    return signal\n",
+      "timestamp_utc": "2026-09-10T13:39:00.707489+00:00"
+    },
+    "methodology_disclosures": {
+      "sharpe_annualization": "Sharpe ratios are calculated from daily returns using an annualization factor of sqrt(252) (252 trading days/year) and an annualized risk-free rate of 0.0%. This stated simplification avoids confounding 15 divergent sovereign yield curves over the 2011\u20132025 period. Cross-market risk-adjusted capital efficiency should also be evaluated via the Calmar ratio and net excess CAGR over Buy & Hold.",
+      "currency_terms": "Rankings are computed within each currency's own terms (no FX adjustment); cross-country comparison does not account for exchange-rate fluctuations.",
+      "robustness_sequence_vs_estimation": "The Monte Carlo trade-shuffle (1,000 permutations) randomizes trade execution order to isolate sequence risk and path-dependent drawdown (P95), whereas the bootstrap confidence interval resamples trade returns with replacement to quantify parameter estimation uncertainty on annualized CAGR given small sample size (n < 30)."
+    },
+    "total_indices_evaluated": 1,
+    "qualified_count": 1,
+    "excluded_count": 0
+  },
+  "primary_ranking_cagr": [
+    {
+      "rank": 1,
+      "country": "France",
+      "index_name": "CAC 40",
+      "data_source_id": "^FCHI",
+      "currency": "EUR",
+      "data_start": "2011-01-03",
+      "data_end": "2025-12-30",
+      "provenance": {
+        "vendor": "yfinance",
+        "source_identifier": "^FCHI",
+        "sha256": null,
+        "retrieval_timestamp_utc": "2026-09-10T13:38:52.838941+00:00",
+        "row_count": 3834,
+        "data_start": "2011-01-03",
+        "data_end": "2025-12-30"
+      },
+      "gross_metrics": {
+        "cagr": 0.0769,
+        "max_drawdown": -0.3129,
+        "sharpe_ratio": 0.5886,
+        "calmar_ratio": 0.2457,
+        "total_trades": 11,
+        "win_rate": 1.0,
+        "total_return": 2.0347,
+        "annualized_volatility": 0.141,
+        "insufficient_sample": false
+      },
+      "net_tax_metrics": {
+        "cagr": 0.0582,
+        "max_drawdown": -0.3812,
+        "sharpe_ratio": 0.4087,
+        "calmar_ratio": 0.1526,
+        "total_trades": 11,
+        "win_rate": 1.0,
+        "total_return": 1.3343,
+        "annualized_volatility": 0.1734,
+        "insufficient_sample": false
+      },
+      "net_discount_metrics": {
+        "cagr": 0.055,
+        "max_drawdown": -0.3961,
+        "sharpe_ratio": 0.3853,
+        "calmar_ratio": 0.1388,
+        "total_trades": 11,
+        "win_rate": 1.0,
+        "total_return": 1.2308,
+        "annualized_volatility": 0.1786,
+        "insufficient_sample": false
+      },
+      "net_full_service_metrics": {
+        "cagr": 0.0485,
+        "max_drawdown": -0.4296,
+        "sharpe_ratio": 0.3399,
+        "calmar_ratio": 0.1129,
+        "total_trades": 11,
+        "win_rate": 1.0,
+        "total_return": 1.0337,
+        "annualized_volatility": 0.1919,
+        "insufficient_sample": false
+      },
+      "benchmark_discount_metrics": {
+        "cagr": 0.0383,
+        "max_drawdown": -0.3856,
+        "sharpe_ratio": 0.2877,
+        "calmar_ratio": 0.0992,
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "total_return": 0.7554,
+        "annualized_volatility": 0.1959,
+        "insufficient_sample": true
+      },
+      "excess_cagr_vs_benchmark": 0.0167,
+      "alpha_vs_benchmark_cagr": 0.0167,
+      "robustness": {
+        "is_trade_count": 6,
+        "is_cagr": 0.0273,
+        "is_max_drawdown": -0.258,
+        "is_sharpe": 0.2536,
+        "is_insufficient_sample": false,
+        "oos_trade_count": 5,
+        "oos_cagr": 0.0894,
+        "oos_max_drawdown": -0.3961,
+        "oos_sharpe": 0.5096,
+        "oos_insufficient_sample": false,
+        "degradation_ratio": 3.2791,
+        "delta_cagr_pp": 0.0621,
+        "mc_p95_max_drawdown": 0.0,
+        "cagr_ci_lower": 0.062,
+        "cagr_ci_upper": 0.0931,
+        "is_directional_only": true
+      },
+      "exclusion_reason": null
+    }
+  ],
+  "secondary_ranking_calmar": [
+    {
+      "rank": 1,
+      "country": "France",
+      "index_name": "CAC 40",
+      "data_source_id": "^FCHI",
+      "currency": "EUR",
+      "data_start": "2011-01-03",
+      "data_end": "2025-12-30",
+      "provenance": {
+        "vendor": "yfinance",
+        "source_identifier": "^FCHI",
+        "sha256": null,
+        "retrieval_timestamp_utc": "2026-09-10T13:38:52.838941+00:00",
+        "row_count": 3834,
+        "data_start": "2011-01-03",
+        "data_end": "2025-12-30"
+      },
+      "gross_metrics": {
+        "cagr": 0.0769,
+        "max_drawdown": -0.3129,
+        "sharpe_ratio": 0.5886,
+        "calmar_ratio": 0.2457,
+        "total_trades": 11,
+        "win_rate": 1.0,
+        "total_return": 2.0347,
+        "annualized_volatility": 0.141,
+        "insufficient_sample": false
+      },
+      "net_tax_metrics": {
+        "cagr": 0.0582,
+        "max_drawdown": -0.3812,
+        "sharpe_ratio": 0.4087,
+        "calmar_ratio": 0.1526,
+        "total_trades": 11,
+        "win_rate": 1.0,
+        "total_return": 1.3343,
+        "annualized_volatility": 0.1734,
+        "insufficient_sample": false
+      },
+      "net_discount_metrics": {
+        "cagr": 0.055,
+        "max_drawdown": -0.3961,
+        "sharpe_ratio": 0.3853,
+        "calmar_ratio": 0.1388,
+        "total_trades": 11,
+        "win_rate": 1.0,
+        "total_return": 1.2308,
+        "annualized_volatility": 0.1786,
+        "insufficient_sample": false
+      },
+      "net_full_service_metrics": {
+        "cagr": 0.0485,
+        "max_drawdown": -0.4296,
+        "sharpe_ratio": 0.3399,
+        "calmar_ratio": 0.1129,
+        "total_trades": 11,
+        "win_rate": 1.0,
+        "total_return": 1.0337,
+        "annualized_volatility": 0.1919,
+        "insufficient_sample": false
+      },
+      "benchmark_discount_metrics": {
+        "cagr": 0.0383,
+        "max_drawdown": -0.3856,
+        "sharpe_ratio": 0.2877,
+        "calmar_ratio": 0.0992,
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "total_return": 0.7554,
+        "annualized_volatility": 0.1959,
+        "insufficient_sample": true
+      },
+      "excess_cagr_vs_benchmark": 0.0167,
+      "alpha_vs_benchmark_cagr": 0.0167,
+      "robustness": {
+        "is_trade_count": 6,
+        "is_cagr": 0.0273,
+        "is_max_drawdown": -0.258,
+        "is_sharpe": 0.2536,
+        "is_insufficient_sample": false,
+        "oos_trade_count": 5,
+        "oos_cagr": 0.0894,
+        "oos_max_drawdown": -0.3961,
+        "oos_sharpe": 0.5096,
+        "oos_insufficient_sample": false,
+        "degradation_ratio": 3.2791,
+        "delta_cagr_pp": 0.0621,
+        "mc_p95_max_drawdown": 0.0,
+        "cagr_ci_lower": 0.062,
+        "cagr_ci_upper": 0.0931,
+        "is_directional_only": true
+      },
+      "exclusion_reason": null
+    }
+  ],
+  "appendix_excluded": []
+}
