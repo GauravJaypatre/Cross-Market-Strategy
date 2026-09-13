@@ -83,5 +83,7 @@ python scratch/generate_publication_figures.py
 
 ---
 
+## This repository is archived on Zenodo for long-term preservation and citation.
+
 ## License
 MIT License
