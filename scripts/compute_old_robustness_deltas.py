@@ -15,8 +15,8 @@ from src.brokerage.brokerage_calculator import BrokerageCalculator
 from src.multi_track.track_simulator import run_multi_track_simulation
 
 # Temporary CSVs for old parameters
-old_tax_csv = "scratch/old_tax.csv"
-old_broker_csv = "scratch/old_broker.csv"
+old_tax_csv = "scripts/old_tax.csv"
+old_broker_csv = "scripts/old_broker.csv"
 
 # Read current tax and brokerage
 df_tax = pd.read_csv("tax_dataset.csv")

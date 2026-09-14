@@ -80,7 +80,7 @@ python run_full_battery.py --universe universe.yaml --out results/full_battery/
 
 ### 3. Generate Publication Figures
 ```bash
-python scratch/generate_publication_figures.py
+python scripts/generate_publication_figures.py
 ```
 
 ---

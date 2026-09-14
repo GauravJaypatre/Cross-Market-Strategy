@@ -1,0 +1,51 @@
+strategy,country,index,raw_cagr_outperformance_pp,raw_p_value,bh_adjusted_p_value,significant_at_q10
+14-Day RSI Oscillator,United States,S&P 500,-4.908,0.999,1.0,False
+14-Day RSI Oscillator,United States,Nasdaq Composite,-9.5156,1.0,1.0,False
+14-Day RSI Oscillator,United States,Dow Jones Industrial Average,-3.9437,1.0,1.0,False
+14-Day RSI Oscillator,China,Shanghai Composite,-1.719,0.744,1.0,False
+14-Day RSI Oscillator,China,Shenzhen Component,-2.5042,0.748,1.0,False
+14-Day RSI Oscillator,Germany,DAX 40,-3.6166,0.968,1.0,False
+14-Day RSI Oscillator,Germany,MDAX,-2.4691,0.859,1.0,False
+14-Day RSI Oscillator,Germany,TecDAX,-2.5275,0.922,1.0,False
+14-Day RSI Oscillator,Japan,Nikkei 225,-5.6295,1.0,1.0,False
+14-Day RSI Oscillator,India,Nifty 50,-7.9421,1.0,1.0,False
+14-Day RSI Oscillator,India,BSE Sensex,-6.3752,1.0,1.0,False
+14-Day RSI Oscillator,India,Nifty Bank,-10.1371,1.0,1.0,False
+14-Day RSI Oscillator,United Kingdom,FTSE 100,3.0826,0.124,1.0,False
+14-Day RSI Oscillator,United Kingdom,FTSE 250,-4.2387,0.94,1.0,False
+14-Day RSI Oscillator,France,CAC 40,-3.8178,0.941,1.0,False
+14-Day RSI Oscillator,Italy,FTSE MIB,0.3279,0.572,1.0,False
+14-Day RSI Oscillator,Indonesia,Jakarta Composite Index,-5.9775,0.998,1.0,False
+14-Day RSI Oscillator,Canada,S&P/TSX Composite,-2.0644,0.907,1.0,False
+14-Day RSI Oscillator,Brazil,Ibovespa,-2.5352,0.764,1.0,False
+14-Day RSI Oscillator,South Korea,KOSPI,-3.9509,0.978,1.0,False
+14-Day RSI Oscillator,South Korea,KOSDAQ,-2.0511,0.845,1.0,False
+14-Day RSI Oscillator,Australia,ASX 200,-1.0079,0.75,1.0,False
+14-Day RSI Oscillator,Australia,All Ordinaries,-1.6095,0.84,1.0,False
+14-Day RSI Oscillator,Mexico,IPC Mexico,-0.2558,0.66,1.0,False
+14-Day RSI Oscillator,Spain,IBEX 35,-2.0676,0.8,1.0,False
+Bollinger Bands Breakout,United States,S&P 500,-10.8488,1.0,1.0,False
+Bollinger Bands Breakout,United States,Nasdaq Composite,-14.4751,1.0,1.0,False
+Bollinger Bands Breakout,United States,Dow Jones Industrial Average,-8.2187,1.0,1.0,False
+Bollinger Bands Breakout,China,Shanghai Composite,1.4547,0.326,1.0,False
+Bollinger Bands Breakout,China,Shenzhen Component,5.7913,0.048,1.0,False
+Bollinger Bands Breakout,Germany,DAX 40,-6.7577,1.0,1.0,False
+Bollinger Bands Breakout,Germany,MDAX,-4.8027,0.997,1.0,False
+Bollinger Bands Breakout,Germany,TecDAX,-9.4779,1.0,1.0,False
+Bollinger Bands Breakout,Japan,Nikkei 225,-8.148,1.0,1.0,False
+Bollinger Bands Breakout,India,Nifty 50,-7.7442,0.999,1.0,False
+Bollinger Bands Breakout,India,BSE Sensex,-7.716,1.0,1.0,False
+Bollinger Bands Breakout,India,Nifty Bank,-8.5054,0.987,1.0,False
+Bollinger Bands Breakout,United Kingdom,FTSE 100,-10.3874,1.0,1.0,False
+Bollinger Bands Breakout,United Kingdom,FTSE 250,-11.4425,1.0,1.0,False
+Bollinger Bands Breakout,France,CAC 40,-6.7247,1.0,1.0,False
+Bollinger Bands Breakout,Italy,FTSE MIB,-7.2647,0.999,1.0,False
+Bollinger Bands Breakout,Indonesia,Jakarta Composite Index,-8.9672,1.0,1.0,False
+Bollinger Bands Breakout,Canada,S&P/TSX Composite,-5.2376,1.0,1.0,False
+Bollinger Bands Breakout,Brazil,Ibovespa,-2.6321,0.848,1.0,False
+Bollinger Bands Breakout,South Korea,KOSPI,-1.8529,0.847,1.0,False
+Bollinger Bands Breakout,South Korea,KOSDAQ,-2.8833,0.922,1.0,False
+Bollinger Bands Breakout,Australia,ASX 200,-4.9331,1.0,1.0,False
+Bollinger Bands Breakout,Australia,All Ordinaries,-4.6413,1.0,1.0,False
+Bollinger Bands Breakout,Mexico,IPC Mexico,-7.0457,1.0,1.0,False
+Bollinger Bands Breakout,Spain,IBEX 35,-5.4713,1.0,1.0,False

@@ -6,7 +6,7 @@ df_lead = pd.read_csv("results/full_battery/leaderboard.csv")
 oos_thin = df_rob[df_rob["n_trades_oos"] <= 5]
 is_thin = df_rob[df_rob["n_trades_is"] <= 5]
 
-with open("scratch/thin_samples_output.txt", "w", encoding="utf-8") as f:
+with open("scripts/thin_samples_output.txt", "w", encoding="utf-8") as f:
     f.write(f"COUNT_OOS_THIN: {len(oos_thin)}\n")
     for i, (_, r) in enumerate(oos_thin.iterrows(), 1):
         f.write(f"{i}. {r['strategy']} | {r['country']} | {r['index']} | n_trades_is={r['n_trades_is']} | n_trades_oos={r['n_trades_oos']}\n")
