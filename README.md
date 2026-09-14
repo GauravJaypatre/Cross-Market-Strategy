@@ -1,5 +1,7 @@
 # Cross-Market Strategy Battery: Statutory Friction & Robustness Framework
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22737302.svg)](https://doi.org/10.5281/zenodo.22737302)
+
 An empirical evaluation framework testing canonical algorithmic trading strategies across a global 15-country, 25-index universe (2011–2025) with point-in-time statutory friction modeling (Gross, Net-of-Tax, Net-Discount Brokerage, Net-Full-Service Brokerage, and Buy-and-Hold benchmark).
 
 ![Figure 1: Bootstrap CI Width vs. Minimum Trade Count](results/full_battery/figures/fig1_ci_width_vs_trades.png)
@@ -83,7 +85,25 @@ python scratch/generate_publication_figures.py
 
 ---
 
-## This repository is archived on Zenodo for long-term preservation and citation.
+## Citation
+
+This repository is archived on Zenodo for long-term preservation and citation. If you use this framework, statutory datasets, or empirical findings in your research, please refer to [CITATION.cff](CITATION.cff) or cite the canonical Zenodo release:
+
+```bibtex
+@software{jaypatre2026crossmarket,
+  author       = {Gaurav Jaypatre},
+  title        = {Cross-Market Strategy Battery: Statutory Friction \& Robustness Framework},
+  month        = sep,
+  year         = 2026,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.22737302},
+  url          = {https://doi.org/10.5281/zenodo.22737302}
+}
+```
+
+Canonical DOI: [https://doi.org/10.5281/zenodo.22737302](https://doi.org/10.5281/zenodo.22737302)
+
+---
 
 ## License
 MIT License
