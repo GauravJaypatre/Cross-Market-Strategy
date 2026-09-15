@@ -1,0 +1,319 @@
+\documentclass[11pt]{article}
+
+% ============================================================
+% PACKAGES
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{natbib}
+\usepackage{authblk}
+\usepackage{setspace}
+\usepackage{xcolor}
+
+\onehalfspacing
+
+% ============================================================
+% TITLE / AUTHOR
+% ============================================================
+\title{\textbf{Cross-Market Strategy Battery: A Statutory Friction and Trade-Count-Aware Robustness Framework for Comparative Backtesting}}
+
+\author[1]{Gaurav Jaypatre}
+\affil[1]{Independent Researcher}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% ============================================================
+% ABSTRACT
+% ============================================================
+\begin{abstract}
+\noindent Backtested trading-strategy performance is routinely reported without accounting for two frictions that materially determine an investor's realized return: statutory taxation and brokerage costs, both of which vary by jurisdiction and change over time. We introduce a reproducible, tax-and-brokerage-adjusted backtesting framework spanning 15 of the world's largest economies by GDP (25 constituent equity indices) and evaluate six canonical strategy families---trend-following, mean reversion, absolute momentum, a calendar effect, volatility breakout, and drawdown dip-buying---against resident-investor tax regimes and both discount and full-service brokerage fee schedules, each dated to its actual effective period from 2011--2025. Every reported result is accompanied by in-sample/out-of-sample degradation, Monte Carlo sequence-risk bounds, and bootstrap confidence intervals. We find that naive comparison across all 150 strategy-index pairs is misleading: headline-topping results systematically coincide with the lowest trade counts, producing confidence intervals wider than the point estimates themselves. Restricting comparison to statistically defensible pairs ($\geq$10 trades in-sample and out-of-sample) retains only two of six strategy families---both mean-reversion or breakout strategies, which trade frequently enough to be estimated reliably---and shows that 92\% of these pairs underperform a simple buy-and-hold position on the same index once realistic frictions are applied; after Benjamini-Hochberg correction for the 50 simultaneous comparisons involved, zero pairs show statistically significant outperformance of buy-and-hold. Beyond the strategy-performance findings, we contribute a reusable, primary-sourced panel dataset of point-in-time capital-gains tax rates and brokerage fee schedules across 15 countries, built via a two-pass extraction-and-cross-check pipeline with disclosed per-row confidence tiers, intended for reuse in future cross-market backtesting research.
+
+\vspace{0.5em}
+\noindent\textbf{Keywords:} backtesting; transaction costs; capital gains taxation; multiple hypothesis testing; bootstrap; cross-country finance; reproducible research
+\end{abstract}
+
+% ============================================================
+% 1. INTRODUCTION
+% ============================================================
+\section{Introduction}
+
+Academic and practitioner backtests of trading strategies are frequently reported as gross, frictionless returns, or with frictions applied inconsistently---a flat brokerage assumption held constant across decades, or a single national tax rate applied without regard to legislative change. This creates two distinct problems. First, it overstates achievable returns, since real investors pay taxes and fees that shift with jurisdiction and time. Second, and less widely recognized, it obscures a statistical hazard specific to comparative multi-market backtesting: strategies that trade infrequently by construction (trend-following, calendar effects, long-horizon momentum) generate few realized trades over any fixed historical window, so their headline performance metrics carry wide uncertainty even when reported without acknowledgment of that uncertainty. A cross-market leaderboard built from point estimates alone will systematically favor these high-variance, low-trade-count results over strategies whose more modest but statistically reliable edge is masked by frequent, well-estimated trading.
+
+This paper addresses both problems within a single framework. We restrict scope in two deliberate ways to keep the framework tractable without sacrificing realism: taxation is modeled for resident investors only (avoiding the combinatorial bilateral tax-treaty matrix that non-resident treatment requires across $15 \times 14$ country pairs), and the evaluation window is fixed to 2011--2025, a period for which both index price data and brokerage/tax documentation are reliably recoverable across all 15 countries in the universe. We treat both choices as explicit, stated scoping decisions rather than silent omissions (Section~\ref{sec:limitations}).
+
+Our contributions are threefold. First, a point-in-time, primary-sourced dataset of resident capital-gains tax rates and discount/full-service brokerage fee schedules across 15 major economies, built through a two-pass extraction-and-cross-check pipeline---itself a reusable artifact for future cross-market research, independent of any strategy results. Second, a reproducible (fixed-seed, hash-verified) backtesting framework that applies this dataset across six canonical strategy families and reports Monte Carlo and bootstrap-based robustness statistics alongside every point estimate. Third, an empirical demonstration that a naive, unfiltered comparison of strategy performance across markets is misleading in a specific, generalizable way---headline results concentrate in the lowest-trade-count strategies---and that a trade-count-aware reporting threshold, combined with multiple-comparisons correction, both corrects this bias and yields a clear, defensible finding: none of the statistically reliable active strategies significantly beat passive exposure once realistic frictions are applied.
+
+% ============================================================
+% 2. RELATED WORK
+% ============================================================
+\section{Related Work}
+
+\paragraph{Technical trading rule profitability and transaction costs.} A substantial empirical literature examines whether technical trading rules outperform passive benchmarks once transaction costs are applied. Cross-market evidence is mixed but highly transaction-cost-sensitive: a large-sample study across developed and emerging equity indices found that trading-rule predictability, while present in roughly half of markets studied under zero costs, diminished sharply over time and largely disappeared once moderate transaction costs were introduced \citep{hanauer2023}. Earlier work applying rigorous statistical correction for data-snooping bias found that, once the full universe of tested rules is accounted for, technical trading rules generally fail to significantly outperform buy-and-hold on major indices such as the Dow Jones Industrial Average \citep{sullivan1999}. Our framework extends this line of inquiry by applying jurisdiction-specific, point-in-time statutory tax and brokerage costs---rather than a single assumed cost rate---across a substantially larger cross-country universe than is typical in this literature.
+
+\paragraph{Data snooping and the bootstrap.} The statistical machinery we use to establish confidence around each strategy-index result descends from White's Reality Check bootstrap methodology, developed to correct for the inflation in apparent trading-rule performance that arises from testing many rules and reporting only the best \citep{white2000, sullivan1999}. We apply the same underlying logic---bootstrap resampling to characterize the uncertainty of a reported performance statistic---at the level of individual strategy-index pairs rather than across a rule universe, using it to demonstrate that headline point estimates from low-trade-count strategies are statistically unreliable even without any rule-selection step.
+
+\paragraph{Backtest length, sample size, and overfitting.} Our trade-count reporting threshold is conceptually related to the minimum backtest length and minimum track record length literature, which formalizes how much historical data, or how many independent trials, are needed before a reported Sharpe ratio or similar performance statistic can be trusted \citep{bailey2014deflated, bailey2014pseudo}. That literature primarily addresses overfitting from searching across many strategy configurations; our finding is a related but distinct hazard specific to comparative, cross-market backtesting---that strategies with structurally low trading frequency produce wide-uncertainty point estimates even without any parameter search, and that a naive leaderboard will systematically surface these unreliable results ahead of better-estimated ones. The broader point that standard significance thresholds are inadequate once many comparisons are being made is also central to the asset-pricing multiple-testing literature, which argues that a newly discovered factor needs to clear a much higher hurdle than conventional practice, given the extensive data mining involved in typical published findings \citep{harvey2016}. Our $n \geq 10$ trade-count threshold, combined with explicit Benjamini--Hochberg false discovery rate correction, serves an analogous role of guarding against overconfident inference from an underpowered, multiply-tested comparison.
+
+\paragraph{Cross-country tax- and cost-adjusted backtesting.} To our knowledge, no existing framework combines point-in-time, jurisdiction-specific capital-gains taxation with dated, rather than static, discount and full-service brokerage fee schedules across a comparably broad multi-country equity universe. Most cross-country technical-analysis studies either ignore transaction costs entirely, apply a single assumed cost level uniformly across countries and time, or restrict comparison to a small number of developed markets. The point-in-time tax and brokerage dataset introduced here (Sections~\ref{sec:verification} and~\ref{sec:data}) is intended as a reusable contribution independent of the specific strategy results, addressing this gap.
+
+% ============================================================
+% 3. METHODS
+% ============================================================
+\section{Methods}
+
+\subsection{Universe}
+
+We evaluate six canonical trading-strategy families against a 15-country, 25-index universe spanning the world's largest economies by GDP (IMF, October 2024 ranking), substituting Indonesia for Russia due to data-access constraints. Up to three liquid equity indices are included per country where available. All backtests cover 2011-01-01 to 2025-12-31, a window chosen to (a) align with the emergence of zero/low-commission discount brokerage platforms globally (e.g., Zerodha 2010, Robinhood 2013), which makes point-in-time brokerage-fee reconstruction tractable, and (b) ensure complete, non-restated index price history across all 25 constituent indices. This window excludes the 2008 Global Financial Crisis and the peak of the 2000 dot-com bubble; we treat this as a stated scoping limitation rather than an oversight (Section~\ref{sec:limitations}).
+
+\subsection{Strategy Families}
+
+Six algorithmic strategy families were implemented via a validated natural-language-to-code parser (dual rule-based and LLM backend, cryptographically hash-verified for tamper-free code generation; see Section~\ref{sec:reproducibility}):
+
+\begin{enumerate}
+    \item Trend-Following (50/200-day SMA Crossover)
+    \item Mean Reversion (14-day RSI Oscillator)
+    \item Absolute Momentum (12-month trailing, monthly rebalance)
+    \item Calendar Effect (Seasonal ``Halloween'' rule, long Nov--Apr)
+    \item Volatility Breakout (Bollinger Bands)
+    \item Drawdown Dip-Buying (52-week high drawdown trigger)
+\end{enumerate}
+
+All strategies are long-only, cash-equity, single-index (no shorting, leverage, or derivatives), with signals computed at day $t$ close and executed at day $t{+}1$ open to eliminate lookahead bias.
+
+\subsection{Friction Model}
+
+Each (strategy, index) pair is evaluated across four parallel return tracks plus a benchmark, all passed through an identical point-in-time statutory pipeline:
+
+\begin{itemize}
+    \item \textbf{Track 1 (Gross):} Frictionless returns.
+    \item \textbf{Track 2 (Net-of-Tax):} Adjusted for the resident investor's domestic capital-gains/securities-transaction tax, applied at the statutory rate in effect on each trade's closing date.
+    \item \textbf{Track 3 (Net-Discount):} Track 2 plus discount/neo-broker commissions, exchange fees, and applicable transaction taxes (FTT/STT/stamp duty).
+    \item \textbf{Track 4 (Net-Full-Service):} Track 2 plus full-service broker commissions.
+    \item \textbf{Benchmark (Buy-and-Hold):} The same four-track pipeline applied to a passive buy-and-hold position, isolating the marginal cost of active trading from baseline market exposure.
+\end{itemize}
+
+Tax treatment is scoped to resident investors only (one statutory rate per country per period), avoiding the combinatorial bilateral-treaty matrix that non-resident treatment would require. Tax and brokerage schedules are point-in-time: statutory rates and fee structures are dated to their actual effective periods rather than applied as a single flat rate across the full window, with each transition sourced to a primary statutory or regulatory authority (e.g., national tax codes, Big-4 worldwide tax summaries, broker historical fee schedules via web archive snapshots).
+
+\subsection{Verification Pipeline}
+\label{sec:verification}
+
+The tax and brokerage datasets underwent a two-pass extraction-and-cross-check process. Both passes are model-based extraction rather than human expert verification; we are precise about this distinction because it bounds the strength of the ``verified'' claim below what a human-audited dataset would support.
+
+\begin{enumerate}
+    \item \textbf{Primary sourcing pass:} Each rate/fee row was extracted and dated against a primary source (government statute, regulatory filing, or archived broker fee schedule), with URL and exact source text recorded.
+    \item \textbf{Independent second-pass cross-check:} A stratified sample of highest-risk rows---countries with only one or two rows across the full 14-year window (a signature of an under-specified, flattened multi-era rate) and brokerages known to have rebranded or changed pricing tiers---was re-extracted by a separate model instance with no access to the original sourcing rationale, providing a check against errors specific to a single extraction pass rather than an independent human audit.
+\end{enumerate}
+
+Of the 93 total rows across both datasets, 92 (98.9\%) carry the \texttt{primary\_statutory\_single\_source} confidence tier (35 of 35 tax rows; 57 of 58 brokerage rows); one brokerage row (Clear Corretora, Brazil) carries a \texttt{single\_source} tier pending a second corroborating source. No row in either dataset is flagged \texttt{llm\_extracted\_unverified}. We report this breakdown in full in the released dataset (\texttt{confidence} field, per row) so downstream users can filter to their required evidentiary standard, and we note that validation against an independent external reference (e.g., Big-4 worldwide tax guides) was not performed systematically and would further strengthen the dataset's evidentiary basis; we flag this as a direction for future work rather than a claim already substantiated here.
+
+This process identified and corrected two errors prior to final analysis: (1)~Japan's listed-equity capital gains tax was incorrectly modeled as a flat 20.315\% for the full window; the correct rate was 10.147\% from 2011--2013 (pre-reconstruction-surtax-expiry structure) before rising to 20.315\% in 2014. (2)~Germany's discount-brokerage track incorrectly back-applied Trade Republic's 2019-era \texteuro{}1.00 flat fee to 2011--2018; a representative pre-2019 discount broker fee (\texteuro{}5.90 flat, flatex, sourced to its BaFin-regulated historical fee schedule) was substituted for that period. Both corrections were propagated through the full pipeline and all downstream results (46 of 750 summary rows affected); neither correction changed the identity of any leaderboard-winning strategy-index pair (Section~\ref{sec:full-universe}).
+
+\subsection{Reproducibility and Determinism}
+\label{sec:reproducibility}
+
+All simulations use a fixed random seed ($\mathrm{seed}=42$) for Monte Carlo and bootstrap procedures. Bit-level determinism was confirmed by independently re-executing sampled (strategy, index) pairs and diffing all outputs (CAGR, drawdown, trade logs, bootstrap bounds) against the original run, with zero differences observed. The natural-language strategy parser's generated code was verified via SHA-256 hash comparison across independent runs to rule out post-hoc tuning, and evaluated against a sealed blind set of paraphrased strategy descriptions to test generalization beyond the canonical phrasing.
+
+\subsection{Statistical Robustness}
+\label{sec:robustness}
+
+For each qualified pair ($\geq 5$ realized round-trip trades), we compute: (a) an in-sample (2011--2018) / out-of-sample (2019--2025) CAGR degradation ratio; (b) 1{,}000-permutation Monte Carlo trade-shuffling to establish the 95th-percentile maximum drawdown, isolating sequence risk from strategy edge; and (c) 1{,}000-iteration bootstrap resampling to establish a 95\% confidence interval on annualized CAGR.
+
+\paragraph{Minimum-sample reporting threshold.} Trade-count guards ($n \geq 3$ in-sample, $n \geq 2$ out-of-sample) were applied throughout, but we found this threshold insufficient to support headline performance claims: several leaderboard-topping results rested on as few as four realized trades in each sub-period, producing bootstrap CAGR confidence intervals exceeding 15 percentage points in width---wider than the point estimate itself. We adopt $n \geq 10$ trades in \emph{both} the in-sample and out-of-sample periods as the primary reporting threshold, motivated directly by the CI-width relationship in Figure~\ref{fig:ci-width}, where confidence intervals tighten sharply above this point. To confirm this choice is not itself an arbitrary lever on the paper's conclusions, we additionally computed the underperformance rate at thresholds $T \in \{5, 8, 10, 12, 15\}$: the proportion of qualifying pairs with Net-Discount CAGR below Buy-and-Hold ranges only from 90.0\% to 92.2\% across this entire range (Table~\ref{tab:threshold-sensitivity}), confirming the paper's central finding is stable with respect to the specific threshold chosen rather than an artifact of $T=10$. We note, however, that the \emph{set of strategy families represented} does shift with $T$: at $T=5$, all six strategy families still contribute qualifying pairs, while by $T=10$ only the two highest-frequency families (14-day RSI, Bollinger Bands) remain. Conclusions in Section~\ref{sec:discussion} regarding ``active strategies'' are accordingly scoped to these two families specifically, not generalized to the four lower-frequency families that are structurally excluded at the reporting threshold.
+
+\paragraph{Significance testing and multiple-comparisons correction.} For each $n \geq 10$ pair, we test whether Net-Discount CAGR significantly exceeds the corresponding Buy-and-Hold CAGR using the pair's own bootstrap distribution (1{,}000 resamples): the one-sided $p$-value is the proportion of bootstrap CAGR draws at or below the Buy-and-Hold benchmark. Because 50 such tests are conducted simultaneously, raw $p$-values are corrected using the Benjamini--Hochberg false discovery rate procedure ($q=0.10$) to control for the inflated false-positive rate inherent in comparing many strategy-index pairs at once \citep{harvey2016}.
+
+% ============================================================
+% 4. RESULTS
+% ============================================================
+\section{Results}
+\label{sec:results}
+
+\subsection{Full-Universe Overview}
+\label{sec:full-universe}
+
+The complete battery ($6$ strategies $\times$ $25$ indices $\times$ $5$ tracks $=750$ rows) qualified all 150 (strategy, index) pairs under the base trade-count guard (0 exclusions for late data start or $n<5$ trades). Zero friction-ordering anomalies were detected across all 150 pairs (Gross $\geq$ Net-Tax $\geq$ Net-Discount $\geq$ Net-Full-Service held universally), and zero near-zero fee-drag anomalies were flagged, supporting the internal consistency of the friction model.
+
+At face value, the unrestricted leaderboard shows the 50/200 SMA Crossover on the Nasdaq Composite as the top performer across the full 150-pair universe (Net-Discount CAGR 10.70\%, Calmar 0.33), followed on the same index by 12-Month Momentum (8.66\%). The second-highest Net-Discount CAGR across the \emph{entire} universe was in fact a different pair---52-Week High Drawdown Dip-Buying on India's Nifty Bank (9.31\%)---underscoring that these are index-specific rather than universe-wide rankings. All three of these headline results rest on only 4--5 realized trades per sub-period; for the two Nasdaq pairs, bootstrap 95\% confidence intervals span 4.2\%--19.5\% and 0.2\%--20.7\% respectively---intervals wide enough that the point estimates alone are not statistically meaningful (Section~\ref{sec:robustness}). This relationship holds systematically across the full universe, not just these two pairs: across all 150 pairs, bootstrap CI width on the Net-Discount track is negatively correlated with minimum trade count (Pearson $r = -0.268$, $p<0.001$), with pairs below the $n=10$ threshold showing CI widths of up to 21.5 percentage points, tightening to roughly 4--14 percentage points above it (Figure~\ref{fig:ci-width}).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig1_ci_width_vs_trades.png}
+    \caption{Bootstrap 95\% confidence interval width (percentage points) versus minimum in-sample/out-of-sample trade count, Net-Discount track, all 150 strategy-index pairs. The shaded region marks the thin-sample zone ($n<10$); the vertical line marks the $n=10$ reporting threshold adopted in this study.}
+    \label{fig:ci-width}
+\end{figure}
+
+\subsection{Trade-Frequency-Filtered Results ($n \geq 10$)}
+\label{sec:n10-results}
+
+Applying the $n \geq 10$ in-sample/out-of-sample threshold retains exactly 50 of 150 pairs (33.3\%), and the retained set is not randomly distributed across strategies---it is fully determined by trade frequency: the two mean-reversion/breakout strategies (14-day RSI, Bollinger Bands) qualify on all 25 indices each, while all four trend, momentum, calendar, and dip-buying strategies---which by construction generate only a handful of signals over a 14-year window on daily/monthly data---qualify on zero indices.
+
+Within this statistically defensible $n \geq 10$ subset:
+
+\begin{itemize}
+    \item \textbf{46 of 50 pairs (92.0\%)} show Net-Discount CAGR below the corresponding Buy-and-Hold benchmark, i.e., active trading underperforms passive exposure to the same index once realistic tax and brokerage frictions are applied.
+    \item The remaining 4 pairs show nominal outperformance (Table~\ref{tab:fdr}). \textbf{None survive Benjamini--Hochberg FDR correction at $q=0.10$} (all adjusted $p$-values $=1.000$). Even the strongest nominal result (Shenzhen Component, raw $p=0.048$, conventionally ``significant'' in isolation) is fully explained by the number of comparisons being made once corrected. Across the entire 50-pair $n \geq 10$ universe, \textbf{zero pairs show statistically significant outperformance of Buy-and-Hold} after correction for multiple testing.
+\end{itemize}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Nominal outperformance and FDR-corrected significance, $n\geq10$ subset (4 of 50 pairs with positive Net-Discount CAGR advantage over Buy-and-Hold; full 50-pair table archived on Zenodo).}
+    \label{tab:fdr}
+    \begin{tabular}{@{}llrrr@{}}
+        \toprule
+        Strategy & Index & Outperf.\ (pp) & Raw $p$ & BH-adj.\ $p$ \\
+        \midrule
+        14-Day RSI Oscillator      & UK --- FTSE 100          & +3.08 & 0.124 & 1.000 \\
+        14-Day RSI Oscillator      & Italy --- FTSE MIB       & +0.33 & 0.572 & 1.000 \\
+        Bollinger Bands Breakout   & China --- Shenzhen Comp. & +5.79 & 0.048 & 1.000 \\
+        Bollinger Bands Breakout   & China --- Shanghai Comp. & +1.45 & 0.326 & 1.000 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Figure~\ref{fig:leaderboard} shows this pattern directly for the top five indices (by Net-Discount CAGR) within each of the two qualifying strategies. The 14-day RSI Oscillator trails Buy-and-Hold on four of its five top markets---including a wide gap on the Nasdaq Composite (4.9\% vs. 14.4\%)---with the FTSE 100 as its sole outperformance case. Bollinger Bands Breakout shows the inverse pattern concentrated in mainland China: it outperforms Buy-and-Hold on both the Shenzhen Component and Shanghai Composite, but underperforms on its other top markets (South Korea, Brazil, India) once frictions are applied.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{fig2_n10_leaderboard.png}
+    \caption{Net-Discount CAGR versus Buy-and-Hold CAGR for the top five indices (by Net-Discount CAGR) within each $n \geq 10$-qualifying strategy. Panel A: 14-Day RSI Oscillator. Panel B: Bollinger Bands Breakout.}
+    \label{fig:leaderboard}
+\end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Trade-count threshold sensitivity: underperformance rate is stable across $T\in\{5,8,10,12,15\}$, while the set of represented strategy families narrows as $T$ increases.}
+    \label{tab:threshold-sensitivity}
+    \begin{tabular}{@{}rrlr@{}}
+        \toprule
+        $T$ & Qualifying pairs & Strategy families represented & \% underperform \\
+        \midrule
+        5  & 110 & All 6 families & 90.00\% \\
+        8  & 51  & RSI, Dip-Buying, Bollinger & 92.16\% \\
+        10 & 50  & RSI, Bollinger & 92.00\% \\
+        12 & 50  & RSI, Bollinger & 92.00\% \\
+        15 & 49  & RSI, Bollinger & 91.84\% \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Interpretation}
+
+Two independent findings emerge. First, active trading strategies broadly fail to compensate for transaction costs and taxes relative to a passive buy-and-hold position on the same instrument, consistent with prior efficient-markets literature---but here demonstrated across a substantially wider cross-country, tax-and-brokerage-adjusted setting than is typical in the backtesting literature, and, unlike much of that literature, formally corrected for the multiple-comparisons problem inherent in testing many strategy-index pairs at once: zero of 50 statistically reliable pairs show significant outperformance of Buy-and-Hold once this correction is applied. Second, and methodologically, naive leaderboard-style reporting of ``best strategy per market'' is systematically biased toward low-frequency strategies precisely because their small trade counts inflate the \emph{variance}, not the \emph{edge}, of the reported point estimate; a trade-count-aware reporting threshold reverses which strategy families appear to lead. We present this second finding as a direct, generalizable caveat for any comparative backtesting framework, independent of the specific strategies or markets studied here.
+
+% ============================================================
+% 5. DISCUSSION
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+The trade-count effect documented in Section~\ref{sec:n10-results} is not specific to our strategy set or universe; it follows directly from the mathematics of bootstrap and confidence-interval estimation on small samples, and should generalize to any comparative backtest that spans strategies with structurally different trading frequencies. This has a direct methodological implication for the broader backtesting literature: a leaderboard, ranking, or ``best strategy'' claim is only as trustworthy as the trade count behind it, and frameworks that report point estimates without a matched confidence interval or a stated minimum-sample threshold risk systematically favoring exactly the results least deserving of confidence. We suggest that future comparative backtesting work adopt an explicit minimum-trade-count reporting threshold as a matter of course, analogous to a minimum sample size in any other empirical discipline, rather than treating trade-count adequacy as an afterthought addressed only in a robustness appendix.
+
+Substantively, the finding that 92\% of statistically reliable ($n \geq 10$) mean-reversion and volatility-breakout strategy-index pairs (14-day RSI and Bollinger Bands, the only two families that generate sufficient trade frequency to clear the reporting threshold) underperform buy-and-hold once discount-brokerage frictions are applied is consistent with a large body of prior evidence on the difficulty of beating passive benchmarks net of costs, but extends that evidence to a considerably broader cross-country setting---15 economies under point-in-time, jurisdiction-specific tax and brokerage treatment---than is typical in single-market studies. We do not extend this conclusion to the four lower-frequency families (trend-following, absolute momentum, the calendar effect, and drawdown dip-buying); these are structurally excluded from the $n \geq 10$ reporting threshold by their trading frequency, not evaluated and found wanting, and Section~\ref{sec:full-universe}'s unrestricted-universe results show their point estimates are, if anything, less reliable rather than less profitable.
+
+The four pairs with nominal outperformance (Table~\ref{tab:fdr}) illustrate precisely the hazard this paper's methodology is designed to guard against: taken in isolation, the Shenzhen Component result (raw $p=0.048$) would conventionally be reported as a statistically significant edge, but this significance does not survive correction for the 50 simultaneous comparisons from which it was drawn. We regard this as a direct empirical demonstration, within our own results, of the multiple-comparisons hazard documented in the broader factor-discovery literature \citep{harvey2016}, applied for the first time, to our knowledge, in a cross-country tax-and-brokerage-adjusted backtesting context.
+
+% ============================================================
+% 6. LIMITATIONS
+% ============================================================
+\section{Limitations}
+\label{sec:limitations}
+
+\paragraph{Resident-investor tax scope.} All tax treatment is modeled for resident investors under domestic statutory rates. Non-resident investors are subject to bilateral tax-treaty provisions that vary by country pair and change independently of domestic tax law; modeling this fully would require up to $15 \times 14$ treaty combinations, each with its own historical amendment record, which we judged infeasible within the scope of this study. Results should not be interpreted as applicable to non-resident investors without further adjustment.
+
+\paragraph{Evaluation window (2011--2025).} The window excludes both the 2008 Global Financial Crisis and the peak of the 2000--2001 dot-com bubble. It was chosen because index price data and, more critically, brokerage fee-schedule and tax-code documentation are reliably recoverable across all 15 countries only from approximately 2010 onward, coinciding with the emergence of discount/neo-broker platforms globally. Findings here should not be read as claims about strategy robustness across earlier crisis regimes; a G7/US-only robustness extension to 2008 or earlier is a natural direction for future work where data permits.
+
+\paragraph{Retroactive and substituted fee/rate data.} Where a primary source for a specific period could not be located (e.g., a discount broker's pre-launch era in a given country), we substituted a representative contemporaneous alternative (Section~\ref{sec:verification}, Germany pre-2019) rather than leaving the period unmodeled. These substitutions are flagged in the underlying dataset (\texttt{confidence} field) and should be treated as approximations rather than exact historical fee schedules.
+
+\paragraph{Index-level, not constituent-level, strategy execution.} Strategies are evaluated against index price series directly (as a proxy for an index-tracking instrument), not against constituent stocks within each index. This avoids survivorship bias and point-in-time index-membership complexity but means results characterize strategy performance on index-level exposure rather than active stock selection within a market.
+
+\paragraph{Single non-overlapping evaluation period.} In-sample and out-of-sample statistics are computed on one fixed split (2011--2018 / 2019--2025) rather than via walk-forward or rolling-window validation. This was a deliberate simplification to keep the point-in-time tax/brokerage pipeline tractable across 150 pairs; it means degradation ratios reflect a single historical regime shift rather than an average over multiple such shifts, and should be interpreted accordingly.
+
+\paragraph{Bootstrap methodology.} Confidence intervals and significance tests are computed via i.i.d. resampling of individual realized trade returns, which are then compounded into a CAGR distribution. This is the standard nonparametric bootstrap, but trade returns from a time-series strategy are not exchangeable in the way i.i.d. resampling assumes: losing trades may cluster during drawdown regimes (serial dependence), and both the number and timing of trades are themselves endogenous to the realized price path. A block or stationary bootstrap applied to the underlying daily return series \citep{politis1994, ledoit2008} is the more standard approach for time-series backtests and would likely produce wider, more conservative confidence intervals than those reported here by preserving serial clustering of losses. We adopt the simpler trade-level resample because our primary use of the bootstrap is comparative filtering (identifying which pairs have estimates reliable enough to compare across strategies and markets) rather than precision estimation of a single CAGR; for this comparative purpose the trade-level bootstrap is directionally informative, but readers should treat reported CI widths as a lower bound on true estimation uncertainty rather than an exact interval.
+
+\paragraph{Execution frictions beyond commissions.} The friction model (Section~\ref{sec:results}, Methods) includes statutory tax, brokerage commissions, and applicable transaction taxes, but does not model bid-ask spread or market-impact slippage. This is a minor omission for the most liquid indices in the universe but is more material for the four nominally outperforming pairs, two of which (Bollinger Bands Breakout on the Shenzhen Component and Shanghai Composite) trade on markets with documented execution frictions beyond commissions. A sensitivity check deducting an additional flat 10--25 basis points of slippage per round-trip trade shows these nominal outperformance results are sensitive to this assumption: at 25 bps, the RSI/FTSE MIB result reverses to a nominal underperformance, while the other three nominal outperformers persist (though narrowed) at this slippage level. Given that none of the four pairs are statistically significant after multiple-testing correction (Section~\ref{sec:n10-results}) regardless of slippage assumptions, this sensitivity does not alter the paper's central conclusion, but it further underscores that the nominal point estimates for these four pairs should not be read as evidence of an exploitable edge.
+
+\paragraph{Verification coverage.} The independent second-pass cross-check (Section~\ref{sec:verification}) covered a stratified, risk-prioritized sample of dataset rows---those most likely to contain a flattened multi-era rate or an outdated fee schedule---rather than every row in the dataset. Both extraction passes are model-based rather than human-audited; while this two-pass approach identified and corrected two substantive errors, it does not constitute independent human verification, and no systematic validation against an external reference dataset (e.g., Big-4 worldwide tax guides) has been performed.
+
+% ============================================================
+% 7. CONCLUSION
+% ============================================================
+\section{Conclusion}
+
+This paper set out to answer a narrower question than ``which trading strategy wins across markets'': whether a comparative backtest, once realistic and jurisdiction-specific tax and brokerage frictions are applied, can distinguish a genuine edge from an artifact of small-sample variance. The answer, across 150 strategy-index pairs spanning 15 economies, is that most of what looks like a winner in an unfiltered comparison is the latter. Applying a trade-count-aware reporting threshold and correcting for the resulting multiple comparisons reduces the candidate set from 150 pairs to 50, and reduces the count of statistically significant outperformers of a passive buy-and-hold benchmark from four (nominally) to zero.
+
+We see two takeaways for the broader literature. First, the substantive one: across two of the six strategy families tested---the only two with sufficient trading frequency to be estimated reliably at this sample size---active trading does not significantly outperform passive exposure once resident-investor taxation and discount-brokerage costs are properly accounted for. Second, the methodological one, which we believe generalizes beyond this specific dataset and strategy set: any comparative backtesting framework that reports point estimates without a matched trade-count threshold and a multiple-comparisons correction risks systematically promoting its least reliable results. We hope the point-in-time tax and brokerage dataset introduced here, released independently of these strategy findings, proves useful to other researchers testing this claim, or others, across a similarly broad cross-country setting.
+
+% ============================================================
+% 8. DATA AVAILABILITY
+% ============================================================
+\section{Data Availability}
+\label{sec:data}
+
+The complete point-in-time tax dataset (\texttt{tax\_dataset.csv}, 35 statutory tax regimes across 15 countries, 2011--2025) and brokerage dataset (\texttt{brokerage\_dataset.csv}, 58 fee schedules across discount and full-service brokers in 15 countries, 2011--2025), together with the full backtest output (\texttt{summary\_cross\_country.csv}, 750 rows; \texttt{robustness\_summary.csv}, 150 rows; \texttt{leaderboard.csv}, \texttt{leaderboard\_n10.csv}, \texttt{fdr\_corrected\_significance.csv}, and \texttt{threshold\_sensitivity.csv}), have been deposited on Zenodo with the persistent identifier \href{https://doi.org/10.5281/zenodo.22737302}{10.5281/zenodo.22737302} alongside this manuscript. Each dataset row carries a \texttt{confidence} field indicating its sourcing tier (98.9\% of rows are \texttt{primary\_statutory\_single\_source}; one row is \texttt{single\_source} pending a second corroborating source; Section~\ref{sec:verification}), allowing downstream users to filter to their required evidentiary standard. The backtesting framework's source code, including the tax and brokerage calculation engines, the natural-language strategy parser, and the full test suite (30 tests, 100\% passing at time of submission), is available at \url{https://github.com/GauravJaypatre/Cross-Market-Strategy}.
+
+% ============================================================
+% AI TOOLS DECLARATION
+% ============================================================
+\section*{Declaration of AI-Assisted Tools}
+
+This research was conducted using a multi-model AI-assisted workflow: large language models were used for bulk data extraction and cross-source verification of the statutory tax and brokerage datasets, execution of the backtesting battery and robustness statistics, and drafting assistance for manuscript prose. All AI-generated outputs---including dataset rows, code, statistical results, and manuscript text---were reviewed, verified against primary sources or independent recomputation, and are the responsibility of the human author, who takes full accountability for the accuracy and integrity of the published content. The two-pass dataset extraction-and-cross-check methodology (Section~\ref{sec:verification}) is itself a core part of the paper's contribution and is disclosed in full rather than treated as an implementation detail.
+
+% ============================================================
+% REFERENCES
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem[Bailey et al.(2014)]{bailey2014pseudo}
+Bailey, D.~H., Borwein, J., L{\'o}pez de Prado, M., \& Zhu, Q.~J. (2014).
+Pseudo-mathematics and financial charlatanism: The effects of backtest overfitting on out-of-sample performance.
+\textit{Notices of the American Mathematical Society}, 61(5), 458--471.
+
+\bibitem[Bailey and L{\'o}pez de Prado(2014)]{bailey2014deflated}
+Bailey, D.~H., \& L{\'o}pez de Prado, M. (2014).
+The deflated Sharpe ratio: Correcting for selection bias, backtest overfitting, and non-normality.
+\textit{Journal of Portfolio Management}, 40(5), 94--107.
+
+\bibitem[Hanauer and Lauterbach(2023)]{hanauer2023}
+Hanauer, M.~X., \& Lauterbach, J.~G. (2023).
+The predictive ability of technical trading rules: An empirical analysis of developed and emerging equity markets.
+\textit{Financial Markets and Portfolio Management}, 37, 461--506.
+
+\bibitem[Harvey et al.(2016)]{harvey2016}
+Harvey, C.~R., Liu, Y., \& Zhu, H. (2016).
+...and the cross-section of expected returns.
+\textit{The Review of Financial Studies}, 29(1), 5--68.
+
+\bibitem[Ledoit and Wolf(2008)]{ledoit2008}
+Ledoit, O., \& Wolf, M. (2008).
+Robust performance hypothesis testing with the Sharpe ratio.
+\textit{Journal of Empirical Finance}, 15(5), 850--859.
+
+\bibitem[Politis and Romano(1994)]{politis1994}
+Politis, D.~N., \& Romano, J.~P. (1994).
+The stationary bootstrap.
+\textit{Journal of the American Statistical Association}, 89(428), 1303--1313.
+
+\bibitem[Sullivan et al.(1999)]{sullivan1999}
+Sullivan, R., Timmermann, A., \& White, H. (1999).
+Data-snooping, technical trading rule performance, and the bootstrap.
+\textit{The Journal of Finance}, 54(5), 1647--1691.
+
+\bibitem[White(2000)]{white2000}
+White, H. (2000).
+A reality check for data snooping.
+\textit{Econometrica}, 68(5), 1097--1126.
+
+\end{thebibliography}
+
+\end{document}

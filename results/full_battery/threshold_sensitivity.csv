@@ -1,0 +1,6 @@
+threshold,n_qualifying_pairs,strategies_represented,pct_underperform
+5,110,12-Month Momentum (Monthly Rebalance); 14-Day RSI Oscillator; 50/200 SMA Crossover; 52-Week High Drawdown Dip Buyer; Bollinger Bands Breakout; Seasonal Halloween Rule (Nov-Apr),90.0
+8,51,14-Day RSI Oscillator; 52-Week High Drawdown Dip Buyer; Bollinger Bands Breakout,92.16
+10,50,14-Day RSI Oscillator; Bollinger Bands Breakout,92.0
+12,50,14-Day RSI Oscillator; Bollinger Bands Breakout,92.0
+15,49,14-Day RSI Oscillator; Bollinger Bands Breakout,91.84

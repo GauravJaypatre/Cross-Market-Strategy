@@ -51,7 +51,13 @@ An empirical evaluation framework testing canonical algorithmic trading strategi
 │   ├── summary_cross_country.csv   # Consolidated 750-row metrics across all pairs and tracks
 │   ├── leaderboard.csv             # Unrestricted top performers per strategy and track
 │   ├── leaderboard_n10.csv         # Stricter n>=10 trade-count filtered leaderboard
-│   └── robustness_summary.csv      # IS/OOS degradation, Monte Carlo P95 MaxDD, bootstrap CIs
+│   ├── robustness_summary.csv      # IS/OOS degradation, Monte Carlo P95 MaxDD, bootstrap CIs
+│   ├── threshold_sensitivity.csv   # Trade-count threshold sensitivity analysis (T=5 to 15)
+│   └── fdr_corrected_significance.csv # Benjamini-Hochberg FDR correction across qualifying pairs
+├── docs/                           # Manuscript drafts and standalone figures
+│   ├── figures/                    # Publication figures for standalone LaTeX compilation
+│   ├── paper_draft.md              # Markdown manuscript draft
+│   └── paper_draft.tex             # LaTeX manuscript draft
 ├── src/                            # Core engine modules
 │   ├── config.py                   # Universe loader and models
 │   ├── data/                       # Market data loaders and provenance tracking
@@ -105,5 +111,12 @@ Canonical DOI: [https://doi.org/10.5281/zenodo.22737302](https://doi.org/10.5281
 
 ---
 
+## AI-Assisted Tools
+
+A multi-model AI workflow was utilized during research and development for statutory data extraction, backtesting execution scripting, and drafting assistance. All outputs were independently reviewed and verified against primary statutory sources or analytical recomputations. The human author retains sole responsibility and accountability for all published data, analysis, and conclusions.
+
+---
+
 ## License
 MIT License
+
