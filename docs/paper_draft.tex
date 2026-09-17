@@ -7,6 +7,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
+\graphicspath{{figures/}{docs/figures/}{./}}
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -72,9 +73,25 @@ Our contributions are threefold. First, a point-in-time, primary-sourced dataset
 % ============================================================
 \section{Methods}
 
+The overarching architecture of the Cross-Market Strategy Battery methodology is illustrated in Figure~\ref{fig:pipeline}. The framework links five stages: canonical strategy ingestion with dual-engine verification, market data ingestion and next-day open execution, five-track point-in-time statutory friction modeling, statistical robustness layers (in-sample/out-of-sample degradation, Monte Carlo permutation, bootstrap resampling, trade-count filtering, and multiple-comparisons correction), and audited reporting.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{fig4_pipeline_architecture.png}
+    \caption{End-to-end methodology pipeline of the Cross-Market Strategy Battery across five sequential stages: strategy ingestion, market and execution engine, five-track statutory friction modeling, statistical robustness layer, and reporting and audit.}
+    \label{fig:pipeline}
+\end{figure}
+
 \subsection{Universe}
 
-We evaluate six canonical trading-strategy families against a 15-country, 25-index universe spanning the world's largest economies by GDP (IMF, October 2024 ranking), substituting Indonesia for Russia due to data-access constraints. Up to three liquid equity indices are included per country where available. All backtests cover 2011-01-01 to 2025-12-31, a window chosen to (a) align with the emergence of zero/low-commission discount brokerage platforms globally (e.g., Zerodha 2010, Robinhood 2013), which makes point-in-time brokerage-fee reconstruction tractable, and (b) ensure complete, non-restated index price history across all 25 constituent indices. This window excludes the 2008 Global Financial Crisis and the peak of the 2000 dot-com bubble; we treat this as a stated scoping limitation rather than an oversight (Section~\ref{sec:limitations}).
+We evaluate six canonical trading-strategy families against a 15-country, 25-index universe spanning the world's largest economies by GDP (IMF, October 2024 ranking), substituting Indonesia for Russia due to data-access constraints. Up to three liquid equity indices are included per country where available. All backtests cover 2011-01-01 to 2025-12-31, a window chosen to (a) align with the emergence of zero/low-commission discount brokerage platforms globally (e.g., Zerodha 2010, Robinhood 2013), which makes point-in-time brokerage-fee reconstruction tractable, and (b) ensure complete, non-restated index price history across all 25 constituent indices. This window excludes the 2008 Global Financial Crisis and the peak of the 2000 dot-com bubble; we treat this as a stated scoping limitation rather than an oversight (Section~\ref{sec:limitations}). The global distribution of the 15 economies and the constituent index depth across each jurisdiction are illustrated in Figure~\ref{fig:universe-map}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{fig3_universe_map.png}
+    \caption{Global equity universe spanning 15 economies and 25 constituent indices (2011--2025). Shading indicates index coverage depth per market: three constituent indices (United States, Germany, India), two constituent indices (China, United Kingdom, South Korea, Australia), or one constituent index (seven remaining markets).}
+    \label{fig:universe-map}
+\end{figure}
 
 \subsection{Strategy Families}
 
@@ -144,7 +161,16 @@ For each qualified pair ($\geq 5$ realized round-trip trades), we compute: (a) a
 
 The complete battery ($6$ strategies $\times$ $25$ indices $\times$ $5$ tracks $=750$ rows) qualified all 150 (strategy, index) pairs under the base trade-count guard (0 exclusions for late data start or $n<5$ trades). Zero friction-ordering anomalies were detected across all 150 pairs (Gross $\geq$ Net-Tax $\geq$ Net-Discount $\geq$ Net-Full-Service held universally), and zero near-zero fee-drag anomalies were flagged, supporting the internal consistency of the friction model.
 
-At face value, the unrestricted leaderboard shows the 50/200 SMA Crossover on the Nasdaq Composite as the top performer across the full 150-pair universe (Net-Discount CAGR 10.70\%, Calmar 0.33), followed on the same index by 12-Month Momentum (8.66\%). The second-highest Net-Discount CAGR across the \emph{entire} universe was in fact a different pair---52-Week High Drawdown Dip-Buying on India's Nifty Bank (9.31\%)---underscoring that these are index-specific rather than universe-wide rankings. All three of these headline results rest on only 4--5 realized trades per sub-period; for the two Nasdaq pairs, bootstrap 95\% confidence intervals span 4.2\%--19.5\% and 0.2\%--20.7\% respectively---intervals wide enough that the point estimates alone are not statistically meaningful (Section~\ref{sec:robustness}). This relationship holds systematically across the full universe, not just these two pairs: across all 150 pairs, bootstrap CI width on the Net-Discount track is negatively correlated with minimum trade count (Pearson $r = -0.268$, $p<0.001$), with pairs below the $n=10$ threshold showing CI widths of up to 21.5 percentage points, tightening to roughly 4--14 percentage points above it (Figure~\ref{fig:ci-width}).
+At face value, the unrestricted leaderboard shows the 50/200 SMA Crossover on the Nasdaq Composite as the top performer across the full 150-pair universe (Net-Discount CAGR 10.70\%, Calmar 0.33), followed on the same index by 12-Month Momentum (8.66\%). The second-highest Net-Discount CAGR across the \emph{entire} universe was in fact a different pair---52-Week High Drawdown Dip-Buying on India's Nifty Bank (9.31\%)---underscoring that these are index-specific rather than universe-wide rankings. All three of these headline results rest on only 4--5 realized trades per sub-period. As illustrated in Figure~\ref{fig:trade-dist}, this reflects a structural pattern across strategy families: while 14-day RSI and Bollinger Bands execute dozens of trades over the 14-year period across all 25 indices, the four trend, momentum, calendar, and dip-buying families cluster near or below the $n=10$ threshold.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{fig5_trade_count_distribution.png}
+    \caption{Realized trade count distribution by strategy family across all 150 strategy-index pairs ($N=150$). Box plots and jittered observations depict total realized trades ($n_{\mathrm{IS}} + n_{\mathrm{OOS}}$) over the 2011--2025 window. The dashed line marks the $n=10$ reporting threshold, with the shaded region highlighting the sub-threshold thin-sample zone ($n<10$).}
+    \label{fig:trade-dist}
+\end{figure}
+
+This structural sparsity in realized trades directly inflates estimation uncertainty: for the two top-ranking Nasdaq pairs, bootstrap 95\% confidence intervals span 4.2\%--19.5\% and 0.2\%--20.7\% respectively---intervals wide enough that the point estimates alone are not statistically meaningful (Section~\ref{sec:robustness}). This relationship holds systematically across the full universe, not just these two pairs: across all 150 pairs, bootstrap CI width on the Net-Discount track is negatively correlated with minimum trade count (Pearson $r = -0.268$, $p<0.001$), with pairs below the $n=10$ threshold showing CI widths of up to 21.5 percentage points, tightening to roughly 4--14 percentage points above it (Figure~\ref{fig:ci-width}).
 
 \begin{figure}[htbp]
     \centering

@@ -26,3 +26,7 @@ Thumbs.db
 # Scratch temporary test CSVs
 scratch/old_broker.csv
 scratch/old_tax.csv
+
+# Build tools and executables
+scripts/tools/
+*.exe
