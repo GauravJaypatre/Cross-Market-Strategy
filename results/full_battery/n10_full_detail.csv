@@ -71,9 +71,9 @@ strategy,country,index,track,CAGR,MaxDD,Calmar,Sharpe,n_trades,bootstrap_ci_low,
 14-Day RSI Oscillator,United Kingdom,FTSE 250,Buy-and-Hold,0.036043,-0.420804,0.085652,0.298942,1,0.036043,0.036043
 14-Day RSI Oscillator,France,CAC 40,Gross,0.048622,-0.339466,0.143232,0.4018,42,-0.010758,0.109807
 14-Day RSI Oscillator,France,CAC 40,Net-Tax,0.018923,-0.458798,0.041245,0.193081,42,-0.037676,0.059839
-14-Day RSI Oscillator,France,CAC 40,Net-Discount,7.3e-05,-0.523128,0.000139,0.110249,42,-0.052744,0.046136
-14-Day RSI Oscillator,France,CAC 40,Net-Full-Service,-0.062889,-0.799991,-0.078612,0.030816,42,-0.075376,0.017597
-14-Day RSI Oscillator,France,CAC 40,Buy-and-Hold,0.038251,-0.385589,0.099202,0.287655,1,0.038251,0.038251
+14-Day RSI Oscillator,France,CAC 40,Net-Discount,-0.000724,-0.523128,-0.001384,0.106704,42,-0.053244,0.04563
+14-Day RSI Oscillator,France,CAC 40,Net-Full-Service,-0.064888,-0.801798,-0.080927,0.026426,42,-0.075863,0.017127
+14-Day RSI Oscillator,France,CAC 40,Buy-and-Hold,0.038169,-0.385589,0.098988,0.287239,1,0.038169,0.038169
 14-Day RSI Oscillator,Italy,FTSE MIB,Gross,0.07412,-0.375046,0.197629,0.486103,47,-0.012846,0.158185
 14-Day RSI Oscillator,Italy,FTSE MIB,Net-Tax,0.051052,-0.440687,0.115846,0.337729,47,-0.039978,0.109157
 14-Day RSI Oscillator,Italy,FTSE MIB,Net-Discount,0.046275,-0.471403,0.098165,0.313383,47,-0.035744,0.104855
@@ -196,9 +196,9 @@ Bollinger Bands Breakout,United Kingdom,FTSE 250,Net-Full-Service,0.0,-1.0,0.0,0
 Bollinger Bands Breakout,United Kingdom,FTSE 250,Buy-and-Hold,0.036043,-0.420804,0.085652,0.298942,1,0.036043,0.036043
 Bollinger Bands Breakout,France,CAC 40,Gross,0.014234,-0.132406,0.107504,0.232172,53,-0.016632,0.0494
 Bollinger Bands Breakout,France,CAC 40,Net-Tax,-0.005165,-0.186236,-0.027736,-0.020053,53,-0.030422,0.02143
-Bollinger Bands Breakout,France,CAC 40,Net-Discount,-0.028996,-0.360766,-0.080373,-0.253962,53,-0.045102,0.002516
-Bollinger Bands Breakout,France,CAC 40,Net-Full-Service,-0.152924,-0.917019,-0.166762,-0.632815,53,-0.078461,-0.03161
-Bollinger Bands Breakout,France,CAC 40,Buy-and-Hold,0.038251,-0.385589,0.099202,0.287655,1,0.038251,0.038251
+Bollinger Bands Breakout,France,CAC 40,Net-Discount,-0.029754,-0.368152,-0.080819,-0.261965,53,-0.045314,0.002166
+Bollinger Bands Breakout,France,CAC 40,Net-Full-Service,-0.158241,-0.924493,-0.171165,-0.649576,53,-0.078596,-0.031877
+Bollinger Bands Breakout,France,CAC 40,Buy-and-Hold,0.038169,-0.385589,0.098988,0.287239,1,0.038169,0.038169
 Bollinger Bands Breakout,Italy,FTSE MIB,Gross,-0.000383,-0.301409,-0.001272,0.038111,61,-0.042357,0.049342
 Bollinger Bands Breakout,Italy,FTSE MIB,Net-Tax,-0.019504,-0.326676,-0.059704,-0.158052,61,-0.051899,0.023384
 Bollinger Bands Breakout,Italy,FTSE MIB,Net-Discount,-0.029651,-0.411893,-0.071988,-0.247498,61,-0.058837,0.015716

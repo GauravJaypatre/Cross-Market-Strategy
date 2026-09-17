@@ -65,18 +65,18 @@ def generate_figure_3_map(out_path: Path):
         ('United States', 'USA', '3 Constituent Indices (US, Germany, India)', 'S&P 500, Nasdaq, DJIA'),
         ('China', 'CHN', '2 Constituent Indices (China, UK, S. Korea, Australia)', 'Shanghai Comp., Shenzhen Comp.'),
         ('Germany', 'DEU', '3 Constituent Indices (US, Germany, India)', 'DAX 40, MDAX, TecDAX'),
-        ('Japan', 'JPN', '1 Constituent Index (7 Markets)', 'Nikkei 225'),
+        ('Japan', 'JPN', '1 Constituent Index (8 Markets)', 'Nikkei 225'),
         ('India', 'IND', '3 Constituent Indices (US, Germany, India)', 'Nifty 50, Sensex, Nifty Bank'),
         ('United Kingdom', 'GBR', '2 Constituent Indices (China, UK, S. Korea, Australia)', 'FTSE 100, FTSE 250'),
-        ('France', 'FRA', '1 Constituent Index (7 Markets)', 'CAC 40'),
-        ('Italy', 'ITA', '1 Constituent Index (7 Markets)', 'FTSE MIB'),
-        ('Indonesia', 'IDN', '1 Constituent Index (7 Markets)', 'Jakarta Composite'),
-        ('Canada', 'CAN', '1 Constituent Index (7 Markets)', 'S&P/TSX Composite'),
-        ('Brazil', 'BRA', '1 Constituent Index (7 Markets)', 'Ibovespa'),
+        ('France', 'FRA', '1 Constituent Index (8 Markets)', 'CAC 40'),
+        ('Italy', 'ITA', '1 Constituent Index (8 Markets)', 'FTSE MIB'),
+        ('Indonesia', 'IDN', '1 Constituent Index (8 Markets)', 'Jakarta Composite'),
+        ('Canada', 'CAN', '1 Constituent Index (8 Markets)', 'S&P/TSX Composite'),
+        ('Brazil', 'BRA', '1 Constituent Index (8 Markets)', 'Ibovespa'),
         ('South Korea', 'KOR', '2 Constituent Indices (China, UK, S. Korea, Australia)', 'KOSPI, KOSDAQ'),
         ('Australia', 'AUS', '2 Constituent Indices (China, UK, S. Korea, Australia)', 'ASX 200, All Ordinaries'),
-        ('Mexico', 'MEX', '1 Constituent Index (7 Markets)', 'IPC Mexico'),
-        ('Spain', 'ESP', '1 Constituent Index (7 Markets)', 'IBEX 35')
+        ('Mexico', 'MEX', '1 Constituent Index (8 Markets)', 'IPC Mexico'),
+        ('Spain', 'ESP', '1 Constituent Index (8 Markets)', 'IBEX 35')
     ]
 
     df = pd.DataFrame(countries_data, columns=['country', 'iso', 'tier', 'indices'])
@@ -86,11 +86,11 @@ def generate_figure_3_map(out_path: Path):
     color_map = {
         '3 Constituent Indices (US, Germany, India)': '#1f4e79',
         '2 Constituent Indices (China, UK, S. Korea, Australia)': '#326295',
-        '1 Constituent Index (7 Markets)': '#5c8bb7',
+        '1 Constituent Index (8 Markets)': '#5c8bb7',
     }
 
-    for tier in ['3 Constituent Indices (US, Germany, India)', '2 Constituent Indices (China, UK, S. Korea, Australia)', '1 Index (7 Markets)']:
-        tier_label = tier if tier in color_map else '1 Constituent Index (7 Markets)'
+    for tier in ['3 Constituent Indices (US, Germany, India)', '2 Constituent Indices (China, UK, S. Korea, Australia)', '1 Index (8 Markets)']:
+        tier_label = tier if tier in color_map else '1 Constituent Index (8 Markets)'
         sub = df[df['tier'] == tier_label]
         fig.add_trace(go.Choropleth(
             locations=sub['iso'],

@@ -38,7 +38,7 @@ We evaluate six canonical trading-strategy families against a 15-country, 25-ind
 
 ![Figure 2: Universe Map](figures/fig3_universe_map.png)
 
-**Figure 2.** Global equity universe spanning 15 economies and 25 constituent indices (2011–2025). Shading indicates index coverage depth per market: three constituent indices (United States, Germany, India), two constituent indices (China, United Kingdom, South Korea, Australia), or one constituent index (seven remaining markets).
+**Figure 2.** Global equity universe spanning 15 economies and 25 constituent indices (2011–2025). Shading indicates index coverage depth per market: three constituent indices (United States, Germany, India), two constituent indices (China, United Kingdom, South Korea, Australia), or one constituent index (eight remaining markets: Japan, France, Italy, Spain, Indonesia, Canada, Brazil, Mexico).
 
 ## 3.2 Strategy Families
 

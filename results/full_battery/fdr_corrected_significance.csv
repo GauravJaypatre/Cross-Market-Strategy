@@ -13,7 +13,7 @@ strategy,country,index,raw_cagr_outperformance_pp,raw_p_value,bh_adjusted_p_valu
 14-Day RSI Oscillator,India,Nifty Bank,-10.1371,1.0,1.0,False
 14-Day RSI Oscillator,United Kingdom,FTSE 100,3.0826,0.124,1.0,False
 14-Day RSI Oscillator,United Kingdom,FTSE 250,-4.2387,0.94,1.0,False
-14-Day RSI Oscillator,France,CAC 40,-3.8178,0.941,1.0,False
+14-Day RSI Oscillator,France,CAC 40,-3.8893,0.943,1.0,False
 14-Day RSI Oscillator,Italy,FTSE MIB,0.3279,0.572,1.0,False
 14-Day RSI Oscillator,Indonesia,Jakarta Composite Index,-5.9775,0.998,1.0,False
 14-Day RSI Oscillator,Canada,S&P/TSX Composite,-2.0644,0.907,1.0,False
@@ -38,7 +38,7 @@ Bollinger Bands Breakout,India,BSE Sensex,-7.716,1.0,1.0,False
 Bollinger Bands Breakout,India,Nifty Bank,-8.5054,0.987,1.0,False
 Bollinger Bands Breakout,United Kingdom,FTSE 100,-10.3874,1.0,1.0,False
 Bollinger Bands Breakout,United Kingdom,FTSE 250,-11.4425,1.0,1.0,False
-Bollinger Bands Breakout,France,CAC 40,-6.7247,1.0,1.0,False
+Bollinger Bands Breakout,France,CAC 40,-6.7923,1.0,1.0,False
 Bollinger Bands Breakout,Italy,FTSE MIB,-7.2647,0.999,1.0,False
 Bollinger Bands Breakout,Indonesia,Jakarta Composite Index,-8.9672,1.0,1.0,False
 Bollinger Bands Breakout,Canada,S&P/TSX Composite,-5.2376,1.0,1.0,False

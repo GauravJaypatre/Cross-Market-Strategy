@@ -5,7 +5,7 @@ strategy,country,index,track,is_cagr,oos_cagr,degradation_ratio,mc_p95_maxdd,boo
 12-Month Momentum (Monthly Rebalance),Canada,S&P/TSX Composite,Net-Discount,0.0202,0.0151,0.7494,-0.3047,-0.0388,0.0974,3,7,False
 12-Month Momentum (Monthly Rebalance),China,Shanghai Composite,Net-Discount,0.0137,0.0275,2.0071,-0.1755,-0.0147,0.061,4,5,False
 12-Month Momentum (Monthly Rebalance),China,Shenzhen Component,Net-Discount,-0.0222,0.0805,-3.6277,-0.1715,-0.0186,0.0884,8,2,False
-12-Month Momentum (Monthly Rebalance),France,CAC 40,Net-Discount,0.0091,-0.03,-3.3011,-0.3186,-0.0466,0.0572,4,6,False
+12-Month Momentum (Monthly Rebalance),France,CAC 40,Net-Discount,0.009102,-0.030539,-3.355331,-0.318634,-0.046612,0.057206,4,6,False
 12-Month Momentum (Monthly Rebalance),Germany,DAX 40,Net-Discount,0.028022,0.010471,0.373678,-0.32962,-0.039175,0.13194,5,6,False
 12-Month Momentum (Monthly Rebalance),Germany,MDAX,Net-Discount,0.062565,-0.042522,-0.679641,-0.383788,-0.044948,0.142281,5,8,False
 12-Month Momentum (Monthly Rebalance),Germany,TecDAX,Net-Discount,0.117013,-0.030855,-0.263691,-0.233095,-0.020098,0.189445,3,7,False
@@ -30,7 +30,7 @@ strategy,country,index,track,is_cagr,oos_cagr,degradation_ratio,mc_p95_maxdd,boo
 14-Day RSI Oscillator,Canada,S&P/TSX Composite,Net-Discount,0.0103,0.0567,5.4829,-0.2268,0.0022,0.0739,20,20,False
 14-Day RSI Oscillator,China,Shanghai Composite,Net-Discount,-0.0392,0.0598,-1.5258,-0.4048,-0.0411,0.0584,25,20,False
 14-Day RSI Oscillator,China,Shenzhen Component,Net-Discount,-0.0472,0.0126,-0.2674,-0.5708,-0.0859,0.0514,23,17,False
-14-Day RSI Oscillator,France,CAC 40,Net-Discount,-0.0019,0.0042,-2.2197,-0.3591,-0.0104,0.1019,23,19,False
+14-Day RSI Oscillator,France,CAC 40,Net-Discount,-0.001898,0.002498,-1.316017,-0.359078,-0.010445,0.101867,23,19,False
 14-Day RSI Oscillator,Germany,DAX 40,Net-Discount,0.011435,0.064698,5.657928,-0.316368,-0.003078,0.107504,21,20,False
 14-Day RSI Oscillator,Germany,MDAX,Net-Discount,0.059127,0.012902,0.218214,-0.330956,0.003821,0.114892,23,21,False
 14-Day RSI Oscillator,Germany,TecDAX,Net-Discount,0.035318,0.085816,2.429804,-0.29798,0.019796,0.136075,17,22,False
@@ -55,7 +55,7 @@ strategy,country,index,track,is_cagr,oos_cagr,degradation_ratio,mc_p95_maxdd,boo
 50/200 SMA Crossover,Canada,S&P/TSX Composite,Net-Discount,-0.0096,0.0299,-3.1072,-0.4506,-0.0652,0.0996,7,5,False
 50/200 SMA Crossover,China,Shanghai Composite,Net-Discount,0.0097,-0.0145,-1.4965,-0.4246,-0.0523,0.0665,5,6,False
 50/200 SMA Crossover,China,Shenzhen Component,Net-Discount,-0.0188,0.0568,-3.0239,-0.39,-0.0488,0.0933,5,6,False
-50/200 SMA Crossover,France,CAC 40,Net-Discount,-0.0038,-0.0419,10.8857,-0.4695,-0.0669,0.0637,5,6,False
+50/200 SMA Crossover,France,CAC 40,Net-Discount,-0.003848,-0.042426,11.024923,-0.469496,-0.0669,0.063729,5,6,False
 50/200 SMA Crossover,Germany,DAX 40,Net-Discount,0.047255,0.030458,0.644544,-0.30465,-0.025064,0.132337,4,4,False
 50/200 SMA Crossover,Germany,MDAX,Net-Discount,0.05673,-0.029337,-0.517138,-0.38484,-0.040972,0.126773,5,5,False
 50/200 SMA Crossover,Germany,TecDAX,Net-Discount,0.102475,0.003083,0.030082,-0.114439,0.003417,0.161415,3,5,False
@@ -80,7 +80,7 @@ strategy,country,index,track,is_cagr,oos_cagr,degradation_ratio,mc_p95_maxdd,boo
 52-Week High Drawdown Dip Buyer,Canada,S&P/TSX Composite,Net-Discount,0.0105,0.0559,5.309,0.0,0.0201,0.0543,4,3,False
 52-Week High Drawdown Dip Buyer,China,Shanghai Composite,Net-Discount,-0.0578,0.0991,-1.7148,-0.2809,-0.0481,0.0604,4,4,False
 52-Week High Drawdown Dip Buyer,China,Shenzhen Component,Net-Discount,-0.0943,0.1006,-1.0675,-0.4387,-0.0699,0.0485,3,5,False
-52-Week High Drawdown Dip Buyer,France,CAC 40,Net-Discount,0.0273,0.0894,3.2791,0.0,0.062,0.0931,6,5,False
+52-Week High Drawdown Dip Buyer,France,CAC 40,Net-Discount,0.02725,0.088966,3.264738,0.0,0.061988,0.093148,6,5,False
 52-Week High Drawdown Dip Buyer,Germany,DAX 40,Net-Discount,0.001154,0.093015,80.635824,-0.030846,0.027015,0.081516,4,4,False
 52-Week High Drawdown Dip Buyer,Germany,MDAX,Net-Discount,0.046188,0.035961,0.77857,-0.163371,0.011664,0.08823,6,4,False
 52-Week High Drawdown Dip Buyer,Germany,TecDAX,Net-Discount,0.065606,0.091886,1.400577,-0.077544,0.062053,0.122499,8,8,False
@@ -105,7 +105,7 @@ Bollinger Bands Breakout,Brazil,Ibovespa,Net-Discount,-0.0058,0.0627,-10.7866,-0
 Bollinger Bands Breakout,Canada,S&P/TSX Composite,Net-Discount,-0.01,0.0118,-1.1744,-0.1654,-0.0125,0.0266,29,31,False
 Bollinger Bands Breakout,China,Shanghai Composite,Net-Discount,0.0411,0.0318,0.7749,-0.2112,-0.003,0.1018,30,28,False
 Bollinger Bands Breakout,China,Shenzhen Component,Net-Discount,0.0663,0.058,0.8745,-0.2548,0.0059,0.1467,23,26,False
-Bollinger Bands Breakout,France,CAC 40,Net-Discount,-0.0243,-0.0343,1.4089,-0.237,-0.0186,0.0466,26,27,False
+Bollinger Bands Breakout,France,CAC 40,Net-Discount,-0.024347,-0.035919,1.475254,-0.237005,-0.01862,0.046613,26,27,False
 Bollinger Bands Breakout,Germany,DAX 40,Net-Discount,-0.006567,0.017682,-2.69257,-0.257036,-0.016228,0.060713,34,27,False
 Bollinger Bands Breakout,Germany,MDAX,Net-Discount,0.013888,0.014913,1.073792,-0.217548,-0.00965,0.072527,30,27,False
 Bollinger Bands Breakout,Germany,TecDAX,Net-Discount,-0.011675,-0.00911,0.78027,-0.312439,-0.030511,0.041367,35,27,False
@@ -130,7 +130,7 @@ Seasonal Halloween Rule (Nov-Apr),Brazil,Ibovespa,Net-Discount,0.0373,0.0048,0.1
 Seasonal Halloween Rule (Nov-Apr),Canada,S&P/TSX Composite,Net-Discount,0.0157,0.057,3.6234,-0.1584,0.0028,0.0786,9,7,False
 Seasonal Halloween Rule (Nov-Apr),China,Shanghai Composite,Net-Discount,0.0421,0.03,0.7117,-0.3133,-0.0348,0.1404,9,7,False
 Seasonal Halloween Rule (Nov-Apr),China,Shenzhen Component,Net-Discount,0.0137,0.017,1.2461,-0.473,-0.065,0.1337,9,7,False
-Seasonal Halloween Rule (Nov-Apr),France,CAC 40,Net-Discount,0.0142,0.0493,3.4629,-0.3176,-0.0057,0.1284,9,7,False
+Seasonal Halloween Rule (Nov-Apr),France,CAC 40,Net-Discount,0.01424,0.048615,3.413918,-0.31757,-0.005721,0.128371,9,7,False
 Seasonal Halloween Rule (Nov-Apr),Germany,DAX 40,Net-Discount,0.043233,0.078661,1.819482,-0.316224,0.006383,0.151154,9,7,False
 Seasonal Halloween Rule (Nov-Apr),Germany,MDAX,Net-Discount,0.057189,0.048675,0.851134,-0.296369,0.006415,0.143905,9,7,False
 Seasonal Halloween Rule (Nov-Apr),Germany,TecDAX,Net-Discount,0.074315,0.061303,0.824917,-0.29153,0.020653,0.151599,9,7,False

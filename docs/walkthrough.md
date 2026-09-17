@@ -30,7 +30,7 @@ Both `docs/paper_draft.tex` and `docs/paper_draft.md` agree strictly on the 1–
 
 ### Figure 2: Global Universe Map
 ![Figure 2: Global Universe Map](figures/fig3_universe_map.png)
-*Global equity universe spanning 15 economies and 25 constituent indices (2011–2025). Shading indicates index coverage depth per market: three constituent indices (United States, Germany, India), two constituent indices (China, United Kingdom, South Korea, Australia), or one constituent index (seven remaining markets).*
+*Global equity universe spanning 15 economies and 25 constituent indices (2011–2025). Shading indicates index coverage depth per market: three constituent indices (United States, Germany, India), two constituent indices (China, United Kingdom, South Korea, Australia), or one constituent index (eight remaining markets: Japan, France, Italy, Spain, Indonesia, Canada, Brazil, Mexico).*
 
 ### Figure 3: Realized Trade Count Distribution
 ![Figure 3: Realized Trade Count Distribution](figures/fig5_trade_count_distribution.png)

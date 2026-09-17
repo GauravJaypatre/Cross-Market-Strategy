@@ -37,7 +37,7 @@ Qualified indices sorted by Net Discount CAGR. All four friction tracks and the 
 
 | Rank | Country | Index | Ccy | Gross CAGR | Net-Tax CAGR | Net-Disc CAGR | 95% Bootstrap CI | Net-FS CAGR | B&H Net-Disc | Excess CAGR vs B&H | Max DD | Calmar | Sharpe | Trades | Data Start |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 1 | France | CAC 40 | EUR | 0.52% | -0.50% | **-0.94%** | [-4.7%, 5.7%] | -1.82% | 3.83% | -4.76% | -52.20% | -0.02 | 0.02 | 10 | 2011-01-03 |
+| 1 | France | CAC 40 | EUR | 0.52% | -0.50% | **-0.96%** | [-4.7%, 5.7%] | -1.84% | 3.82% | -4.78% | -52.20% | -0.02 | 0.02 | 10 | 2011-01-03 |
 
 ## 2. Secondary Ranking: Calmar Ratio (Risk-Adjusted Efficiency)
 
@@ -46,7 +46,7 @@ Re-sorted by Calmar Ratio (CAGR / |Max Drawdown|) computed on the Net-of-Tax-and
 
 | Calmar Rank | Country | Index | Calmar Ratio | Net-Disc CAGR | Max Drawdown | Sharpe | Total Trades |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|:---:|
-| 1 | France | CAC 40 | **-0.02** | -0.94% | -52.20% | 0.02 | 10 |
+| 1 | France | CAC 40 | **-0.02** | -0.96% | -52.20% | 0.02 | 10 |
 
 ## 3. Skeptical Robustness & Overfitting Evaluation
 
@@ -55,7 +55,7 @@ In-Sample (2011–2018) vs Out-of-Sample (2019–2025) performance degradation, 
 
 | Country | Index | IS CAGR (2011-18) | OOS CAGR (2019-25) | Degradation (OOS/IS) | IS Trades | OOS Trades | IS Guard | OOS Guard | MC Worst DD (P95) | 95% Bootstrap CI | Precision Flag |
 |:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| France | CAC 40 | 0.91% | -3.00% | -3.30x (-3.91 pp) | 4 | 6 | PASS | PASS | -31.86% | [-4.7%, 5.7%] | `Directional (n<30)` |
+| France | CAC 40 | 0.91% | -3.05% | -3.36x (-3.96 pp) | 4 | 6 | PASS | PASS | -31.86% | [-4.7%, 5.7%] | `Directional (n<30)` |
 
 ## Appendix: Excluded Indices & Data Guards
 
@@ -69,4 +69,4 @@ Audit trail of market data sources used for each index.
 
 | Country | Index | Ticker / ID | Vendor | Source Identifier | SHA256 Checksum | Rows | Date Window |
 |:---|:---|:---:|:---:|:---|:---:|:---:|:---:|
-| France | CAC 40 | `^FCHI` | `yfinance` | `^FCHI` | `N/A (API)` | 3834 | 2011-01-03 to 2025-12-30 |
+| France | CAC 40 | `^FCHI` | `local_csv` | `FCHI.csv` | `3c3c06ffb751...` | 3834 | 2011-01-03 to 2025-12-30 |

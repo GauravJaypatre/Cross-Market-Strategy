@@ -29,10 +29,10 @@ strategy,country,index,track,CAGR,MaxDD,Calmar,Sharpe,n_trades,qualified
 12-Month Momentum (Monthly Rebalance),China,Shenzhen Component,Net-Discount,0.024474,-0.585959,0.041768,0.231157,10,True
 12-Month Momentum (Monthly Rebalance),China,Shenzhen Component,Net-Full-Service,0.024362,-0.586328,0.04155,0.230486,10,True
 12-Month Momentum (Monthly Rebalance),China,Shenzhen Component,Net-Tax,0.025626,-0.576752,0.044431,0.238402,10,True
-12-Month Momentum (Monthly Rebalance),France,CAC 40,Buy-and-Hold,0.038251,-0.385589,0.099202,0.287655,1,True
+12-Month Momentum (Monthly Rebalance),France,CAC 40,Buy-and-Hold,0.038169,-0.385589,0.098988,0.287239,1,True
 12-Month Momentum (Monthly Rebalance),France,CAC 40,Gross,0.005191,-0.430316,0.012062,0.107066,10,True
-12-Month Momentum (Monthly Rebalance),France,CAC 40,Net-Discount,-0.009356,-0.522019,-0.017922,0.020731,10,True
-12-Month Momentum (Monthly Rebalance),France,CAC 40,Net-Full-Service,-0.018152,-0.567067,-0.03201,-0.022646,10,True
+12-Month Momentum (Monthly Rebalance),France,CAC 40,Net-Discount,-0.009591,-0.522019,-0.018373,0.019265,10,True
+12-Month Momentum (Monthly Rebalance),France,CAC 40,Net-Full-Service,-0.018419,-0.567067,-0.03248,-0.024194,10,True
 12-Month Momentum (Monthly Rebalance),France,CAC 40,Net-Tax,-0.005019,-0.499646,-0.010045,0.0449,10,True
 12-Month Momentum (Monthly Rebalance),Germany,DAX 40,Buy-and-Hold,0.072255,-0.387805,0.186318,0.447245,1,True
 12-Month Momentum (Monthly Rebalance),Germany,DAX 40,Gross,0.033445,-0.504184,0.066336,0.296987,11,True
@@ -154,10 +154,10 @@ strategy,country,index,track,CAGR,MaxDD,Calmar,Sharpe,n_trades,qualified
 14-Day RSI Oscillator,China,Shenzhen Component,Net-Discount,-0.020564,-0.512688,-0.040109,-0.032086,40,True
 14-Day RSI Oscillator,China,Shenzhen Component,Net-Full-Service,-0.021244,-0.513644,-0.04136,-0.035607,40,True
 14-Day RSI Oscillator,China,Shenzhen Component,Net-Tax,-0.013678,-0.488924,-0.027975,-5.9e-05,40,True
-14-Day RSI Oscillator,France,CAC 40,Buy-and-Hold,0.038251,-0.385589,0.099202,0.287655,1,True
+14-Day RSI Oscillator,France,CAC 40,Buy-and-Hold,0.038169,-0.385589,0.098988,0.287239,1,True
 14-Day RSI Oscillator,France,CAC 40,Gross,0.048622,-0.339466,0.143232,0.4018,42,True
-14-Day RSI Oscillator,France,CAC 40,Net-Discount,7.3e-05,-0.523128,0.000139,0.110249,42,True
-14-Day RSI Oscillator,France,CAC 40,Net-Full-Service,-0.062889,-0.799991,-0.078612,0.030816,42,True
+14-Day RSI Oscillator,France,CAC 40,Net-Discount,-0.000724,-0.523128,-0.001384,0.106704,42,True
+14-Day RSI Oscillator,France,CAC 40,Net-Full-Service,-0.064888,-0.801798,-0.080927,0.026426,42,True
 14-Day RSI Oscillator,France,CAC 40,Net-Tax,0.018923,-0.458798,0.041245,0.193081,42,True
 14-Day RSI Oscillator,Germany,DAX 40,Buy-and-Hold,0.072255,-0.387805,0.186318,0.447245,1,True
 14-Day RSI Oscillator,Germany,DAX 40,Gross,0.052342,-0.344252,0.152045,0.434669,41,True
@@ -279,10 +279,10 @@ strategy,country,index,track,CAGR,MaxDD,Calmar,Sharpe,n_trades,qualified
 50/200 SMA Crossover,China,Shenzhen Component,Net-Discount,0.015802,-0.567305,0.027854,0.181701,11,True
 50/200 SMA Crossover,China,Shenzhen Component,Net-Full-Service,0.015622,-0.56753,0.027526,0.180604,11,True
 50/200 SMA Crossover,China,Shenzhen Component,Net-Tax,0.017183,-0.561694,0.030591,0.190281,11,True
-50/200 SMA Crossover,France,CAC 40,Buy-and-Hold,0.038251,-0.385589,0.099202,0.287655,1,True
+50/200 SMA Crossover,France,CAC 40,Buy-and-Hold,0.038169,-0.385589,0.098988,0.287239,1,True
 50/200 SMA Crossover,France,CAC 40,Gross,-0.001277,-0.410766,-0.003108,0.058106,11,True
-50/200 SMA Crossover,France,CAC 40,Net-Discount,-0.021778,-0.52715,-0.041312,-0.061289,11,True
-50/200 SMA Crossover,France,CAC 40,Net-Full-Service,-0.032395,-0.593169,-0.054614,-0.109095,11,True
+50/200 SMA Crossover,France,CAC 40,Net-Discount,-0.022033,-0.52715,-0.041796,-0.062891,11,True
+50/200 SMA Crossover,France,CAC 40,Net-Full-Service,-0.032693,-0.593169,-0.055115,-0.110792,11,True
 50/200 SMA Crossover,France,CAC 40,Net-Tax,-0.016946,-0.493175,-0.034362,-0.035443,11,True
 50/200 SMA Crossover,Germany,DAX 40,Buy-and-Hold,0.072255,-0.387805,0.186318,0.447245,1,True
 50/200 SMA Crossover,Germany,DAX 40,Gross,0.054599,-0.410936,0.132864,0.452674,8,True
@@ -404,10 +404,10 @@ strategy,country,index,track,CAGR,MaxDD,Calmar,Sharpe,n_trades,qualified
 52-Week High Drawdown Dip Buyer,China,Shenzhen Component,Net-Discount,-0.008802,-0.624983,-0.014083,0.065593,8,True
 52-Week High Drawdown Dip Buyer,China,Shenzhen Component,Net-Full-Service,-0.008999,-0.625147,-0.014395,0.064683,8,True
 52-Week High Drawdown Dip Buyer,China,Shenzhen Component,Net-Tax,-0.007762,-0.620886,-0.012502,0.069383,8,True
-52-Week High Drawdown Dip Buyer,France,CAC 40,Buy-and-Hold,0.038251,-0.385589,0.099202,0.287655,1,True
+52-Week High Drawdown Dip Buyer,France,CAC 40,Buy-and-Hold,0.038169,-0.385589,0.098988,0.287239,1,True
 52-Week High Drawdown Dip Buyer,France,CAC 40,Gross,0.07687,-0.312916,0.245658,0.588567,11,True
-52-Week High Drawdown Dip Buyer,France,CAC 40,Net-Discount,0.054985,-0.39609,0.13882,0.385308,11,True
-52-Week High Drawdown Dip Buyer,France,CAC 40,Net-Full-Service,0.048496,-0.429553,0.112899,0.339946,11,True
+52-Week High Drawdown Dip Buyer,France,CAC 40,Net-Discount,0.054809,-0.39609,0.138374,0.384353,11,True
+52-Week High Drawdown Dip Buyer,France,CAC 40,Net-Full-Service,0.048304,-0.429553,0.112451,0.338976,11,True
 52-Week High Drawdown Dip Buyer,France,CAC 40,Net-Tax,0.058184,-0.381232,0.15262,0.408678,11,True
 52-Week High Drawdown Dip Buyer,Germany,DAX 40,Buy-and-Hold,0.072255,-0.387805,0.186318,0.447245,1,True
 52-Week High Drawdown Dip Buyer,Germany,DAX 40,Gross,0.053788,-0.332258,0.161886,0.434731,8,True
@@ -529,10 +529,10 @@ Bollinger Bands Breakout,China,Shenzhen Component,Gross,0.067812,-0.208997,0.324
 Bollinger Bands Breakout,China,Shenzhen Component,Net-Discount,0.062391,-0.238041,0.262102,0.546481,49,True
 Bollinger Bands Breakout,China,Shenzhen Component,Net-Full-Service,0.061697,-0.239267,0.257859,0.540111,49,True
 Bollinger Bands Breakout,China,Shenzhen Component,Net-Tax,0.067812,-0.208997,0.324465,0.610038,49,True
-Bollinger Bands Breakout,France,CAC 40,Buy-and-Hold,0.038251,-0.385589,0.099202,0.287655,1,True
+Bollinger Bands Breakout,France,CAC 40,Buy-and-Hold,0.038169,-0.385589,0.098988,0.287239,1,True
 Bollinger Bands Breakout,France,CAC 40,Gross,0.014234,-0.132406,0.107504,0.232172,53,True
-Bollinger Bands Breakout,France,CAC 40,Net-Discount,-0.028996,-0.360766,-0.080373,-0.253962,53,True
-Bollinger Bands Breakout,France,CAC 40,Net-Full-Service,-0.152924,-0.917019,-0.166762,-0.632815,53,True
+Bollinger Bands Breakout,France,CAC 40,Net-Discount,-0.029754,-0.368152,-0.080819,-0.261965,53,True
+Bollinger Bands Breakout,France,CAC 40,Net-Full-Service,-0.158241,-0.924493,-0.171165,-0.649576,53,True
 Bollinger Bands Breakout,France,CAC 40,Net-Tax,-0.005165,-0.186236,-0.027736,-0.020053,53,True
 Bollinger Bands Breakout,Germany,DAX 40,Buy-and-Hold,0.072255,-0.387805,0.186318,0.447245,1,True
 Bollinger Bands Breakout,Germany,DAX 40,Gross,0.018005,-0.151923,0.118513,0.269273,61,True
@@ -654,10 +654,10 @@ Seasonal Halloween Rule (Nov-Apr),China,Shenzhen Component,Gross,0.016866,-0.434
 Seasonal Halloween Rule (Nov-Apr),China,Shenzhen Component,Net-Discount,0.014355,-0.447605,0.032071,0.172655,16,True
 Seasonal Halloween Rule (Nov-Apr),China,Shenzhen Component,Net-Full-Service,0.014034,-0.448504,0.03129,0.170781,16,True
 Seasonal Halloween Rule (Nov-Apr),China,Shenzhen Component,Net-Tax,0.016866,-0.434606,0.038807,0.187501,16,True
-Seasonal Halloween Rule (Nov-Apr),France,CAC 40,Buy-and-Hold,0.038251,-0.385589,0.099202,0.287655,1,True
+Seasonal Halloween Rule (Nov-Apr),France,CAC 40,Buy-and-Hold,0.038169,-0.385589,0.098988,0.287239,1,True
 Seasonal Halloween Rule (Nov-Apr),France,CAC 40,Gross,0.060863,-0.385585,0.157847,0.494316,16,True
-Seasonal Halloween Rule (Nov-Apr),France,CAC 40,Net-Discount,0.029627,-0.520571,0.056913,0.247566,16,True
-Seasonal Halloween Rule (Nov-Apr),France,CAC 40,Net-Full-Service,0.017172,-0.595496,0.028837,0.18731,16,True
+Seasonal Halloween Rule (Nov-Apr),France,CAC 40,Net-Discount,0.029308,-0.520571,0.0563,0.245954,16,True
+Seasonal Halloween Rule (Nov-Apr),France,CAC 40,Net-Full-Service,0.016793,-0.595496,0.028201,0.18562,16,True
 Seasonal Halloween Rule (Nov-Apr),France,CAC 40,Net-Tax,0.035241,-0.487954,0.072223,0.279858,16,True
 Seasonal Halloween Rule (Nov-Apr),Germany,DAX 40,Buy-and-Hold,0.072255,-0.387805,0.186318,0.447245,1,True
 Seasonal Halloween Rule (Nov-Apr),Germany,DAX 40,Gross,0.079558,-0.387794,0.205156,0.614225,16,True
